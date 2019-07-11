@@ -3,11 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  entry: './src/renderer/index.tsx',
+  mode: 'development',
+  entry: './src/renderer/index.js',
   devtool: 'inline-source-map',
+  devServer: {
+    // This tells webpack-dev-server to serve the files from the dist_webpack directory on localhost:8080.
+    contentBase: path.join(__dirname, '../dist_webpack')
+  },
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist_webpack')
+    path: path.resolve(__dirname, '../dist_webpack')
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ]
@@ -15,7 +20,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Output Management'
+      template: 'public/index.html'
     })
   ],
   module: {
