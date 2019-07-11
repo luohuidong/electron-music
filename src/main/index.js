@@ -1,5 +1,7 @@
 const { app, BrowserWindow } = require('electron')
 
+const mode = process.env.NODE_ENV
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
@@ -14,8 +16,13 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
-  win.loadFile('public/index.html')
+  if (mode === 'devlopment') {
+    win.loadURL('http://localhost:8080/')
+  } else {
+    // and load the index.html of the app.
+    // filePath should be a path to an HTML file relative to the root of your application
+    win.loadFile('dist_webpack/index.html')
+  }
 
   // Open the DevTools.
   win.webContents.openDevTools()
