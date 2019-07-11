@@ -1,0 +1,45 @@
+{
+  "name": "electron-react-boilerplate",
+  "version": "1.0.0",
+  "description": "An electron boilerplate",
+  "main": "src/main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "webpack": "webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "luohuidong",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luohuidong/electron-react-boilerplate.git"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.0.0",
+    "electron": "^5.0.6",
+    "eslint": "^6.0.1",
+    "eslint-plugin-react": "^7.14.2",
+    "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.3.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
+  },
+  "dependencies": {
+    "@types/node": "^12.6.1",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.2",
+    "redux-thunk": "^2.3.0"
+  }
+}
