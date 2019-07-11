@@ -4,8 +4,8 @@
   "description": "An electron boilerplate",
   "main": "src/main/index.js",
   "scripts": {
-    "start": "electron .",
-    "webpack": "webpack --config webpack.config.js"
+    "start": "NODE_ENV=devlopment electron .",
+    "dev": "webpack-dev-server --open --config webpack/webpack.config.js"
   },
   "keywords": [],
   "author": "luohuidong",
@@ -29,7 +29,8 @@
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
     "@types/node": "^12.6.1",

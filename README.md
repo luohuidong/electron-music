@@ -26,6 +26,7 @@
   - terser-webpack-plugin
   - [file-loader](https://webpack.js.org/loaders/file-loader/#root): The `file-loader` resolves `import/require()` on a file into a url and emits the file into the output directory
   - ts-loader
+  - webpack-dev-server: The `webpack-dev-server` provides you with a simple web server and the ability to use live reloading. 
 - TypScript
   - [typescript](http://www.typescriptlang.org/)
   - @types/react
