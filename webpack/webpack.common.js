@@ -3,13 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
-  entry: './src/renderer/index.js',
-  devtool: 'inline-source-map',
-  devServer: {
-    // This tells webpack-dev-server to serve the files from the dist_webpack directory on localhost:8080.
-    contentBase: path.join(__dirname, '../dist_webpack')
-  },
+  entry: './src/renderer/index.tsx',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, '../dist_webpack')

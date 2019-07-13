@@ -5,7 +5,8 @@
   "main": "src/main/index.js",
   "scripts": {
     "start": "NODE_ENV=devlopment electron .",
-    "dev": "webpack-dev-server --open --config webpack/webpack.config.js"
+    "dev": "webpack-dev-server --open --config webpack/webpack.dev.js",
+    "build": "webpack --config webpack/webpack.prod.js"
   },
   "keywords": [],
   "author": "luohuidong",
@@ -30,7 +31,8 @@
     "typescript": "^3.5.3",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "@types/node": "^12.6.1",
