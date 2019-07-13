@@ -12,16 +12,16 @@ npm i
 
 ### 开发
 
-开启 electron：
-
-```bash
-npm start
-```
-
 开启 webpack，默认开启服务的端口为 8080：
 
 ```bash
 npm dev
+```
+
+开启 electron：
+
+```bash
+npm start
 ```
 
 ### 打包
@@ -46,6 +46,7 @@ npm run build
   - [ESLint](https://eslint.org/docs/user-guide/getting-started): ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs. 
   - [ESLint-plugin-React](https://github.com/yannickcr/eslint-plugin-react): React specific linting rules for ESLint
 - [node-sass](https://github.com/sass/node-sass)
+- cross-env: cross-env makes it so you can have a single command without worrying about setting or using the environment variable properly for the platform.
 - webpack
   - [webpack](https://github.com/webpack/webpack)
   - [webpack-cli](https://github.com/webpack/webpack-cli)
