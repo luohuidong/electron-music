@@ -1,6 +1,38 @@
 # Electron boilerplate
 
-## 技术栈
+使用了 Electron, React, TypeScript, Webpack 的 Electron 项目模板，用于快速搭建 Electron 项目。
+
+## 运行
+
+### 安装 node 依赖
+
+```bash
+npm i
+```
+
+### 开发
+
+开启 electron：
+
+```bash
+npm start
+```
+
+开启 webpack，默认开启服务的端口为 8080：
+
+```bash
+npm dev
+```
+
+### 打包
+
+webpack 打包
+
+```bash
+npm run build
+```
+
+## 项目主要依赖
 
 - [Electron](https://github.com/electron/electron): Build cross platform desktop apps with JavaScript, HTML, and CSS
 - React
@@ -13,7 +45,7 @@
 - ESLint
   - [ESLint](https://eslint.org/docs/user-guide/getting-started): ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs. 
   - [ESLint-plugin-React](https://github.com/yannickcr/eslint-plugin-react): React specific linting rules for ESLint
-- [node-sass](https://github.com/sass/node-sass):
+- [node-sass](https://github.com/sass/node-sass)
 - webpack
   - [webpack](https://github.com/webpack/webpack)
   - [webpack-cli](https://github.com/webpack/webpack-cli)
@@ -27,6 +59,7 @@
   - [file-loader](https://webpack.js.org/loaders/file-loader/#root): The `file-loader` resolves `import/require()` on a file into a url and emits the file into the output directory
   - ts-loader
   - webpack-dev-server: The `webpack-dev-server` provides you with a simple web server and the ability to use live reloading. 
+  - webpack-merge
 - TypScript
   - [typescript](http://www.typescriptlang.org/)
   - @types/react
