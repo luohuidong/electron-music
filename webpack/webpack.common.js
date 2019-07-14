@@ -8,7 +8,7 @@ module.exports = env => {
   return {
     entry: './src/renderer/index.tsx',
     output: {
-      filename: 'main.js',
+      filename: 'js/main.js',
       path: path.resolve(__dirname, '../dist_webpack')
     },
     resolve: {
