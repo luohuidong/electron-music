@@ -4,6 +4,7 @@
 
 - 将处理样式的 loader 配置分离到一个单独的 js 文件
 - 排除 node_modules 以及 dist_webpack 文件夹中 js 文件的语法检测
+- Webpack 打包时，会将所有 js 及 css 文件分类到打包目录下的 js 文件夹及 css 文件夹
 
 ## 2019-7-13
 
