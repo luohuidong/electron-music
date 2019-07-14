@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=devlopment electron .",
     "dev": "webpack-dev-server --config webpack/webpack.dev.js",
-    "build": "webpack --config webpack/webpack.prod.js"
+    "build": "webpack --env.production --config webpack/webpack.prod.js"
   },
   "keywords": [],
   "author": "luohuidong",
