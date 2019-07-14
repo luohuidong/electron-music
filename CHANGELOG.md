@@ -1,5 +1,10 @@
 # CHANGE LOG
 
+## 2019-7-14
+
+- 将处理样式的 loader 配置分离到一个单独的 js 文件
+- 排除 node_modules 以及 dist_webpack 文件夹中 js 文件的语法检测
+
 ## 2019-7-13
 
 - 将 webpack 的 production 及 development 模式的配置拆分为两个不同的配置文件
