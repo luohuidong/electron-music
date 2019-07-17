@@ -1,2 +1,4 @@
 node_modules
 dist_webpack
+.idea
+.DS_Store
