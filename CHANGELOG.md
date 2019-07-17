@@ -1,5 +1,11 @@
 # CHANGE LOG
 
+## 2019-7-17
+
+- js 打包文件名添加基于内容的 hash 值。
+- 打包的 js 文件中，将 webpack runtime 代码拆分成一个独立的 chunk
+- 打包的 js 文件中，将所有第三方库拆分单独的 chunk
+
 ## 2019-7-14
 
 - 将处理样式的 loader 配置分离到一个单独的 js 文件
