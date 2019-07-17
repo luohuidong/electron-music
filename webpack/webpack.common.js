@@ -8,7 +8,7 @@ module.exports = env => {
   return {
     entry: './src/renderer/index.tsx',
     output: {
-      filename: 'js/main.js',
+      filename: 'js/[name].[contenthash].js', // add a unique hash based on the content of an asset
       path: path.resolve(__dirname, '../dist_webpack')
     },
     resolve: {

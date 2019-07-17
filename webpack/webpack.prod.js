@@ -13,6 +13,18 @@ module.exports = env => {
         filename: 'css/[name].css',
         chunkFilename: 'css/[id].css',
       }),
-    ]
+    ],
+    optimization: {
+      runtimeChunk: 'single', // split runtime code into a separate chunk
+      splitChunks: {
+        cacheGroups: {
+          vendor: { // extract third-party libraries
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all'
+          }
+        }
+      }
+    }
   })
 }
