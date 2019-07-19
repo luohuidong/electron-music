@@ -15,6 +15,7 @@ module.exports = env => {
       }),
     ],
     optimization: {
+      moduleIds: 'hashed',
       runtimeChunk: 'single', // split runtime code into a separate chunk
       splitChunks: {
         cacheGroups: {
