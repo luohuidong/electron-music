@@ -12,7 +12,8 @@ module.exports = env => {
       path: path.resolve(__dirname, '../dist_webpack')
     },
     resolve: {
-      extensions: [ '.tsx', '.ts', '.js' ]
+      extensions: [ '.tsx', '.ts', '.js' ],
+      symlinks: false,
     },
     plugins: [
       new CleanWebpackPlugin(),
@@ -25,6 +26,7 @@ module.exports = env => {
         ...getStyleLoader(env),
         {
           test: /\.(png|svg|jpg|gif)$/,
+          include: path.resolve(__dirname, 'src'),
           use: [
             'file-loader'
           ]
