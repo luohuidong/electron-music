@@ -2,13 +2,13 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const getStyleLoader = require('./loader/style.js')
+const getLoader = require('./loader/')
 
 module.exports = env => {
   return {
     entry: './src/renderer/index.tsx',
     output: {
-      filename: 'js/[name].[contenthash].js', // add a unique hash based on the content of an asset
+      filename: 'js/[name].[hash].js', // add a unique hash based on the content of an asset
       path: path.resolve(__dirname, '../dist_webpack')
     },
     resolve: {
@@ -24,7 +24,7 @@ module.exports = env => {
     ],
     module: {
       rules: [
-        ...getStyleLoader(env),
+        ...getLoader(env),
         {
           test: /\.(png|svg|jpg|gif)$/,
           include: path.resolve(__dirname, 'src'),
@@ -36,7 +36,7 @@ module.exports = env => {
           test: /\.tsx?$/,
           use: 'ts-loader',
           exclude: /node_modules/
-        }
+        }      
       ]
     }
   }
