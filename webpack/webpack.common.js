@@ -23,21 +23,7 @@ module.exports = env => {
       }),
     ],
     module: {
-      rules: [
-        ...getLoader(env),
-        {
-          test: /\.(png|svg|jpg|gif)$/,
-          include: path.resolve(__dirname, 'src'),
-          use: [
-            'file-loader'
-          ]
-        },
-        {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
-          exclude: /node_modules/
-        }      
-      ]
+      rules: [...getLoader(env)]
     }
   }
 }
