@@ -9,7 +9,7 @@ module.exports = env => {
     entry: './src/renderer/index.tsx',
     output: {
       filename: 'js/[name].[hash].js', // add a unique hash based on the content of an asset
-      path: path.resolve(__dirname, '../dist_webpack')
+      path: path.resolve(__dirname, '../dist/webpack')
     },
     resolve: {
       extensions: [ '.tsx', '.ts', '.js' ],
