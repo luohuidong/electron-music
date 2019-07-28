@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2019-7-28
+
+- JavaScript 与 TypeScript 统一使用 Babel 进行编译
+
 ## 2019-7-24
 
 - 添加页面 favicon
