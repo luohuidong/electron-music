@@ -1,4 +1,4 @@
 node_modules
-dist_webpack
+dist
 .idea
 .DS_Store
