@@ -7,21 +7,26 @@ module.exports = {
   },
   "extends": [
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
+    "plugin:@typescript-eslint/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./",
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
   "plugins": [
-    "react"
+    "react",
+    "@typescript-eslint"
   ],
   "settings": {
     "react": {
@@ -61,6 +66,7 @@ module.exports = {
     "semi": [
       "error",
       "never"
-    ]
+    ],
+    "@typescript-eslint/indent": ["error", 2]
   }
 };
