@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2019-7-30
+
+- 配置 ESLint 对 TypeScript 的语法检测
+
 ## 2019-7-28
 
 - JavaScript 与 TypeScript 统一使用 Babel 进行编译
