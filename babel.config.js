@@ -1,3 +1,7 @@
+const plugins = [
+  'react-hot-loader/babel'
+]
+
 const presets = [
   [
     '@babel/env', {
@@ -8,4 +12,8 @@ const presets = [
   '@babel/preset-typescript',
 ]
 
-module.exports = { presets }
+
+module.exports = { 
+  plugins,
+  presets, 
+}

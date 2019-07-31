@@ -1,21 +1,8 @@
-import * as React from 'react'
+import 'react-hot-loader' // react-hot-loader is required before react and react-dom
+import React from 'react'
 import * as ReactDOM from 'react-dom'
 import 'normalize.css'
 
-import style from './style.scss'
+import App from './App'
 
-function App(): React.ReactElement {
-  return (
-    <div className={style.container}>
-      <h1>
-        Hello world!
-      </h1>
-    </div>
-  )
-}
-
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'))
