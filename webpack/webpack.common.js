@@ -14,6 +14,9 @@ module.exports = env => {
     resolve: {
       extensions: [ '.tsx', '.ts', '.js' ],
       symlinks: false,
+      alias: {
+        'react-dom': '@hot-loader/react-dom'
+      }
     },
     plugins: [
       new CleanWebpackPlugin(),

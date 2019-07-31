@@ -5,7 +5,7 @@
   "main": "src/main/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=devlopment electron .",
-    "dev": "webpack-dev-server --env.development --config webpack/webpack.dev.js",
+    "dev": "webpack-dev-server --hot --env.development --config webpack/webpack.dev.js",
     "build": "webpack --env.production --config webpack/webpack.prod.js"
   },
   "keywords": [],
@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "@hot-loader/react-dom": "^16.8.6",
     "axios": "^0.19.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
