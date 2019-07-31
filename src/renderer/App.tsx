@@ -1,14 +1,27 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import style from './style.scss'
+import { Home, About } from './pages/'
 
 function App(): React.ReactElement {
   return (
-    <div className={style.container}>
-      <h1>Hello world!</h1>
-      <h1>你好，世界！</h1>
-    </div>
+    <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about/">About</Link>
+          </li>
+ 
+        </ul>
+      </nav>
+
+      <Route path="/" exact component={Home} />
+      <Route path="/about/"  component={About} />
+    </Router>
   )
 }
 
