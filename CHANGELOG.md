@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2019-7-31
+
+- 配置 Webpack 热更新
+
 ## 2019-7-30
 
 - 配置 ESLint 对 TypeScript 的语法检测
