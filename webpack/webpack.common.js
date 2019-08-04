@@ -4,6 +4,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const getLoader = require('./loader/')
 
+function getPath(folderPath) {
+  const result = path.resolve(__dirname, `../src/renderer${folderPath}`)
+  console.log("TCL: getPath -> result", result)
+  return result
+}
+
 module.exports = env => {
   return {
     entry: './src/renderer/index.tsx',
@@ -15,7 +21,10 @@ module.exports = env => {
       extensions: [ '.tsx', '.ts', '.js' ],
       symlinks: false,
       alias: {
-        'react-dom': '@hot-loader/react-dom'
+        'react-dom': '@hot-loader/react-dom',
+        'Components': getPath('/components/'),
+        'Styles': getPath('/styles/'),
+        'Api': getPath('/api/'),
       }
     },
     plugins: [
