@@ -51,10 +51,6 @@ module.exports = {
     ]
   },
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
     "linebreak-style": [
       "error",
       "unix"
@@ -67,6 +63,6 @@ module.exports = {
       "error",
       "never"
     ],
-    "@typescript-eslint/indent": ["error", 2]
+    "@typescript-eslint/indent": ["error", 2, { "SwitchCase": 1 }]
   }
 };
