@@ -1,0 +1,28 @@
+.container { 
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    height: 45px;
+  }
+
+  .main {
+    flex: 1;
+    display: flex;
+
+    .aside {
+      width: 200px;
+    }
+  
+    .mainContent {
+      flex: 1
+    }
+  }
+
+  .footer {
+    height: 50px;
+  }
+}
