@@ -1,29 +1,15 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-import { Home, About } from './pages/'
+import Pages from './pages/index'
+import { store } from './store'
 
 function App(): React.ReactElement {
   return (
-    <Router>
-      <div style={{ height: '100vh', overflow: 'hidden' }}>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about/">About</Link>
-            </li>
-
-          </ul>
-        </nav>
-
-        <Route path="/" exact component={Home} />
-        <Route path="/about/" component={About} />
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Pages />
+    </Provider>
   )
 }
 
