@@ -24,6 +24,7 @@
     "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
+    "@types/react-redux": "^7.1.1",
     "@types/react-router-dom": "^4.3.4",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
@@ -58,7 +59,7 @@
     "react-hot-loader": "^4.12.10",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
-    "redux": "^4.0.2",
+    "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   }
 }
