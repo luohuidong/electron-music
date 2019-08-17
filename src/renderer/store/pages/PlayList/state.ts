@@ -1,8 +1,5 @@
-export interface State {
-  hightQualityPlayList: [];
-}
+import { State } from './types'
 
 export const state: State = {
   hightQualityPlayList: []
 }
-
