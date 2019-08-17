@@ -25,6 +25,7 @@ module.exports = env => {
         'Components': getPath('/components/'),
         'Styles': getPath('/styles/'),
         'Api': getPath('/api/'),
+        'Store': getPath('/store/')
       }
     },
     plugins: [
