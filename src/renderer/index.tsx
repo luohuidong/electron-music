@@ -1,3 +1,5 @@
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 import 'react-hot-loader' // react-hot-loader is required before react and react-dom
 import React from 'react'
 import * as ReactDOM from 'react-dom'
