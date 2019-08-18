@@ -1,6 +1,5 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import thunk from 'redux-thunk'
-
 
 import { reducer as playListReducer } from './pages/PlayList'
 
@@ -10,7 +9,8 @@ const rootReducer = combineReducers({
 
 export type AppState = ReturnType<typeof rootReducer>
 
-export const store = createStore(
-  rootReducer,
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+export const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk)
-)
+))
