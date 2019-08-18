@@ -6,7 +6,6 @@ const getLoader = require('./loader/')
 
 function getPath(folderPath) {
   const result = path.resolve(__dirname, `../src/renderer${folderPath}`)
-  console.log("TCL: getPath -> result", result)
   return result
 }
 
