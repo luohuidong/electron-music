@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
 import style from './style.scss'
+import { AppState } from 'Store/index'
+import { thunks, types } from 'Store/pages/PlayList'
 
-function PlayList(): React.ReactElement {
+interface Props {
+  hightQualityPlayList: types.HightQualityPlayListItem[];
+  thunkGetHightQualityPlayList: typeof thunks.thunkGetHightQualityPlayList;
+}
+
+function PlayList(props: Props): React.ReactElement {
+  useEffect((): void => {
+    props.thunkGetHightQualityPlayList()
+  }, [])
+  const { hightQualityPlayList } = props
+
   return (
     <div className={style.container}>
       <div>
@@ -16,4 +29,12 @@ function PlayList(): React.ReactElement {
   )
 }
 
-export default PlayList
+const mapStateToProps = ({ playList }: AppState): object => ({
+  hightQualityPlayList: playList.hightQualityPlayList
+})
+
+const mapDispatchToProps = {
+  thunkGetHightQualityPlayList: thunks.thunkGetHightQualityPlayList
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayList)
