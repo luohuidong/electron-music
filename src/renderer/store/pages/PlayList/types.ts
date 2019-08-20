@@ -5,6 +5,7 @@ export interface HightQualityPlayListItem {
   name: string;
   id: number;
   description: string;
+  coverImgUrl: string;
 }
 
 /** PlayList State */
