@@ -9,4 +9,9 @@
   background: $background-color;
   color: white;
 
+  .playList {
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    grid-gap: 20px;
+  }
 }

@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import style from './style.scss'
 import { AppState } from 'Store/index'
 import { thunks, types } from 'Store/pages/PlayList'
+
+import { Cover } from 'Components/index'
+
+import style from './style.scss'
 
 interface Props {
   hightQualityPlayList: types.HightQualityPlayListItem[];
@@ -14,6 +17,7 @@ function PlayList(props: Props): React.ReactElement {
   useEffect((): void => {
     props.thunkGetHightQualityPlayList()
   }, [])
+  
   const { hightQualityPlayList } = props
 
   return (
@@ -22,8 +26,12 @@ function PlayList(props: Props): React.ReactElement {
         热门标签
       </div>
 
-      <div>
-        歌单
+      <div className={style.playList}>
+        {
+          hightQualityPlayList.map((element): React.ReactElement => (
+            <Cover key={element.id} data={element} />
+          ))
+        }
       </div>
     </div>
   )
