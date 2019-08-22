@@ -1,9 +1,12 @@
 @import '~Styles/variables';
 
 .container {
+  margin: 0px;
+
   .imgContainer {
     width: 200px;
     height: 200px;
+    margin-bottom: 5px;
 
     img {
       width: 100%;

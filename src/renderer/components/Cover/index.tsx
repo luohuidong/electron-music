@@ -15,15 +15,15 @@ interface Props {
 function Cover(props: Props): React.ReactElement {
   const { data } = props
   return (
-    <div className={styles.container}>
+    <figure className={styles.container}>
       <div className={styles.imgContainer}>
-        <img src={data.coverImgUrl} />
+        <img src={data.coverImgUrl} alt='' />
       </div>
 
-      <p>
+      <figcaption>
         <a>{data.name}</a>
-      </p>
-    </div>
+      </figcaption>
+    </figure>
   )
 }
 
