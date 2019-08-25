@@ -16,9 +16,11 @@ function Cover(props: Props): React.ReactElement {
   const { data } = props
   return (
     <figure className={styles.container}>
-      <div className={styles.imgContainer}>
-        <img src={data.coverImgUrl} alt='' />
-      </div>
+      <a>
+        <div className={styles.imgContainer}>
+          <img src={data.coverImgUrl} alt='' />
+        </div>
+      </a>
 
       <figcaption>
         <a>{data.name}</a>
