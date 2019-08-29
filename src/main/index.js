@@ -1,7 +1,8 @@
 const { app } = require('electron')
+const process = require('process')
 
 const createWindow = require('./createWindow')
-const initialDevTools = require('./devTools')
+const isDevMode = process.env.NODE_ENV === 'development'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -12,7 +13,11 @@ let win
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => createWindow(win))
 
-app.on('ready', () => initialDevTools())
+// Only to load development tools in development mode
+if (isDevMode) {
+  const initialDevTools = require('./devTools')
+  app.on('ready', () => initialDevTools())
+}
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
