@@ -1,6 +1,7 @@
 const { BrowserWindow } = require('electron')
 
 const mode = process.env.NODE_ENV
+const isDevMode = mode === 'development'
 
 function createWindow (win) {
   // Create the browser window.
@@ -12,12 +13,12 @@ function createWindow (win) {
     }
   })
 
-  if (mode === 'devlopment') {
+  if (isDevMode) {
     win.loadURL('http://localhost:8080/')
   } else {
     // and load the index.html of the app.
     // filePath should be a path to an HTML file relative to the root of your application
-    win.loadFile('dist_webpack/index.html')
+    win.loadFile('dist/webpack/index.html')
   }
 
   // Open the DevTools.
