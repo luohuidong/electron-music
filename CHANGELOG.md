@@ -1,5 +1,22 @@
 # CHANGE LOG
 
+## 2019-8-25
+
+- React Developer Tools 及 Redux DevTools 仅在开发模式下加载
+- 新增 Mac 打包功能
+
+## 2019-8-19
+
+- 新增 React Developer Tools 及 Redux DevTools 开发工具
+
+## 2019-8-18
+
+- 去除 babel polyfill，改为在 src/renderer/index.tsx 中直接引用 core-js 和 regenerator-runtime
+
+## 2019-8-2
+
+- 升级 Electron 至 6.0.0 版本
+
 ## 2019-7-31
 
 - 配置 Webpack 热更新

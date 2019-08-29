@@ -4,9 +4,21 @@
   "description": "An electron boilerplate",
   "main": "src/main/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=devlopment electron .",
+    "start": "cross-env NODE_ENV=development electron .",
     "dev": "webpack-dev-server --hot --env.development --config webpack/webpack.dev.js",
-    "build": "webpack --env.production --config webpack/webpack.prod.js"
+    "build": "webpack --env.production --config webpack/webpack.prod.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "cn.luohuidong.music",
+    "files": [
+      "src/main/**/*",
+      "dist/webpack/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.music"
+    }
   },
   "keywords": [],
   "author": "luohuidong",
