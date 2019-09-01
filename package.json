@@ -1,24 +1,30 @@
 {
   "name": "electron-react-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An electron boilerplate",
   "main": "src/main/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development electron .",
-    "dev": "webpack-dev-server --hot --env.development --config webpack/webpack.dev.js",
-    "build": "webpack --env.production --config webpack/webpack.prod.js",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "electron-dev": "cross-env NODE_ENV=development electron .",
+    "webpack-render-dev": "webpack-dev-server --hot --env.development --config webpack/webpack.renderer.dev.js",
+    "webpack-render-build": "webpack --env.production --config webpack/webpack.renderer.prod.js",
+    "electron-pack": "electron-builder",
+    "electron-pack-dir": "electron-builder --dir"
   },
   "build": {
     "appId": "cn.luohuidong.music",
     "files": [
       "src/main/**/*",
-      "dist/webpack/**/*"
+      "dist/renderer/**/*"
     ],
     "mac": {
       "category": "public.app-category.music"
-    }
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://localhost:4000"
+      }
+    ]
   },
   "keywords": [],
   "author": "luohuidong",
@@ -66,6 +72,8 @@
     "@hot-loader/react-dom": "^16.8.6",
     "axios": "^0.19.0",
     "core-js": "^3.1.4",
+    "electron-log": "^3.0.7",
+    "electron-updater": "^4.1.2",
     "normalize.css": "^8.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
