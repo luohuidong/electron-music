@@ -2,6 +2,8 @@ const { app } = require('electron')
 const process = require('process')
 
 const createWindow = require('./createWindow')
+const appUpdate = require('./appUpdate')
+
 const isDevMode = process.env.NODE_ENV === 'development'
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -12,6 +14,8 @@ let win
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => createWindow(win))
+
+app.on('ready', () => appUpdate(app, win))
 
 // Only to load development tools in development mode
 if (isDevMode) {
