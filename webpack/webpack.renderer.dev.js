@@ -11,7 +11,7 @@ module.exports = env => {
 
     devServer: {
       // This tells webpack-dev-server to serve the files from the dist/webpack directory on localhost:8080.
-      contentBase: path.join(__dirname, '../dist/renderer'),
+      contentBase: path.join(__dirname, '../dist-webpack/renderer'),
       hot: true
     },
   })

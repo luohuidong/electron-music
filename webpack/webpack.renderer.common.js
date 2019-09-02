@@ -15,7 +15,7 @@ module.exports = env => {
 
     output: {
       filename: 'js/[name].[hash].js', // add a unique hash based on the content of an asset
-      path: path.resolve(__dirname, '../dist/renderer')
+      path: path.resolve(__dirname, '../dist-webpack/renderer')
     },
 
     target: 'electron-renderer',

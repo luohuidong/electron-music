@@ -5,8 +5,9 @@
   "main": "src/main/index.js",
   "scripts": {
     "electron-dev": "cross-env NODE_ENV=development electron .",
-    "webpack-render-dev": "webpack-dev-server --hot --env.development --config webpack/webpack.renderer.dev.js",
-    "webpack-render-build": "webpack --env.production --config webpack/webpack.renderer.prod.js",
+    "webpack-main-build": "webpack --config webpack/webpack.main.prod.js",
+    "webpack-renderer-dev": "webpack-dev-server --hot --env.development --config webpack/webpack.renderer.dev.js",
+    "webpack-renderer-build": "webpack --env.production --config webpack/webpack.renderer.prod.js",
     "electron-pack": "electron-builder",
     "electron-pack-dir": "electron-builder --dir"
   },
@@ -14,7 +15,7 @@
     "appId": "cn.luohuidong.music",
     "files": [
       "src/main/**/*",
-      "dist/renderer/**/*"
+      "dist-webpack/renderer/**/*"
     ],
     "mac": {
       "category": "public.app-category.music"
