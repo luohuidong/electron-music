@@ -18,7 +18,7 @@ function createWindow (win) {
   } else {
     // and load the index.html of the app.
     // filePath should be a path to an HTML file relative to the root of your application
-    win.loadFile('dist/renderer/index.html')
+    win.loadFile('dist-webpack/renderer/index.html')
   }
 
   // Open the DevTools.
