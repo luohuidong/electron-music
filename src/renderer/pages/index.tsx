@@ -1,6 +1,6 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 import { Layout } from 'Components/index'
 import Home from './PlayList'
