@@ -1,6 +1,6 @@
 {
   "name": "electron-react-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "An electron boilerplate",
   "main": "src/main/index.js",
   "scripts": {
@@ -9,24 +9,8 @@
     "webpack-main-build": "webpack --config webpack/webpack.main.prod.js",
     "webpack-renderer-dev": "webpack-dev-server --hot --env.development --config webpack/webpack.renderer.dev.js",
     "webpack-renderer-build": "webpack --env.production --config webpack/webpack.renderer.prod.js",
-    "electron-pack": "electron-builder",
-    "electron-pack-dir": "electron-builder --dir"
-  },
-  "build": {
-    "appId": "cn.luohuidong.music",
-    "files": [
-      "src/main/**/*",
-      "dist-webpack/renderer/**/*"
-    ],
-    "mac": {
-      "category": "public.app-category.music"
-    },
-    "publish": [
-      {
-        "provider": "generic",
-        "url": "http://localhost:4000"
-      }
-    ]
+    "electron-pack": "electron-builder --config electron-builder.json",
+    "electron-pack-dir": "electron-builder --dir --config electron-builder.json"
   },
   "keywords": [],
   "author": "luohuidong",
