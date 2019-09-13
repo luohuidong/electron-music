@@ -15,13 +15,13 @@ npm i
 开启 webpack，默认开启服务的端口为 8080：
 
 ```bash
-npm dev
+npm run webpack-renderer-dev
 ```
 
 开启 electron：
 
 ```bash
-npm start
+electron-dev
 ```
 
 ### 打包
@@ -29,13 +29,13 @@ npm start
 Webpack 打包
 
 ```bash
-npm run build
+webpack-renderer-build
 ```
 
 Electron mac 打包
 
 ```bash
-npm run dist
+electron-pack
 ```
 
 这两个打包顺序不能更改
