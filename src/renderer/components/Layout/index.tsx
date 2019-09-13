@@ -10,7 +10,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-function Layout(props: Props): React.ReactElement {
+function Layout(props: Props): JSX.Element {
   return (
     <div className={styles.container}>
       <header className={styles.header}>

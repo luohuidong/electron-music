@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './style.scss'
 
-function Header(props): React.ReactElement {
+function Header(): JSX.Element {
   return (
     <div className={styles.container}>
       1312

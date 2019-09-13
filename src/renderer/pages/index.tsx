@@ -5,7 +5,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import { Layout } from 'Components/index'
 import Home from './PlayList'
 
-function App(): React.ReactElement {
+function App(): JSX.Element {
   return (
     <Router>
       <Layout>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './style.scss' 
 
-function Footer(props): React.ReactElement {
+function Footer(): JSX.Element {
   return (
     <div className={styles.container}>
       2312

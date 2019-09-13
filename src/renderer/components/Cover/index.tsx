@@ -12,7 +12,7 @@ interface Props {
   data: Data;
 }
 
-function Cover(props: Props): React.ReactElement {
+function Cover(props: Props): JSX.Element {
   const { data } = props
   return (
     <figure className={styles.container}>

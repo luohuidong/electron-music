@@ -2,7 +2,7 @@ import React from 'react'
 
 import style from './style.scss'
 
-function About(): React.ReactElement {
+function About(): JSX.Element {
   return (
     <div className={style.container}>
       <h1>About</h1>
