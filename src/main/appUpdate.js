@@ -1,5 +1,6 @@
 const log = require('electron-log')
 const { autoUpdater } = require('electron-updater')
+const { ipcMain } = require('electron')
 
 module.exports = function (app, win) {
   //-------------------------------------------------------------------
@@ -14,44 +15,35 @@ module.exports = function (app, win) {
   autoUpdater.logger.transports.file.level = 'info'
   log.info('App starting...')
 
-  function sendContentToRender(data) {
-    win.webContents.send('update-message', data)
-  }
+  autoUpdater.on('error', (error) => {
+    log.info(`Auto update error: ${error}`)
+  })
 
   autoUpdater.on('checking-for-update', () => {
-    console.log('checking-for-update')
-    sendContentToRender('checking-for-update')
+    log.info('checking-for-update')
   })
 
-  autoUpdater.on('update-available', (ev, info) => {
-    console.log('TCL: info', info)
-    sendContentToRender('update-available')
+  autoUpdater.on('update-available', () => {
+    log.info('update-available')
   })
 
-  autoUpdater.on('update-not-available', (ev, info) => {
-    console.log('TCL: info', info)
+  autoUpdater.on('update-not-available', () => {
+    log.info('update-not-available')
   })
 
-  autoUpdater.on('error', (ev, err) => {
-    console.log('TCL: err', err)
-    sendContentToRender('自动更新失败')
-
+  autoUpdater.on('download-progress', (progress) => {
+    const { percent } = progress
+    log.info(`download-progress: ${percent}`)
   })
 
-  autoUpdater.on('download-progress', (ev, progressObj) => {
-    sendContentToRender(progressObj)
-    console.log('TCL: progressObj', progressObj)
+  autoUpdater.on('update-downloaded', (info) => {
+    const { downloadedFile } = info
+    log.info(downloadedFile)
   })
 
-  autoUpdater.on('update-downloaded', (ev, info) => {
-    console.log('TCL: info', info)
-    setTimeout(function() {
-      console.log('abc')
-      autoUpdater.quitAndInstall();
-    }, 5000)
+  ipcMain.on('user-request-updating-app', () => {
+    console.log('user-request-updating-app')
   })
 
-  app.on('ready', function()  {
-    autoUpdater.checkForUpdates()
-  })
+  // autoUpdater.checkForUpdates()
 }
