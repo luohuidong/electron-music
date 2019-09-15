@@ -1,7 +1,3 @@
-import Layout from './Layout'
-import Cover from './Cover'
-
-export {
-  Layout,
-  Cover
-}
+export { default as Cover } from './Cover'
+export { default as Layout } from './Layout'
+export { default as Player} from './Player'
