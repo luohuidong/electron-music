@@ -2,12 +2,12 @@ import React from 'react'
 
 import Header from './Header'
 import Aside from './Aside'
-import Footer from './Footer'
 
 import styles from './style.scss'
 
 interface Props {
-  children: React.ReactNode;
+  children: JSX.Element;
+  footer: JSX.Element;
 }
 
 function Layout(props: Props): JSX.Element {
@@ -26,7 +26,7 @@ function Layout(props: Props): JSX.Element {
       </main>
 
       <footer className={styles.footer}>
-        <Footer />
+        {props.footer}
       </footer>
     </div>
   )
