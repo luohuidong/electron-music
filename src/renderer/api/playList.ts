@@ -13,6 +13,9 @@ interface HighQualityPlayListReturnData {
   more?: boolean;
 }
 
+/**
+ * 获取精品歌单
+ */
 export async function requestHighQualityPlayList(): Promise<HighQualityPlayListReturnData> {
   try {
     const config = {

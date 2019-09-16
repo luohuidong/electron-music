@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './styles.scss'
 
-function Aside(props): React.ReactElement {
+function Aside(): JSX.Element {
   return (
     <div className={styles.container}>
       2312

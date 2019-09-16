@@ -2,13 +2,13 @@ import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import { Layout } from 'Components/index'
+import { Layout, Player } from 'Components/index'
 import Home from './PlayList'
 
-function App(): React.ReactElement {
+function App(): JSX.Element {
   return (
     <Router>
-      <Layout>
+      <Layout footer={<Player />}>
         <Route path="/" exact component={Home} />
       </Layout>
     </Router>

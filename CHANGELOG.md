@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2019-9-6
+
+- 将 electron builder 的配置从 package.json 文件中抽离出来，单独存放在 electron-builder.json 文件中。
+
 ## 2019-8-25
 
 - React Developer Tools 及 Redux DevTools 仅在开发模式下加载

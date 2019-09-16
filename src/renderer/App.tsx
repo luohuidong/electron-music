@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import Pages from './pages/index'
 import { store } from './store'
 
-function App(): React.ReactElement {
+function App(): JSX.Element {
   return (
     <Provider store={store}>
       <Pages />
