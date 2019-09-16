@@ -1,3 +1,5 @@
+// TODO: 该配置目前打包会出错，经过验证是由 React 调试工具引起的错误。
+
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
