@@ -1,3 +1,7 @@
+/**
+ * 歌单封面组件
+ */
+
 import React from 'react'
 
 import styles from './style.scss'
@@ -10,20 +14,27 @@ interface Data {
 
 interface Props {
   data: Data;
+  onClick?: (data: Data) => void;
 }
 
 function Cover(props: Props): JSX.Element {
   const { data } = props
+
+  function handleClick(data: Data): void {
+    const { onClick } = props
+    onClick && onClick(data)
+  }
+
   return (
     <figure className={styles.container}>
-      <a>
+      <a onClick={(): void => { handleClick(data) }}>
         <div className={styles.imgContainer}>
           <img src={data.coverImgUrl} alt='' />
         </div>
       </a>
 
       <figcaption>
-        <a>{data.name}</a>
+        <a onClick={(): void => { handleClick(data) }}>{data.name}</a>
       </figcaption>
     </figure>
   )

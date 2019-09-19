@@ -8,7 +8,7 @@ import { savePlayList } from './actions'
 /**
  * 获取精选歌单列表数据
  */
-export function thunkSavePlayList(playListId: string): ThunkAction<void, AppState, null, Action<string>> {
+export function thunkSavePlayList(playListId: number): ThunkAction<void, AppState, null, Action<string>> {
   return async (dispatch): Promise<void> => {
     try {
       const result = await requestPlaylistDetail(playListId)
