@@ -18,7 +18,7 @@ interface Album {
   name: string;
 }
 
-interface Song {
+export interface Song {
   id: number;
   name: string;
   ar: Artist[];
@@ -39,7 +39,6 @@ export interface State {
 // action type
 
 export const SAVE_PLAY_LIST = 'COMPONENTS_PLAYER/SAVE_PLAY_LIST_DETAIL'
-
 export interface SavePlayListAction {
   type: typeof SAVE_PLAY_LIST;
   payload: {
@@ -47,4 +46,26 @@ export interface SavePlayListAction {
   };
 }
 
-export type ActionTypes = SavePlayListAction
+
+export const SAVE_CURRENT_SONG = 'COMPONENTS_PLAYER/SAVE_CURRENT_SONG'
+export interface SaveCurrentSongAction {
+  type: typeof SAVE_CURRENT_SONG;
+  payload: {
+    currentSong: Song;
+  };
+}
+
+
+export const SAVE_SONG_PLAY_URLS = 'COMPONENTS_PLAYER/SAVE_SONG_PLAY_URLS'
+interface SongPlayUrlData {
+  id: string;
+  url: string;
+}
+export interface SaveSongPlayUrlsAction {
+  type: typeof SAVE_SONG_PLAY_URLS;
+  payload: {
+    songPlayUrls: SongPlayUrlData[];
+  };
+}
+
+export type ActionTypes = SavePlayListAction | SaveCurrentSongAction

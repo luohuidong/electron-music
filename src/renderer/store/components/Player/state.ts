@@ -1,7 +1,7 @@
 import { State } from './types'
 
 export const state: State = {
-  playList: [],
+  playList: [], // 播放器歌曲列表
   currentSong: {
     id: 0,
     name: '',
