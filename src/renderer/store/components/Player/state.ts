@@ -11,5 +11,6 @@ export const state: State = {
       name: '',
     }
   },
+  songIds: [], // 歌曲列表中所有的歌曲 id
   songsUrl: []
 }

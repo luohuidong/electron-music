@@ -34,6 +34,7 @@ export interface State {
   playList: PlayListItem[]; // 歌单歌曲列表
   currentSong: Song; // 当前在播放的歌曲
   songsUrl: SongUrl[]; // 歌曲对应的 url
+  songIds: number[]; // 歌单歌曲对应的 id
 }
 
 // action type
@@ -55,11 +56,10 @@ export interface SaveCurrentSongAction {
   };
 }
 
-
 export const SAVE_SONG_PLAY_URLS = 'COMPONENTS_PLAYER/SAVE_SONG_PLAY_URLS'
-interface SongPlayUrlData {
-  id: string;
-  url: string;
+export interface SongPlayUrlData {
+  id: string; // 歌曲 id
+  url: string; // 歌曲播放地址
 }
 export interface SaveSongPlayUrlsAction {
   type: typeof SAVE_SONG_PLAY_URLS;
@@ -68,4 +68,17 @@ export interface SaveSongPlayUrlsAction {
   };
 }
 
+
+export const SAVE_SONG_IDS = 'COMPONENTS_PLAYER/SAVE_SONG_IDS'
+/**
+ * 保存歌单歌曲对应的 ids
+ */
+export interface SaveSongIdsAction {
+  type: typeof SAVE_SONG_IDS;
+  payload: {
+    songIds: number[];
+  };
+}
+
 export type ActionTypes = SavePlayListAction | SaveCurrentSongAction
+| SaveSongPlayUrlsAction | SaveSongIdsAction
