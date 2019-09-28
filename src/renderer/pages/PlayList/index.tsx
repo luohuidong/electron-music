@@ -17,9 +17,12 @@ interface Props {
 
 function PlayList(props: Props): React.ReactElement {
   useEffect((): void => {
-    props.thunkGetHightQualityPlayList()
+    async function getHightQualityPlayList(): Promise<void> {
+      await props.thunkGetHightQualityPlayList()
+    }
+    getHightQualityPlayList()
   }, [])
-  
+
   const { hightQualityPlayList } = props
 
   interface Data {
@@ -30,7 +33,7 @@ function PlayList(props: Props): React.ReactElement {
 
   /**
    * 获取歌单对应的歌曲列表
-   * @param data 
+   * @param data
    */
   function handleClick(data: Data): void {
     const { id } = data
