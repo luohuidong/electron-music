@@ -1,16 +1,17 @@
 import {
-  PlayListItem, Song,
+  Song,
   SAVE_PLAY_LIST, SavePlayListAction,
   SAVE_CURRENT_SONG, SaveCurrentSongAction,
   SAVE_PERCENTAGE, SavePercentageAction,
-  SAVE_PLAY_STATE, SavePlayStateAction
+  SAVE_PLAY_STATE, SavePlayStateAction,
+  SAVE_CURRENT_SONG_INDEX, SaveCurrentSongIndex
 } from './types'
 
 /**
  * 保存当前播放器歌曲列表
  * @param playList
  */
-export function savePlayList(playList: PlayListItem[]): SavePlayListAction {
+export function savePlayList(playList: Song[]): SavePlayListAction {
   return {
     type: SAVE_PLAY_LIST,
     payload: {
@@ -28,6 +29,19 @@ export function saveCurrentSong(song: Song): SaveCurrentSongAction {
     type: SAVE_CURRENT_SONG,
     payload: {
       currentSong: song
+    }
+  }
+}
+
+/**
+ * 保存当前正在播放的歌曲对应在播放列表中的索引
+ * @param index
+ */
+export function saveCurrentSongIndex(index: number): SaveCurrentSongIndex {
+  return {
+    type: SAVE_CURRENT_SONG_INDEX,
+    payload: {
+      currentSongIndex: index
     }
   }
 }

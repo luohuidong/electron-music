@@ -1,11 +1,5 @@
 // state type
 
-/** 歌单歌曲数据 */
-export interface PlayListItem {
-  name: string;
-  id: number;
-}
-
 /** 歌手 */
 interface Artist {
   name: string;
@@ -26,8 +20,9 @@ export interface Song {
 }
 
 export interface State {
-  playList: PlayListItem[]; // 歌单歌曲列表
+  playList: Song[]; // 歌单歌曲列表
   currentSong: Song; // 当前在播放的歌曲
+  currentSongIndex: number; // 当前播放的歌曲在歌曲列表中对应的索引
   percentage: number; // 当前播放进度百分比
   playState: boolean; // 播放器播放状态
 }
@@ -38,7 +33,7 @@ export const SAVE_PLAY_LIST = 'COMPONENTS_PLAYER/SAVE_PLAY_LIST_DETAIL'
 export interface SavePlayListAction {
   type: typeof SAVE_PLAY_LIST;
   payload: {
-    playList: PlayListItem[];
+    playList: Song[];
   };
 }
 
@@ -47,6 +42,14 @@ export interface SaveCurrentSongAction {
   type: typeof SAVE_CURRENT_SONG;
   payload: {
     currentSong: Song;
+  };
+}
+
+export const SAVE_CURRENT_SONG_INDEX = 'COMPONENTS_PLAYER/SAVE_CURRENT_SONG_INDEX'
+export interface SaveCurrentSongIndex {
+  type: typeof SAVE_CURRENT_SONG_INDEX;
+  payload: {
+    currentSongIndex: number;
   };
 }
 
@@ -67,4 +70,4 @@ export interface SavePlayStateAction {
 }
 
 export type ActionTypes = SavePlayListAction | SaveCurrentSongAction
-| SavePercentageAction | SavePlayStateAction
+| SavePercentageAction | SavePlayStateAction | SaveCurrentSongIndex
