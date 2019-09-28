@@ -3,7 +3,7 @@ import { ThunkAction } from 'redux-thunk'
 
 import { AppState } from 'Store/index'
 import { requestPlaylistDetail } from 'Api/playList'
-import { savePlayList, saveSongIds } from './actions'
+import { savePlayList, saveCurrentSong } from './actions'
 
 /**
  * 获取歌单歌曲列表
@@ -13,12 +13,9 @@ export function thunkSavePlayList(playListId: number): ThunkAction<void, AppStat
   return async (dispatch): Promise<void> => {
     try {
       const result = await requestPlaylistDetail(playListId)
-      const { tracks, trackIds } = result
-
+      const { tracks } = result
       dispatch(savePlayList(tracks))
-
-      const songIds = trackIds.map((element): number => element.id)
-      dispatch(saveSongIds(songIds))
+      dispatch(saveCurrentSong(tracks[1]))
     } catch (error) {
       console.error('thunkGetHightQualityPlayList', error.message)
     }

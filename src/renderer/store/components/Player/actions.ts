@@ -1,15 +1,16 @@
 import {
-  ActionTypes,
-  PlayListItem, Song, SongPlayUrlData,
-  SAVE_PLAY_LIST, SAVE_CURRENT_SONG, SAVE_SONG_PLAY_URLS,
-  SAVE_SONG_IDS
+  PlayListItem, Song,
+  SAVE_PLAY_LIST, SavePlayListAction,
+  SAVE_CURRENT_SONG, SaveCurrentSongAction,
+  SAVE_PERCENTAGE, SavePercentageAction,
+  SAVE_PLAY_STATE, SavePlayStateAction
 } from './types'
 
 /**
  * 保存当前播放器歌曲列表
  * @param playList
  */
-export function savePlayList(playList: PlayListItem[]): ActionTypes {
+export function savePlayList(playList: PlayListItem[]): SavePlayListAction {
   return {
     type: SAVE_PLAY_LIST,
     payload: {
@@ -18,37 +19,41 @@ export function savePlayList(playList: PlayListItem[]): ActionTypes {
   }
 }
 
-export function saveSongIds(songIds: number[]): ActionTypes {
-  return {
-    type: SAVE_SONG_IDS,
-    payload: {
-      songIds
-    }
-  }
-}
-
-/**
- * 保存歌曲的播放地址
- * @param songPlayUrls
- */
-export function saveSongPlayUrls(songPlayUrls: SongPlayUrlData[]): ActionTypes {
-  return {
-    type: SAVE_SONG_PLAY_URLS,
-    payload: {
-      songPlayUrls,
-    }
-  }
-}
-
 /**
  * 保存当前正在播放的歌曲
  * @param song
  */
-export function saveCurrentSong(song: Song): ActionTypes {
+export function saveCurrentSong(song: Song): SaveCurrentSongAction {
   return {
     type: SAVE_CURRENT_SONG,
     payload: {
       currentSong: song
+    }
+  }
+}
+
+/**
+ * 保存歌曲播放进度百分比
+ * @param percentage 歌曲播放进度百分比
+ */
+export function savePercentage(percentage: number): SavePercentageAction {
+  return {
+    type: SAVE_PERCENTAGE,
+    payload: {
+      percentage
+    }
+  }
+}
+
+/**
+ * 保存播放器播放状态
+ * @param playState true 表示播放器为播放状态，false 表示暂停状态
+ */
+export function savePlayState(playState: boolean): SavePlayStateAction {
+  return {
+    type: SAVE_PLAY_STATE,
+    payload: {
+      playState
     }
   }
 }
