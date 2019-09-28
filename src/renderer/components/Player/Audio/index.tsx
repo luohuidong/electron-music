@@ -6,8 +6,15 @@ import { AppState } from 'Store/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
 interface Props {
+  // state
   currentSong: playerTypes.Song;
+  playList: playerTypes.Song[];
+  currentSongIndex: number;
+  percentage: number;
+  // actions
   savePercentage: typeof playerActions.savePercentage;
+  saveCurrentSongIndex: typeof playerActions.saveCurrentSongIndex;
+  saveCurrentSong: typeof playerActions.saveCurrentSong;
 }
 
 type EffectCallBackReturnType = void | (() => void)
@@ -17,8 +24,9 @@ function Audio(props: Props): JSX.Element {
 
   // 获取当前播放可取的播放 url
   const [playUrl, setPlayUrl] = useState()
-  useEffect((): void => {
+  useEffect((): EffectCallBackReturnType => {
     const { currentSong } = props
+    console.log("TCL: currentSong ....", currentSong)
 
     if (currentSong.id) {
       requestSongPlayUrls(`${currentSong.id}`).then((songPlayUrlDatas): void => {
@@ -54,7 +62,32 @@ function Audio(props: Props): JSX.Element {
         audio.removeEventListener('timeupdate', handleTimeUpdate)
       }
     }
-  }, [])
+  })
+
+  // 当前播放进度为百分百的时候，切换下一首歌
+  useEffect((): EffectCallBackReturnType => {
+    function playNextSong(): void {
+      const { saveCurrentSongIndex, playList, currentSongIndex, saveCurrentSong } = props
+      const length = playList.length
+
+      let nextSongIndex = currentSongIndex + 1
+
+      if (length <= nextSongIndex) {
+        nextSongIndex = 0
+      }
+
+      saveCurrentSongIndex(nextSongIndex)
+      saveCurrentSong(playList[nextSongIndex])
+    }
+
+    const { savePercentage, percentage } = props
+    savePercentage(percentage)
+
+    if (percentage === 1) {
+      playNextSong() // 播放下一首歌
+      savePercentage(0) // 将播放进度百分比重置为 0
+    }
+  }, [props.percentage])
 
   return (
     <div>
@@ -65,14 +98,22 @@ function Audio(props: Props): JSX.Element {
 
 interface State {
   currentSong: playerTypes.Song;
+  playList: playerTypes.Song[];
+  currentSongIndex: number;
+  percentage: number;
 }
 
 const mapStateToProps = ({ player }: AppState): State => ({
   currentSong: player.currentSong,
+  playList: player.playList,
+  currentSongIndex: player.currentSongIndex,
+  percentage: player.percentage,
 })
 
 const mapDispatchToProps = {
-  savePercentage: playerActions.savePercentage
+  savePercentage: playerActions.savePercentage,
+  saveCurrentSongIndex: playerActions.saveCurrentSongIndex,
+  saveCurrentSong: playerActions.saveCurrentSong
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Audio)
