@@ -1,44 +1,44 @@
 import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 
 import { requestSongPlayUrls } from 'Api/playList'
 import { AppState } from 'Store/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
 interface Props {
-  // state
-  currentSong: playerTypes.Song;
-  playList: playerTypes.Song[];
-  currentSongIndex: number;
-  percentage: number;
   // actions
   savePercentage: typeof playerActions.savePercentage;
   saveCurrentSongIndex: typeof playerActions.saveCurrentSongIndex;
   saveCurrentSong: typeof playerActions.saveCurrentSong;
 }
 
-type EffectCallBackReturnType = void | (() => void)
+type EffectCallBack = void | (() => void)
 
 function Audio(props: Props): JSX.Element {
   let audioRef = React.createRef<HTMLAudioElement>()
 
+  const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
   // 获取当前播放可取的播放 url
   const [playUrl, setPlayUrl] = useState()
-  useEffect((): EffectCallBackReturnType => {
-    const { currentSong } = props
-    console.log("TCL: currentSong ....", currentSong)
-
-    if (currentSong.id) {
-      requestSongPlayUrls(`${currentSong.id}`).then((songPlayUrlDatas): void => {
+  useEffect((): EffectCallBack => {
+    async function handleRequestSongPlayUrls(song: playerTypes.Song): Promise<void> {
+      try {
+        const songPlayUrlDatas = await requestSongPlayUrls(`${song.id}`)
         const songPlayUrlData = songPlayUrlDatas[0]
         const playUrl = songPlayUrlData.url
         setPlayUrl(playUrl)
-      })
+      } catch (error) {
+        console.error(error.message)
+      }
     }
-  }, [props.currentSong])
+
+    if (currentSong.id) {
+      handleRequestSongPlayUrls(currentSong)
+    }
+  }, [currentSong])
 
   // 获取当前播放进度百分比
-  useEffect((): EffectCallBackReturnType => {
+  useEffect((): EffectCallBack => {
     function handleTimeUpdate(e): void {
       const { target } = e
       const { currentTime, duration } = target
@@ -64,10 +64,13 @@ function Audio(props: Props): JSX.Element {
     }
   })
 
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
+  const currentSongIndex = useSelector(({ player }: AppState): number => player.currentSongIndex)
+  const percentage = useSelector(({ player }: AppState): number => player.percentage)
   // 当前播放进度为百分百的时候，切换下一首歌
-  useEffect((): EffectCallBackReturnType => {
+  useEffect((): EffectCallBack => {
     function playNextSong(): void {
-      const { saveCurrentSongIndex, playList, currentSongIndex, saveCurrentSong } = props
+      const { saveCurrentSongIndex, saveCurrentSong } = props
       const length = playList.length
 
       let nextSongIndex = currentSongIndex + 1
@@ -80,14 +83,14 @@ function Audio(props: Props): JSX.Element {
       saveCurrentSong(playList[nextSongIndex])
     }
 
-    const { savePercentage, percentage } = props
+    const { savePercentage } = props
     savePercentage(percentage)
 
     if (percentage === 1) {
       playNextSong() // 播放下一首歌
       savePercentage(0) // 将播放进度百分比重置为 0
     }
-  }, [props.percentage])
+  }, [percentage])
 
   return (
     <div>
@@ -96,24 +99,10 @@ function Audio(props: Props): JSX.Element {
   )
 }
 
-interface State {
-  currentSong: playerTypes.Song;
-  playList: playerTypes.Song[];
-  currentSongIndex: number;
-  percentage: number;
-}
-
-const mapStateToProps = ({ player }: AppState): State => ({
-  currentSong: player.currentSong,
-  playList: player.playList,
-  currentSongIndex: player.currentSongIndex,
-  percentage: player.percentage,
-})
-
 const mapDispatchToProps = {
   savePercentage: playerActions.savePercentage,
   saveCurrentSongIndex: playerActions.saveCurrentSongIndex,
   saveCurrentSong: playerActions.saveCurrentSong
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Audio)
+export default connect(undefined, mapDispatchToProps)(Audio)
