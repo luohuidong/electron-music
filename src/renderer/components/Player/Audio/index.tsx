@@ -1,21 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { connect, useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { requestSongPlayUrls } from 'Api/playList'
 import { AppState } from 'Store/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
-interface Props {
-  // actions
-  savePercentage: typeof playerActions.savePercentage;
-  saveCurrentSongIndex: typeof playerActions.saveCurrentSongIndex;
-  saveCurrentSong: typeof playerActions.saveCurrentSong;
-}
-
 type EffectCallBack = void | (() => void)
 
-function Audio(props: Props): JSX.Element {
+function Audio(): JSX.Element {
   let audioRef = React.createRef<HTMLAudioElement>()
+  const dispatch = useDispatch()
 
   const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
   // 获取当前播放可取的播放 url
@@ -48,7 +42,7 @@ function Audio(props: Props): JSX.Element {
       }
 
       const percentage = currentTime / duration
-      props.savePercentage(percentage)
+      dispatch(playerActions.savePercentage(percentage))
     }
 
     const audio = audioRef.current
@@ -70,7 +64,6 @@ function Audio(props: Props): JSX.Element {
   // 当前播放进度为百分百的时候，切换下一首歌
   useEffect((): EffectCallBack => {
     function playNextSong(): void {
-      const { saveCurrentSongIndex, saveCurrentSong } = props
       const length = playList.length
 
       let nextSongIndex = currentSongIndex + 1
@@ -79,12 +72,12 @@ function Audio(props: Props): JSX.Element {
         nextSongIndex = 0
       }
 
-      saveCurrentSongIndex(nextSongIndex)
-      saveCurrentSong(playList[nextSongIndex])
+      dispatch(playerActions.saveCurrentSongIndex(nextSongIndex))
+      dispatch(playerActions.saveCurrentSong(playList[nextSongIndex]))
     }
 
-    const { savePercentage } = props
-    savePercentage(percentage)
+    const savePercentage = playerActions.savePercentage
+    dispatch(savePercentage(percentage))
 
     if (percentage === 1) {
       playNextSong() // 播放下一首歌
@@ -99,10 +92,4 @@ function Audio(props: Props): JSX.Element {
   )
 }
 
-const mapDispatchToProps = {
-  savePercentage: playerActions.savePercentage,
-  saveCurrentSongIndex: playerActions.saveCurrentSongIndex,
-  saveCurrentSong: playerActions.saveCurrentSong
-}
-
-export default connect(undefined, mapDispatchToProps)(Audio)
+export default Audio
