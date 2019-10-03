@@ -11,6 +11,14 @@ function Audio(): JSX.Element {
   let audioRef = React.createRef<HTMLAudioElement>()
   const dispatch = useDispatch()
 
+  useEffect((): EffectCallBack => {
+    const audioElement = audioRef.current
+    if (audioElement) {
+      dispatch(playerActions.saveAudioElement(audioElement))
+    }
+  }, [])
+
+
   const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
   // 获取当前播放可取的播放 url
   const [playUrl, setPlayUrl] = useState()
@@ -49,6 +57,7 @@ function Audio(): JSX.Element {
 
     if (audio) {
       audio.addEventListener('timeupdate', handleTimeUpdate)
+      audio.play()
     }
 
     return (): void => {
@@ -88,6 +97,7 @@ function Audio(): JSX.Element {
   return (
     <div>
       <audio src={playUrl} controls ref={audioRef} autoPlay></audio>
+      <audio src={playUrl} controls ref={audioRef}></audio>
     </div>
   )
 }
