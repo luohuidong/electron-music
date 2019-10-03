@@ -25,6 +25,7 @@ export interface State {
   currentSongIndex: number; // 当前播放的歌曲在歌曲列表中对应的索引
   percentage: number; // 当前播放进度百分比
   playState: boolean; // 播放器播放状态
+  audioElement: HTMLAudioElement | undefined; // video 元素的引用
 }
 
 // action type
@@ -69,5 +70,14 @@ export interface SavePlayStateAction {
   };
 }
 
+export const SAVE_AUDIO_ELEMENT = 'COMPONENTS_PLAYER/SAVE_AUDIO_ELEMENT'
+export interface SaveAudioElement {
+  type: typeof SAVE_AUDIO_ELEMENT;
+  payload: {
+    audioElement: HTMLAudioElement;
+  };
+}
+
 export type ActionTypes = SavePlayListAction | SaveCurrentSongAction
 | SavePercentageAction | SavePlayStateAction | SaveCurrentSongIndex
+| SaveAudioElement

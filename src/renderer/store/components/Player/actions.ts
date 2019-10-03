@@ -4,7 +4,8 @@ import {
   SAVE_CURRENT_SONG, SaveCurrentSongAction,
   SAVE_PERCENTAGE, SavePercentageAction,
   SAVE_PLAY_STATE, SavePlayStateAction,
-  SAVE_CURRENT_SONG_INDEX, SaveCurrentSongIndex
+  SAVE_CURRENT_SONG_INDEX, SaveCurrentSongIndex,
+  SAVE_AUDIO_ELEMENT, SaveAudioElement
 } from './types'
 
 /**
@@ -68,6 +69,19 @@ export function savePlayState(playState: boolean): SavePlayStateAction {
     type: SAVE_PLAY_STATE,
     payload: {
       playState
+    }
+  }
+}
+
+/**
+ * 保存播放器 audio 元素的引用
+ * @param audioElement
+ */
+export function saveAudioElement(audioElement: HTMLAudioElement): SaveAudioElement {
+  return {
+    type: SAVE_AUDIO_ELEMENT,
+    payload: {
+      audioElement,
     }
   }
 }
