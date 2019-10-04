@@ -12,7 +12,6 @@ function Play(): JSX.Element {
   const dispatch = useDispatch()
 
   const playState = useSelector(({ player }: AppState): boolean => player.playState)
-  const videoElement = useSelector(({ player }: AppState): HTMLAudioElement | undefined => player.audioElement)
 
   function handleClick(): void {
     dispatch(playerActions.savePlayState(!playState))
