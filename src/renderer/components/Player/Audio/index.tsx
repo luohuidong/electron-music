@@ -18,11 +18,13 @@ function Audio(): JSX.Element {
     }
   }, [])
 
-
+  /** 当前正在播放的歌曲 */
   const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
-  // 获取当前播放可取的播放 url
   const [playUrl, setPlayUrl] = useState()
+
+  // 获取当前播放可取的播放 url
   useEffect((): EffectCallBack => {
+
     async function handleRequestSongPlayUrls(song: playerTypes.Song): Promise<void> {
       try {
         const songPlayUrlDatas = await requestSongPlayUrls(`${song.id}`)
@@ -57,7 +59,6 @@ function Audio(): JSX.Element {
 
     if (audio) {
       audio.addEventListener('timeupdate', handleTimeUpdate)
-      audio.play()
     }
 
     return (): void => {
@@ -67,9 +68,13 @@ function Audio(): JSX.Element {
     }
   })
 
+  /** 播放列表 */
   const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
+  /** 当前播放歌曲在播放列表中的索引 */
   const currentSongIndex = useSelector(({ player }: AppState): number => player.currentSongIndex)
+  /** 当前歌曲播放进度百分比 */
   const percentage = useSelector(({ player }: AppState): number => player.percentage)
+
   // 当前播放进度为百分百的时候，切换下一首歌
   useEffect((): EffectCallBack => {
     function playNextSong(): void {
@@ -94,10 +99,25 @@ function Audio(): JSX.Element {
     }
   }, [percentage])
 
+  /** 当前歌曲的播放状态 */
+  const playState = useSelector(({ player }: AppState): boolean => player.playState)
+  useEffect((): EffectCallBack => {
+    const audioElement = audioRef.current
+    if (!audioElement) {
+      return
+    }
+
+    if (playState) {
+      audioElement.play()
+    } else {
+      audioElement.pause()
+    }
+  }, [playState])
+
   return (
     <div>
-      <audio src={playUrl} controls ref={audioRef} autoPlay></audio>
-      <audio src={playUrl} controls ref={audioRef}></audio>
+      <audio controls ref={audioRef} src={playUrl}>
+      </audio>
     </div>
   )
 }

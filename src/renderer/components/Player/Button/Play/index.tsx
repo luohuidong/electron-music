@@ -15,19 +15,8 @@ function Play(): JSX.Element {
   const videoElement = useSelector(({ player }: AppState): HTMLAudioElement | undefined => player.audioElement)
 
   function handleClick(): void {
-    if (!videoElement) {
-      return
-    }
-
-    if (playState) {
-      videoElement.pause()
-      dispatch(playerActions.savePlayState(false))
-    } else {
-      videoElement.play()
-      dispatch(playerActions.savePlayState(true))
-    }
+    dispatch(playerActions.savePlayState(!playState))
   }
-
 
   return (
     <img
