@@ -2,7 +2,7 @@
  * 歌单封面组件
  */
 
-import React from 'react'
+import React, { MouseEvent } from 'react'
 
 import styles from './style.scss'
 
@@ -20,21 +20,23 @@ interface Props {
 function Cover(props: Props): JSX.Element {
   const { data } = props
 
-  function handleClick(data: Data): void {
+  function handleClick(e: MouseEvent): void {
+    e.stopPropagation()
+
     const { onClick } = props
     onClick && onClick(data)
   }
 
   return (
     <figure className={styles.container}>
-      <a onClick={(): void => { handleClick(data) }}>
+      <a onClick={handleClick}>
         <div className={styles.imgContainer}>
           <img src={data.coverImgUrl} alt='' />
         </div>
       </a>
 
       <figcaption>
-        <a onClick={(): void => { handleClick(data) }}>{data.name}</a>
+        <a onClick={handleClick}>{data.name}</a>
       </figcaption>
     </figure>
   )
