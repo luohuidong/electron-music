@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { AppState } from 'Store/index'
@@ -13,7 +13,9 @@ function Play(): JSX.Element {
 
   const playState = useSelector(({ player }: AppState): boolean => player.playState)
 
-  function handleClick(): void {
+  function handleClick(e: MouseEvent): void {
+    e.stopPropagation()
+    console.log('handleClick !playState', !playState)
     dispatch(playerActions.savePlayState(!playState))
   }
 
