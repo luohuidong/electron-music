@@ -11,13 +11,6 @@ function Audio(): JSX.Element {
   let audioRef = React.createRef<HTMLAudioElement>()
   const dispatch = useDispatch()
 
-  useEffect((): EffectCallBack => {
-    const audioElement = audioRef.current
-    if (audioElement) {
-      dispatch(playerActions.saveAudioElement(audioElement))
-    }
-  }, [])
-
   /** 当前正在播放的歌曲 */
   const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
   const [playUrl, setPlayUrl] = useState()

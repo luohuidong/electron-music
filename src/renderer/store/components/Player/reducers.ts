@@ -1,7 +1,7 @@
 import {
   State, ActionTypes,
   SAVE_PLAY_LIST, SAVE_CURRENT_SONG, SAVE_PERCENTAGE, SAVE_PLAY_STATE,
-  SAVE_CURRENT_SONG_INDEX, SAVE_AUDIO_ELEMENT
+  SAVE_CURRENT_SONG_INDEX
 } from './types'
 import { state as initialState } from './state'
 
@@ -12,7 +12,6 @@ export default function(state = initialState, action: ActionTypes): State  {
     case SAVE_PERCENTAGE:
     case SAVE_PLAY_STATE:
     case SAVE_CURRENT_SONG_INDEX:
-    case SAVE_AUDIO_ELEMENT:
       return {
         ...state,
         ...action.payload

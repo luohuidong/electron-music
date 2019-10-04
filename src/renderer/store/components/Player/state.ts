@@ -14,5 +14,4 @@ export const state: State = {
   currentSongIndex: 0,
   percentage: 0,
   playState: true,
-  audioElement: undefined,
 }
