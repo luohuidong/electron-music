@@ -20,11 +20,16 @@ export interface Song {
 }
 
 export interface State {
-  playList: Song[]; // 歌单歌曲列表
-  currentSong: Song; // 当前在播放的歌曲
-  currentSongIndex: number; // 当前播放的歌曲在歌曲列表中对应的索引
-  percentage: number; // 当前播放进度百分比
-  playState: boolean; // 播放器播放状态
+  /** 歌单歌曲列表 */
+  playList: Song[];
+  /** 当前在播放的歌曲 */
+  currentSong: Song;
+  /** 当前播放的歌曲在歌曲列表中对应的索引 */
+  currentSongIndex: number;
+  /** 当前播放进度百分比 */
+  percentage: number;
+  /** 播放器播放状态 */
+  playState: boolean;
 }
 
 // action type
