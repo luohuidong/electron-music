@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { MouseEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { AppState } from 'Store/index'
+import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
 import backIcon from './next.svg'
 import styles from './style.scss'
@@ -33,6 +34,7 @@ function Next(): JSX.Element {
       src={backIcon}
       alt="下一首歌"
       title="下一首歌"
+      onClick={handleClick}
     />
   )
 }
