@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { requestSongPlayUrls } from 'Api/playList'
 import { AppState } from 'Store/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
-
-type EffectCallBack = void | (() => void)
+import { EffectCallBack } from 'Types/index'
 
 function Audio(): JSX.Element {
   let audioRef = React.createRef<HTMLAudioElement>()
