@@ -1,8 +1,7 @@
-import React, { useEffect, MouseEvent } from 'react'
+import React, { MouseEvent } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { AppState } from 'Store/index'
-import { EffectCallBack } from 'Types/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
 
@@ -20,7 +19,7 @@ function Back(): JSX.Element {
     const length = playList.length
 
     /** 前一首歌在歌曲列表中的索引 */
-    let previousSongIndex = playerState.currentSongIndex + 1
+    let previousSongIndex = playerState.currentSongIndex - 1
 
     if (previousSongIndex < 0) {
       previousSongIndex = length - 1
