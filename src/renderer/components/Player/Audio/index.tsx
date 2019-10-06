@@ -117,7 +117,7 @@ function Audio(): JSX.Element {
 
   return (
     <div>
-      <audio controls ref={audioRef} src={playUrl}>
+      <audio ref={audioRef} src={playUrl}>
       </audio>
     </div>
   )
