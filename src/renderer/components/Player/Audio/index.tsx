@@ -61,7 +61,7 @@ function Audio(): JSX.Element {
         return
       }
 
-      dispatch(playerActions.saveCurrentTime(currentTime, duration))
+      dispatch(playerActions.savePlayerTime(currentTime, duration))
 
       const percentage = currentTime / duration
       dispatch(playerActions.savePercentage(percentage))

@@ -14,4 +14,6 @@ export const state: State = {
   currentSongIndex: 0,
   percentage: 0,
   playState: false,
+  currentTime: 0,
+  duration: 0,
 }

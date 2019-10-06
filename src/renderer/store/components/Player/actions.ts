@@ -5,6 +5,7 @@ import {
   SAVE_PERCENTAGE, SavePercentageAction,
   SAVE_PLAY_STATE, SavePlayStateAction,
   SAVE_CURRENT_SONG_INDEX, SaveCurrentSongIndex,
+  SAVE_PLAYER_TIME, SaveCurrentTimeAction,
 } from './types'
 
 /**
@@ -68,6 +69,21 @@ export function savePlayState(playState: boolean): SavePlayStateAction {
     type: SAVE_PLAY_STATE,
     payload: {
       playState
+    }
+  }
+}
+
+/**
+ * 保存播放器当前时间
+ * @param currentTime 播放器当前时间（秒）
+ * @param duration 播放总时间
+ */
+export function savePlayerTime(currentTime: number, duration: number): SaveCurrentTimeAction {
+  return {
+    type: SAVE_PLAYER_TIME,
+    payload: {
+      currentTime,
+      duration,
     }
   }
 }
