@@ -1,0 +1,19 @@
+@import '~Styles/variables';
+
+.container {
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: $background-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #4B4B4D;
+
+    &:hover {
+      background: #616162;
+    }
+  }
+}

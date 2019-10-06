@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { ScrollView } from 'Components/index'
 import Header from './Header'
 import Aside from './Aside'
 
@@ -22,7 +23,9 @@ function Layout(props: Props): JSX.Element {
           <Aside />
         </aside>
 
-        <div className={styles.mainContent}>{props.children}</div>
+        <ScrollView className={styles.scrollView}>
+          <div className={styles.mainContent}>{props.children}</div>
+        </ScrollView>
       </main>
 
       <footer className={styles.footer}>

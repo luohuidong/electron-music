@@ -1,6 +1,6 @@
 @import '~Styles/variables';
 
-.container { 
+.container {
   height: 100vh;
   overflow: hidden;
 
@@ -19,11 +19,13 @@
     .aside {
       width: 200px;
     }
-  
-    .mainContent {
+
+    .scrollView {
       flex: 1;
       height: calc(100vh - 45px - 50px);
-      overflow-y: scroll;
+    }
+
+    .mainContent {
 
       display: flex;
       justify-content: center;
