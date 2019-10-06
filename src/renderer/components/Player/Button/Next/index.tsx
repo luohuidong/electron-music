@@ -17,6 +17,10 @@ function Next(): JSX.Element {
     const playList = playerState.playList
     const length = playList.length
 
+    if (length === 0) {
+      return
+    }
+
     /** 前一首歌在歌曲列表中的索引 */
     let previousSongIndex = playerState.currentSongIndex + 1
 
