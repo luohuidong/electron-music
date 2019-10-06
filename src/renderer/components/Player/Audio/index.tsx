@@ -122,12 +122,7 @@ function Audio(): JSX.Element {
     }
   }, [playerState.playState])
 
-  return (
-    <div>
-      <audio ref={audioRef} src={playUrl}>
-      </audio>
-    </div>
-  )
+  return <audio ref={audioRef} src={playUrl} />
 }
 
 export default Audio
