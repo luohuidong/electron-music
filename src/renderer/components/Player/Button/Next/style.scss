@@ -1,4 +1,9 @@
 .img {
   height: 60%;
   object-fit: cover;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
 }
