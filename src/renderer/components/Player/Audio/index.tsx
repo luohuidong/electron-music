@@ -21,6 +21,11 @@ function Audio(): JSX.Element {
         const songPlayUrlDatas = await requestSongPlayUrls(`${song.id}`)
         const songPlayUrlData = songPlayUrlDatas[0]
         const playUrl = songPlayUrlData.url
+
+        if (!playUrl) {
+          throw new Error('当前歌曲无法播放')
+        }
+
         setPlayUrl(playUrl)
       } catch (error) {
         console.error(error.message)
