@@ -1,0 +1,33 @@
+@import "~Styles/variables";
+
+.outerContainer {
+  height: 100%;
+  width: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .innerContainer {
+    height: 30%;
+
+    display: flex;
+    align-items: center;
+
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text {
+      margin-left: 5px;
+      font-size: $font-size-small;
+    }
+  }
+}
