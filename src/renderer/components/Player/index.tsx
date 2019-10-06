@@ -3,6 +3,9 @@ import React from 'react'
 import Button from './Button'
 import Audio from './Audio'
 import ProgressBar from './ProgressBar'
+import Volume from './Volume'
+import PlayList from './PlayList'
+
 import styles from './style.scss'
 
 export default function Player (): JSX.Element {
@@ -17,8 +20,11 @@ export default function Player (): JSX.Element {
       </div>
 
       <div className={styles.right}>
-        <Audio />
+        <Volume />
+        <PlayList />
       </div>
+
+      <Audio />
     </div>
   )
 }
