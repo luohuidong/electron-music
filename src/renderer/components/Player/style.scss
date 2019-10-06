@@ -1,5 +1,14 @@
 .container {
   height: 100%;
-
   display: flex;
+
+  .left {
+  }
+
+  .center {
+    flex: 1;
+  }
+
+  .right {
+  }
 }

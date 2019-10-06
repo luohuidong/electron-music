@@ -1,0 +1,29 @@
+@import '~Styles/variables';
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .currentTime {
+    font-size: $font-size-small;
+  }
+
+  .progressBarContainer {
+    height: 4px;
+    flex: 1;
+    margin: 0 15px;
+    border-radius: 2px;
+    overflow: hidden;
+    background-color: #454546;
+
+    .progressBar {
+      background: #B82525;
+      height: 100%;
+    }
+  }
+
+  .totalTime {
+    font-size: $font-size-small;
+  }
+}
