@@ -2,6 +2,9 @@ import React, { useState, MouseEvent } from 'react'
 
 import normalVolumnIcon from './volume-normal.svg'
 import muteVolumnIcon from './volume-mute.svg'
+
+import { Slider } from 'Components/index'
+
 import styles from './style.scss'
 
 export default function Volume(): JSX.Element {
@@ -26,9 +29,7 @@ export default function Volume(): JSX.Element {
         onClick={handleIconClick}
       />
 
-      <div className={styles.volumeBar}>
-        <div></div>
-      </div>
+      <Slider />
     </div>
   )
 }
