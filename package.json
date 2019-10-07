@@ -8,7 +8,9 @@
     "electron-dev": "cross-env NODE_ENV=development electron .",
     "webpack-main-build": "webpack --config webpack/webpack.main.prod.js",
     "webpack-renderer-dev": "webpack-dev-server --hot --env.development --config webpack/webpack.renderer.dev.js",
+    "webpack-renderer-dev-web": "webpack-dev-server --hot --env.development --env.web --config webpack/webpack.renderer.dev.js",
     "webpack-renderer-build": "webpack --env.production --config webpack/webpack.renderer.prod.js",
+    "webpack-renderer-build-web": "webpack --env.production --env.web --config webpack/webpack.renderer.prod.js",
     "electron-pack": "electron-builder --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json"
   },
