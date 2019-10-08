@@ -38,7 +38,7 @@ export default function Dropdown(props: Props): JSX.Element {
 
   return (
     <div
-      className={props.className}
+      className={classnames(styles.container, props.className)}
       onClick={handleClick}
       onBlur={handleBlur}
       style={props.style}
