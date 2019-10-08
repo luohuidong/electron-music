@@ -1,0 +1,51 @@
+$y-offset: 100%;
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.overLay {
+  position: absolute;
+  display: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  z-index: 20;
+
+  &.hidden {
+    display: none;
+  }
+
+  &.show {
+    display: block;
+  }
+
+  &.bottomLeft {
+    top: $y-offset;
+    left: 0;
+  }
+  &.bottomCenter {
+    top: $y-offset;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+  &.bottomRight {
+    top: $y-offset;
+    right: 0;
+  }
+
+  &.topLeft {
+    bottom: $y-offset;
+    left: 0;
+  }
+  &.topCenter {
+    bottom: $y-offset;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+  &.topRight {
+    bottom: $y-offset;
+    right: 0;
+  }
+}
+
