@@ -21,11 +21,16 @@ export default function Dropdown(props: Props): JSX.Element {
     e.stopPropagation()
 
     const container = containerRef.current
-    if (container) {
-      container.focus()
-    }
 
-    setShowOverLay(true)
+    if (!container) return
+
+    if (showOverLay) {
+      container.blur()
+      setShowOverLay(false)
+    } else {
+      container.focus()
+      setShowOverLay(true)
+    }
   }
 
   function handleBlur(): void {
