@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 
 import Pages from './pages/index'
 import { store } from './store'
+import './style.css'
 
 function App(): JSX.Element {
   return (
