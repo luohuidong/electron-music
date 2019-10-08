@@ -13,10 +13,18 @@ interface Props {
 }
 
 export default function Dropdown(props: Props): JSX.Element {
+  const containerRef = React.createRef<HTMLDivElement>()
+
   const [showOverLay, setShowOverLay] = useState(false)
 
   function handleClick(e: MouseEvent): void {
     e.stopPropagation()
+
+    const container = containerRef.current
+    if (container) {
+      container.focus()
+    }
+
     setShowOverLay(true)
   }
 
@@ -26,6 +34,7 @@ export default function Dropdown(props: Props): JSX.Element {
 
   function handleDropdownClick(e: MouseEvent): void {
     e.stopPropagation()
+
     setShowOverLay(false)
   }
 
@@ -42,6 +51,8 @@ export default function Dropdown(props: Props): JSX.Element {
       onClick={handleClick}
       onBlur={handleBlur}
       style={props.style}
+      ref={containerRef}
+      tabIndex={-1}
     >
       {props.children}
 
