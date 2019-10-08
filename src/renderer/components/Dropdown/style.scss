@@ -12,8 +12,6 @@ $y-offset: 100%;
 .overLay {
   position: absolute;
   display: none;
-  padding-top: 5px;
-  padding-bottom: 5px;
   z-index: 20;
 
   &.hidden {
