@@ -1,0 +1,37 @@
+@import '~Styles/variables';
+
+.container {
+  height: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 30px;
+
+  &:nth-child(odd) {
+    background: #303236;
+  }
+
+  &:hover {
+    background: #323438;
+  }
+
+  .songName {
+    font-size: $font-size-small;
+    color: #E2E2E2;
+
+    &.playing {
+      color: #ff5050;
+    }
+  }
+
+  .artistsName {
+    font-size: $font-size-small;
+    color: #828385;
+
+    &.playing {
+      color: #ff0000;
+    }
+  }
+}
