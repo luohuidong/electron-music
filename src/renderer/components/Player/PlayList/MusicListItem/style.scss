@@ -1,5 +1,11 @@
 @import '~Styles/variables';
 
+%text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .container {
   height: 25px;
 
@@ -17,25 +23,35 @@
     background: #323438;
   }
 
-  .songName {
-    font-size: $font-size-small;
-    color: #E2E2E2;
+  .songNameContainer {
+    flex: 5;
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding-right: 20px;
 
-    &.playing {
-      color: #ff5050;
+    @extend %text-ellipsis;
+
+    .songName {
+      font-size: $font-size-small;
+      color: #E2E2E2;
+
+      &.playing {
+        color: #ff5050;
+      }
     }
   }
 
-  .artistsName {
-    font-size: $font-size-small;
-    color: #828385;
+  .artistsNameContainer {
+    flex: 2;
 
-    &.playing {
-      color: #ff0000;
+    @extend %text-ellipsis;
+
+    .artistsName {
+      font-size: $font-size-small;
+      color: #828385;
+
+      &.playing {
+        color: #ff0000;
+      }
     }
   }
 }

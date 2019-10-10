@@ -44,10 +44,17 @@ export default function MusicListItem(props: Props): JSX.Element {
       onDoubleClick={handleDoubleClick}
       onClick={handleClick}
     >
-      <span className={classnames(styles.songName, { [styles.playing]: data.id === currentSong.id })}>
-        {data.name}
-      </span>
-      <span className={classnames(styles.artistsName, { [styles.playing]: data.id === currentSong.id })}>{getArtistsName(data)}</span>
+      <div className={styles.songNameContainer}>
+        <span className={classnames(styles.songName, { [styles.playing]: data.id === currentSong.id })}>
+          {data.name}
+        </span>
+      </div>
+
+      <div className={styles.artistsNameContainer}>
+        <span className={classnames(styles.artistsName, { [styles.playing]: data.id === currentSong.id })}>
+          {getArtistsName(data)}
+        </span>
+      </div>
     </div>
   )
 }
