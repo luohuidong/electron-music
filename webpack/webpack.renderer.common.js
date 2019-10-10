@@ -31,7 +31,8 @@ module.exports = env => {
         'Styles': getPath('/styles/'),
         'Api': getPath('/api/'),
         'Store': getPath('/store/'),
-        'Types': getPath('/types/')
+        'Types': getPath('/types/'),
+        'Utils': getPath('/utils'),
       }
     },
 
