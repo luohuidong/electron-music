@@ -2,22 +2,22 @@ import { Action } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
 import { AppState } from 'Store/index'
-import { requestHighQualityPlayList } from 'Api/playList'
-import { saveHightQualityPlayList } from './actions'
+import { requestPlayList } from 'Api/playList'
+import { savePlayList } from './actions'
 
 /**
  * 获取精选歌单列表数据
  */
-export function thunkGetHightQualityPlayList(): ThunkAction<void, AppState, null, Action<string>> {
+export function thunkSavePlayList(): ThunkAction<void, AppState, null, Action<string>> {
   return async (dispatch): Promise<void> => {
 
     try {
-      const result = await requestHighQualityPlayList()
+      const result = await requestPlayList()
       const { playlists } = result
 
-      dispatch(saveHightQualityPlayList(playlists))
+      dispatch(savePlayList(playlists))
     } catch (error) {
-      console.error('thunkGetHightQualityPlayList', error.message)
+      console.error('thunkSavePlayList', error.message)
     }
   }
 }

@@ -1,14 +1,14 @@
-import { GET_HIGHT_QUALITY_PLAY_LIST, ActionTypes, HightQualityPlayListItem } from './types'
+import { SAVE_PLAY_LIST, ActionTypes, SavePlayListItem } from './types'
 
 /**
  * 保存精选歌单列表数据
- * @param hightQualityPlayList 精选歌单列表数据
+ * @param playList 精选歌单列表数据
  */
-export function saveHightQualityPlayList(hightQualityPlayList: HightQualityPlayListItem[]): ActionTypes {
+export function savePlayList(playList: SavePlayListItem[]): ActionTypes {
   return {
-    type: GET_HIGHT_QUALITY_PLAY_LIST,
+    type: SAVE_PLAY_LIST,
     payload: {
-      hightQualityPlayList
+      playList
     }
   }
 }

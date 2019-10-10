@@ -1,7 +1,7 @@
 // state type
 
 /** 精选歌单 */
-export interface HightQualityPlayListItem {
+export interface SavePlayListItem {
   name: string;
   id: number;
   description: string;
@@ -10,19 +10,19 @@ export interface HightQualityPlayListItem {
 
 /** PlayList State */
 export interface State {
-  hightQualityPlayList: HightQualityPlayListItem[];
+  playList: SavePlayListItem[];
 }
 
 // action type
 
 /** 获取精选歌单 */
-export const GET_HIGHT_QUALITY_PLAY_LIST = 'PAGES_PLAY_LIST/GET_HIGHT_QUALITY_PLAY_LIST'
+export const SAVE_PLAY_LIST = 'PAGES_PLAY_LIST/SAVE_PLAY_LIST'
 
-interface GetHightQualityPlayListAction {
-  type: typeof GET_HIGHT_QUALITY_PLAY_LIST;
+interface GetPlayListAction {
+  type: typeof SAVE_PLAY_LIST;
   payload: {
-    hightQualityPlayList: HightQualityPlayListItem[];
+    playList: SavePlayListItem[];
   };
 }
 
-export type ActionTypes = GetHightQualityPlayListAction
+export type ActionTypes = GetPlayListAction

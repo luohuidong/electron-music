@@ -10,20 +10,20 @@ import { Cover } from 'Components/index'
 import style from './style.scss'
 
 interface Props {
-  hightQualityPlayList: playListTypes.HightQualityPlayListItem[];
-  thunkGetHightQualityPlayList: () => void;
+  playList: playListTypes.SavePlayListItem[];
+  thunkSavePlayList: () => void;
   thunkSavePlayList: (playListId: number) => void;
 }
 
 function PlayList(props: Props): React.ReactElement {
   useEffect((): void => {
     async function getHightQualityPlayList(): Promise<void> {
-      await props.thunkGetHightQualityPlayList()
+      await props.thunkSavePlayList()
     }
     getHightQualityPlayList()
   }, [])
 
-  const { hightQualityPlayList } = props
+  const { playList } = props
 
   interface Data {
     name: string; // 歌单名称
@@ -44,7 +44,7 @@ function PlayList(props: Props): React.ReactElement {
     <div className={style.container}>
       <div className={style.playList}>
         {
-          hightQualityPlayList.map((element): React.ReactElement => (
+          playList.map((element): React.ReactElement => (
             <Cover key={element.id} data={element} onClick={(data): void => { handleClick(data) }} />
           ))
         }
@@ -54,11 +54,11 @@ function PlayList(props: Props): React.ReactElement {
 }
 
 const mapStateToProps = ({ playList }: AppState): object => ({
-  hightQualityPlayList: playList.hightQualityPlayList
+  playList: playList.playList
 })
 
 const mapDispatchToProps = {
-  thunkGetHightQualityPlayList: playListThunks.thunkGetHightQualityPlayList,
+  thunkSavePlayList: playListThunks.thunkSavePlayList,
   thunkSavePlayList: playerThunks.thunkSavePlayList,
 }
 

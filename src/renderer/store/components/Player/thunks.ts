@@ -18,7 +18,7 @@ export function thunkSavePlayList(playListId: number): ThunkAction<void, AppStat
       dispatch(saveCurrentSong(tracks[0]))
       dispatch(saveCurrentSongIndex(0))
     } catch (error) {
-      console.error('thunkGetHightQualityPlayList', error.message)
+      console.error('thunkSavePlayList', error.message)
     }
   }
 }
