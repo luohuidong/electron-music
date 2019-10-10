@@ -21,6 +21,10 @@
     font-size: $font-size-small;
     color: #E2E2E2;
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     &.playing {
       color: #ff5050;
     }
