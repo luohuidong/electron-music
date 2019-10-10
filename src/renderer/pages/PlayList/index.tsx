@@ -42,10 +42,6 @@ function PlayList(props: Props): React.ReactElement {
 
   return (
     <div className={style.container}>
-      <div>
-        热门标签
-      </div>
-
       <div className={style.playList}>
         {
           hightQualityPlayList.map((element): React.ReactElement => (
