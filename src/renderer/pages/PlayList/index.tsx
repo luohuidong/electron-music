@@ -12,7 +12,7 @@ import style from './style.scss'
 interface Props {
   playList: playListTypes.SavePlayListItem[];
   thunkSavePlayList: () => void;
-  thunkSavePlayList: (playListId: number) => void;
+  thunkSavePlayerPlayList: (playListId: number) => void;
 }
 
 function PlayList(props: Props): React.ReactElement {
@@ -37,7 +37,7 @@ function PlayList(props: Props): React.ReactElement {
    */
   function handleClick(data: Data): void {
     const { id } = data
-    props.thunkSavePlayList(id)
+    props.thunkSavePlayerPlayList(id)
   }
 
   return (
@@ -59,7 +59,7 @@ const mapStateToProps = ({ playList }: AppState): object => ({
 
 const mapDispatchToProps = {
   thunkSavePlayList: playListThunks.thunkSavePlayList,
-  thunkSavePlayList: playerThunks.thunkSavePlayList,
+  thunkSavePlayerPlayList: playerThunks.thunkSavePlayerPlayList,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayList)

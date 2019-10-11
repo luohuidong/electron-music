@@ -9,7 +9,7 @@ import { savePlayList, saveCurrentSong, saveCurrentSongIndex } from './actions'
  * 获取歌单歌曲列表
  * @param playListId
  */
-export function thunkSavePlayList(playListId: number): ThunkAction<void, AppState, null, Action<string>> {
+export function thunkSavePlayerPlayList(playListId: number): ThunkAction<void, AppState, null, Action<string>> {
   return async (dispatch): Promise<void> => {
     try {
       const result = await requestPlaylistDetail(playListId)
@@ -18,7 +18,7 @@ export function thunkSavePlayList(playListId: number): ThunkAction<void, AppStat
       dispatch(saveCurrentSong(tracks[0]))
       dispatch(saveCurrentSongIndex(0))
     } catch (error) {
-      console.error('thunkSavePlayList', error.message)
+      console.error('Player thunkSavePlayList', error.message)
     }
   }
 }
