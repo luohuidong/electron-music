@@ -1,6 +1,6 @@
 {
   "appId": "cn.luohuidong.music",
-  "productName": "ElectronMusic",
+  "productName": "SnowMusic",
   "files": [
     "src/main/**/*",
     "dist-webpack/renderer/**/*"
