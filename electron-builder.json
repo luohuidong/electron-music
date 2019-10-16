@@ -8,10 +8,4 @@
   "mac": {
     "category": "public.app-category.music"
   },
-  "publish": [
-    {
-      "provider": "generic",
-      "url": "http://localhost:4000"
-    }
-  ]
 }
