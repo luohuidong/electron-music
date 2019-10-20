@@ -1,0 +1,21 @@
+.link {
+  width: 100px;
+  height: 30px;
+  margin: 0 0 5px 5px;
+
+  display: inline-block;
+
+  text-align: center;
+  line-height: 30px;
+  font-size: 12px;
+  color: #828385;
+
+  border-radius: 4px;
+  background: #303031;
+  cursor: pointer;
+
+  &:hover {
+    color: #FFFFFF;
+    background: #3B3B3C
+  }
+}

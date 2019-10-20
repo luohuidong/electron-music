@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  margin-bottom: 10px;
+
+  .title {
+    width: 100px;
+    height: 30px;
+
+    line-height: 30px;
+    text-align: center;
+
+    color: #DCDDE4;
+    font-size: 14px;
+  }
+
+  .listItemContainer {
+    flex: 1;
+  }
+}

@@ -6,7 +6,16 @@
 
   .playList {
     display: grid;
-    grid-template-columns: repeat(5, 200px);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
+
+    .cover {
+      max-width: 200px;
+
+      .img {
+        max-width: 200px;
+        max-height: 200px;
+      }
+    }
   }
 }
