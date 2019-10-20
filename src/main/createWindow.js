@@ -6,8 +6,8 @@ const isDevMode = mode === 'development'
 function createWindow(win) {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 1500,
-    height: 1000,
+    minWidth: 1080,
+    minHeight: 800,
     webPreferences: {
       nodeIntegration: true
     }
