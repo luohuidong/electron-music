@@ -3,6 +3,7 @@
  */
 
 import React, { MouseEvent } from 'react'
+import classnames from 'classnames'
 
 import styles from './style.scss'
 
@@ -15,6 +16,8 @@ interface Data {
 interface Props {
   data: Data;
   onClick?: (data: Data) => void;
+  containerClassName?: string;
+  imgContainerClassName?: string;
 }
 
 function Cover(props: Props): JSX.Element {
@@ -27,10 +30,12 @@ function Cover(props: Props): JSX.Element {
     onClick && onClick(data)
   }
 
+  const { containerClassName, imgContainerClassName } = props
+
   return (
-    <figure className={styles.container}>
+    <figure className={classnames(styles.container, containerClassName)}>
       <a onClick={handleClick}>
-        <div className={styles.imgContainer}>
+        <div className={classnames(styles.imgContainer, imgContainerClassName)}>
           <img src={data.coverImgUrl} alt='' />
         </div>
       </a>
