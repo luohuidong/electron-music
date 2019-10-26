@@ -16,4 +16,4 @@ function Button (): JSX.Element {
   )
 }
 
-export default Button
+export default React.memo(Button)

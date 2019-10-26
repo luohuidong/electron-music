@@ -4,18 +4,18 @@ import { useSelector, useDispatch } from 'react-redux'
 import { AppState } from 'Store/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
-
 import backIcon from './back.svg'
 import styles from './style.scss'
 
 function Back(): JSX.Element {
   const dispatch = useDispatch()
-  const playerState = useSelector(({ player }: AppState): playerTypes.State => player)
+
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
+  const currentSongIndex = useSelector(({ player }: AppState): number => player.currentSongIndex)
 
   function handleClick(e: MouseEvent): void {
     e.stopPropagation()
 
-    const playList = playerState.playList
     const length = playList.length
 
     if (length === 0) {
@@ -23,7 +23,7 @@ function Back(): JSX.Element {
     }
 
     /** 前一首歌在歌曲列表中的索引 */
-    let previousSongIndex = playerState.currentSongIndex - 1
+    let previousSongIndex = currentSongIndex - 1
 
     if (previousSongIndex < 0) {
       previousSongIndex = length - 1
@@ -44,4 +44,4 @@ function Back(): JSX.Element {
   )
 }
 
-export default Back
+export default React.memo(Back)

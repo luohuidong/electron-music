@@ -11,18 +11,16 @@ import styles from './style.scss'
 function Play(): JSX.Element {
   const dispatch = useDispatch()
 
-  const playerState = useSelector(({ player }: AppState): playerTypes.State => player)
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
+  const playState = useSelector(({ player }: AppState): boolean => player.playState)
 
   function handleClick(e: MouseEvent): void {
     e.stopPropagation()
-    const { playList, playState } = playerState
     if (playList.length === 0) {
       return
     }
     dispatch(playerActions.savePlayState(!playState))
   }
-
-  const playState = playerState.playState
 
   return (
     <img
@@ -35,4 +33,4 @@ function Play(): JSX.Element {
   )
 }
 
-export default Play
+export default React.memo(Play)
