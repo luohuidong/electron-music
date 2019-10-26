@@ -12,10 +12,10 @@ import style from './style.scss'
 
 function PlayList(): React.ReactElement {
   const dispatch = useDispatch()
-  const { playList } = useSelector(({ playList }: AppState): playListTypes.State => playList )
+  const { playList, playListQueryParams } = useSelector(({ playList }: AppState): playListTypes.State => playList )
 
   useEffect((): void => {
-    dispatch(playListThunks.thunkSavePlayList())
+    dispatch(playListThunks.thunkSavePlayList(playListQueryParams))
   }, [])
 
   interface Data {
