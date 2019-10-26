@@ -13,7 +13,8 @@
     "webpack-renderer-build-web": "webpack --env.production --env.web --config webpack/webpack.renderer.prod.js",
     "electron-pack": "electron-builder --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
-    "publish": "electron-builder -p always"
+    "publish": "electron-builder -p always",
+    "type-check": "tsc"
   },
   "keywords": [],
   "author": "luohuidong",

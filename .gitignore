@@ -1,6 +1,7 @@
 node_modules
 dist
 dist-webpack
+type-check
 .idea
 .DS_Store
 wwwroot
