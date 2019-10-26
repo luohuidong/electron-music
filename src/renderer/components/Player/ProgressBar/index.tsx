@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, shallowEqual } from 'react-redux'
 
 import { EffectCallBack } from 'Types/index'
 import { AppState } from 'Store/index'
@@ -22,6 +22,7 @@ function ProgressBar(): JSX.Element {
   const {
     currentTime, duration, percentage
   } = useSelector(({ player }: AppState): playerTypes.State => player)
+
 
   function formatNumber(number: number): string | number {
     if (number < 10) {
@@ -56,4 +57,4 @@ function ProgressBar(): JSX.Element {
   )
 }
 
-export default ProgressBar
+export default React.memo(ProgressBar)

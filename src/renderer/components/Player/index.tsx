@@ -8,7 +8,7 @@ import PlayList from './PlayList'
 
 import styles from './style.scss'
 
-export default function Player (): JSX.Element {
+function Player (): JSX.Element {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -28,3 +28,5 @@ export default function Player (): JSX.Element {
     </div>
   )
 }
+
+export default React.memo(Player)

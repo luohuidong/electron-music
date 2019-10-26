@@ -7,7 +7,7 @@ import { Slider } from 'Components/index'
 
 import styles from './style.scss'
 
-export default function Volume(): JSX.Element {
+function Volume(): JSX.Element {
   // 是否静音
   const [isMute, setIsMute] = useState(false)
 
@@ -33,3 +33,5 @@ export default function Volume(): JSX.Element {
     </div>
   )
 }
+
+export default React.memo(Volume)
