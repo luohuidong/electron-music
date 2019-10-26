@@ -18,10 +18,11 @@ interface ThunkSavePlayListParam {
 export function thunkSavePlayList(param: ThunkSavePlayListParam): ThunkAction<void, AppState, null, Action<string>> {
   return async (dispatch): Promise<void> => {
     try {
+      dispatch(savePlayListQueryParam(param))
+      
       const result = await requestPlayList(param)
       const { playlists } = result
 
-      dispatch(savePlayListQueryParam(param))
       dispatch(savePlayList(playlists))
     } catch (error) {
       console.error('thunkSavePlayList', error.message)
