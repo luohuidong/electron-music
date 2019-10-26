@@ -8,9 +8,17 @@ export interface SavePlayListItem {
   coverImgUrl: string;
 }
 
+export interface PlayListQueryParams {
+  order: string;
+  category: string;
+  limit: number;
+  offset: number;
+}
+
 /** PlayList State */
 export interface State {
   playList: SavePlayListItem[];
+  playListQueryParams: PlayListQueryParams;
 }
 
 // action type
@@ -25,4 +33,13 @@ interface GetPlayListAction {
   };
 }
 
-export type ActionTypes = GetPlayListAction
+export const SAVE_PLAY_LIST_QUERY_PARAMS = 'PAGES_PLAY_LIST/SAVE_PLAY_LIST_QUERY_PARAMS'
+
+interface SavePlayListQueryParamsAction {
+  type: typeof SAVE_PLAY_LIST_QUERY_PARAMS;
+  payload: {
+    playListQueryParams: PlayListQueryParams;
+  };
+}
+
+export type ActionTypes = GetPlayListAction | SavePlayListQueryParamsAction
