@@ -11,12 +11,12 @@ interface Props {
   data: playerTypes.Song; // 歌曲数据
 }
 
-export default function MusicListItem(props: Props): JSX.Element {
+function MusicListItem(props: Props): JSX.Element {
   const dispatch = useDispatch()
 
   const { data } = props
 
-  const playerState = useSelector(({ player }: AppState): playerTypes.State => player )
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
 
   function getArtistsName(data: playerTypes.Song): string {
     const artists = data.ar
@@ -27,7 +27,7 @@ export default function MusicListItem(props: Props): JSX.Element {
   function handleDoubleClick(e: MouseEvent): void {
     e.stopPropagation()
 
-    const songIndex = playerState.playList.findIndex((song): boolean => song.id === data.id)
+    const songIndex = playList.findIndex((song): boolean => song.id === data.id)
     dispatch(playerActions.saveCurrentSongIndex(songIndex))
     dispatch(playerActions.saveCurrentSong(data))
   }
@@ -36,7 +36,7 @@ export default function MusicListItem(props: Props): JSX.Element {
     e.stopPropagation()
   }
 
-  const { currentSong } = playerState
+  const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
 
   return (
     <div
@@ -58,3 +58,5 @@ export default function MusicListItem(props: Props): JSX.Element {
     </div>
   )
 }
+
+export default React.memo(MusicListItem)

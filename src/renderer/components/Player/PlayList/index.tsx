@@ -10,10 +10,9 @@ import MusicList from './MusicList'
 import compactDiscIcon from './compact-disc.svg'
 import styles from './style.scss'
 
-export default function PlayList(): JSX.Element {
-  const playerState = useSelector(({ player }: AppState): playerTypes.State => player)
-  const playList = playerState.playList
-
+function PlayList(): JSX.Element {
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
+  
   return (
     <Dropdown
       className={styles.outerContainer}
@@ -30,3 +29,5 @@ export default function PlayList(): JSX.Element {
     </Dropdown>
   )
 }
+
+export default React.memo(PlayList)

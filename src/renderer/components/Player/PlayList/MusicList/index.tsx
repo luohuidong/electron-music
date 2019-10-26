@@ -8,8 +8,8 @@ import { AppState } from 'Store/index'
 import { types as playerTypes } from 'Store/components/Player'
 import styles from './style.scss'
 
-export default function MusicList(): JSX.Element {
-  const { playList } = useSelector(({ player }: AppState): playerTypes.State => player )
+function MusicList(): JSX.Element {
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList )
 
   return (
     <div className={styles.container}>
@@ -28,3 +28,5 @@ export default function MusicList(): JSX.Element {
     </div>
   )
 }
+
+export default React.memo(MusicList)
