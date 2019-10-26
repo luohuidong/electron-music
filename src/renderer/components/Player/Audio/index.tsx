@@ -9,9 +9,11 @@ import { EffectCallBack } from 'Types/index'
 function Audio(): JSX.Element {
   let audioRef = React.createRef<HTMLAudioElement>()
   const dispatch = useDispatch()
-  const playerState = useSelector(({ player }: AppState): playerTypes.State => player)
 
   /** 当前正在播放的歌曲 */
+  const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
+
+  /** 当前正在播放的歌曲 url */
   const [playUrl, setPlayUrl] = useState()
 
   // 获取当前播放可取的播放 url
@@ -32,12 +34,10 @@ function Audio(): JSX.Element {
       }
     }
 
-    const currentSong = playerState.currentSong
-
     if (currentSong.id) {
       handleRequestSongPlayUrls(currentSong)
     }
-  }, [playerState.currentSong])
+  }, [currentSong])
 
   // 当播放音乐的 url 发生变化时，将播放器设置为播放状态
   useEffect((): EffectCallBack => {
@@ -80,14 +80,20 @@ function Audio(): JSX.Element {
     }
   })
 
+  /** 歌单歌曲列表 */
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
+  /** 当前播放的歌曲在歌曲列表中对应的索引 */
+  const currentSongIndex = useSelector(({ player }: AppState): number => player.currentSongIndex)
+  /** 当前歌曲播放百分比 */
+  const percentage = useSelector(({ player }: AppState): number => player.percentage)
+
   // 当前播放进度为百分百的时候，切换下一首歌
   useEffect((): EffectCallBack => {
     function playNextSong(): void {
-      const playList = playerState.playList
 
       const length = playList.length
 
-      let nextSongIndex = playerState.currentSongIndex + 1
+      let nextSongIndex = currentSongIndex + 1
 
       if (length <= nextSongIndex) {
         nextSongIndex = 0
@@ -97,7 +103,6 @@ function Audio(): JSX.Element {
       dispatch(playerActions.saveCurrentSong(playList[nextSongIndex]))
     }
 
-    const percentage = playerState.percentage
     const savePercentage = playerActions.savePercentage
     dispatch(savePercentage(percentage))
 
@@ -105,7 +110,10 @@ function Audio(): JSX.Element {
       playNextSong() // 播放下一首歌
       savePercentage(0) // 将播放进度百分比重置为 0
     }
-  }, [playerState.percentage])
+  }, [percentage])
+
+  /** 播放器播放状态 */
+  const playState = useSelector(({ player }: AppState): boolean => player.playState)
 
   // playState 为 true 的时候，播放器设置为播放
   // playState 为 false 的时候，将播放器设置为暂停
@@ -115,14 +123,14 @@ function Audio(): JSX.Element {
       return
     }
 
-    if (playerState.playState) {
+    if (playState) {
       audioElement.play()
     } else {
       audioElement.pause()
     }
-  }, [playerState.playState])
+  }, [playState])
 
   return <audio ref={audioRef} src={playUrl} />
 }
 
-export default Audio
+export default React.memo(Audio) 
