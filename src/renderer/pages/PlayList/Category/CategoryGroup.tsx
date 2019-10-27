@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { CategoryListItem } from 'Api/playList/requestCategoryList'
-import ListItem from './ListItem'
-import styles from './list.scss'
+import ListItem from './CategoryGroupItem'
+import styles from './categoryGroup.scss'
 
 interface Props {
   data: {
@@ -11,8 +11,9 @@ interface Props {
   };
 }
 
-export default function CategoryList(props: Props): JSX.Element {
+function CategoryGroup(props: Props): JSX.Element {
   const { data } = props
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>{ data.name }</div>
@@ -27,3 +28,5 @@ export default function CategoryList(props: Props): JSX.Element {
     </div>
   )
 }
+
+export default React.memo(CategoryGroup)

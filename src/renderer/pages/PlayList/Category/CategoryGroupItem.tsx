@@ -6,19 +6,21 @@ import { CategoryListItem } from 'Api/playList/requestCategoryList'
 import { thunks as playListThunks, types as playListTypes } from 'Store/pages/PlayList'
 import { AppState } from 'Store/index'
 
-import styles from './listItem.scss'
+import styles from './categoryGroupItem.scss'
 
 interface Props {
   data: CategoryListItem;
 }
 
-export default function ListItem(props: Props): JSX.Element {
+function CategoryGroupItem(props: Props): JSX.Element {
   const { data } = props
   const dispatch = useDispatch()
 
   const { playListQueryParams } = useSelector(({ playList }: AppState): playListTypes.State => playList)
 
-  function handleClick(): void {
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>): void {
+    e.stopPropagation()
+
     const params = {
       order: 'hot',
       category: data.name,
@@ -41,3 +43,5 @@ export default function ListItem(props: Props): JSX.Element {
     </a>
   )
 }
+
+export default React.memo(CategoryGroupItem)
