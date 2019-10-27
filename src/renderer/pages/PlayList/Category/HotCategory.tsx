@@ -23,8 +23,6 @@ function HotCategory(): JSX.Element {
   }, [])
 
   function handleClick(data: HotCategoryItem): void {
-    console.log('a');
-
     const params = {
       order: 'new',
       category: data.name,
