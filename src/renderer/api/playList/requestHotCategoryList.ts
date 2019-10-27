@@ -1,10 +1,10 @@
 import { get } from '../http'
 
-interface HotCategory {
+interface HotCategoryItem {
   name: string;
 }
 
-export async function requestHotCategoryList(): Promise<HotCategory> {
+export async function requestHotCategoryList(): Promise<HotCategoryItem[]> {
   try {
     const config = {
       url: '/playlist/hot'
