@@ -1,10 +1,13 @@
-
 .container {
   display: flex;
   flex-direction: column;
   color: white;
   width: 90vw;
   max-width: 1080px;
+
+  .categoryContainer {
+    margin: 20px 0;
+  }
 
   .playList {
     display: grid;

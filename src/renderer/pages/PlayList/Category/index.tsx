@@ -18,7 +18,7 @@ function Category(): JSX.Element {
 
   return (
     <React.Fragment>
-      <Dropdown overLay={<CategoryGroups />}>
+      <Dropdown overLay={<CategoryGroups />} style={{ display: 'inline-block' }}>
         <div className={styles.button}>
           <span>{playListQueryParams.category}</span>
           <img className={styles.img} src={arrowDownIcon} />

@@ -35,7 +35,9 @@ function PlayList(): React.ReactElement {
 
   return (
     <div className={style.container}>
-      <Category />
+      <div className={style.categoryContainer}>
+        <Category />
+      </div>
 
       <div className={style.playList}>
         {
