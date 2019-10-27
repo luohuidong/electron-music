@@ -1,6 +1,7 @@
 import { get } from '../http'
 
 interface HotCategoryItem {
+  id: number;
   name: string;
 }
 
