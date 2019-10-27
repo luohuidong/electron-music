@@ -10,7 +10,7 @@ import styles from './categoryGroups.scss'
 
 import CategoryGroup from './CategoryGroup'
 
-export default function CategoryGroups(): JSX.Element {
+function CategoryGroups(): JSX.Element {
   const dispatch = useDispatch()
   const { all, sub, categories } = useSelector(({ categoryList }: AppState): categoryListTypes.State => categoryList)
 
@@ -70,3 +70,5 @@ export default function CategoryGroups(): JSX.Element {
     </div>
   )
 }
+
+export default React.memo(CategoryGroups)
