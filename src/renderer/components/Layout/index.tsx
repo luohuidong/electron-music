@@ -14,9 +14,9 @@ interface Props {
 function Layout(props: Props): JSX.Element {
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
+      {/* <header className={styles.header}>
         <Header />
-      </header>
+      </header> */}
 
       <main className={styles.main}>
         {/* <aside className={styles.aside}>
