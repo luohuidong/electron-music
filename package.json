@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-boilerplate",
+  "name": "snow-music",
   "version": "1.1.0",
-  "description": "An electron boilerplate",
+  "description": "An electron music app",
   "main": "src/main/index.js",
   "scripts": {
     "start": "concurrently \"npm:webpack-renderer-dev\" \"npm:electron-dev\"",
