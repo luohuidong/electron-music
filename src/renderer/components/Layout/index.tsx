@@ -19,9 +19,9 @@ function Layout(props: Props): JSX.Element {
       </header>
 
       <main className={styles.main}>
-        <aside className={styles.aside}>
+        {/* <aside className={styles.aside}>
           <Aside />
-        </aside>
+        </aside> */}
 
         <ScrollView className={styles.scrollView}>
           <div className={styles.mainContent}>{props.children}</div>
