@@ -1,6 +1,6 @@
 {
   "name": "electron-react-boilerplate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An electron boilerplate",
   "main": "src/main/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "webpack-renderer-build-web": "webpack --env.production --env.web --config webpack/webpack.renderer.prod.js",
     "electron-pack": "electron-builder --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
-    "publish": "electron-builder -p always",
+    "publish": "electron-builder --config electron-builder.json -p always",
     "type-check": "tsc"
   },
   "keywords": [],
@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/luohuidong/electron-react-boilerplate.git"
+    "url": "https://github.com/luohuidong/electron-music.git"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
