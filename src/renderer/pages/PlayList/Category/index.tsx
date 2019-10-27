@@ -3,11 +3,13 @@ import { useSelector } from 'react-redux'
 
 import { AppState } from 'Store/index'
 import { types as playListTypes } from 'Store/pages/PlayList'
+
 import styles from './style.scss'
 import arrowDownIcon from './arrowDown.svg'
 
 import { Dropdown } from 'Components/index'
 import CategoryGroups from './CategoryGroups'
+import HotCategory from './HotCategory'
 
 function Category(): JSX.Element {
   const playListQueryParams = useSelector(
@@ -15,12 +17,16 @@ function Category(): JSX.Element {
   )
 
   return (
-    <Dropdown overLay={<CategoryGroups />}>
-      <div className={styles.button}>
-        <span>{playListQueryParams.category}</span>
-        <img className={styles.img} src={arrowDownIcon} />
-      </div>
-    </Dropdown>
+    <React.Fragment>
+      <Dropdown overLay={<CategoryGroups />}>
+        <div className={styles.button}>
+          <span>{playListQueryParams.category}</span>
+          <img className={styles.img} src={arrowDownIcon} />
+        </div>
+      </Dropdown>
+
+      <HotCategory />
+    </React.Fragment>
   )
 }
 

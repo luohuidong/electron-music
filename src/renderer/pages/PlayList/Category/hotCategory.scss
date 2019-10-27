@@ -1,0 +1,30 @@
+@import '~Styles/variables';
+
+.container {
+  margin-bottom: 10px;
+  display: flex;
+
+  .title {
+    font-size: $font-size-medium;
+    color: #DCDCE4;
+  }
+
+  .categoryItem {
+    font-size: $font-size-medium;
+    color: #828385;
+    cursor: pointer;
+
+    &:hover {
+      color: #DCDCE4;
+    }
+  }
+
+  .divider {
+    display: inline-block;
+    height: 10px;
+    width: 1px;
+    margin: 0 15px;
+    background: #828385;
+  }
+}
+
