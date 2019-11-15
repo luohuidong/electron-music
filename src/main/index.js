@@ -13,9 +13,10 @@ let win
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', () => createWindow(win))
-
-app.on('ready', () => appUpdate(app, win))
+app.on('ready', () => {
+  createWindow(win)
+  appUpdate(app, win)
+})
 
 // Only to load development tools in development mode
 if (isDevMode) {
