@@ -13,6 +13,7 @@
     "webpack-renderer-build-web": "webpack --env.production --env.web --config webpack/webpack.renderer.prod.js",
     "electron-pack": "electron-builder --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
+    "build": "npm run webpack-renderer-build && npm run electron-pack",
     "publish": "electron-builder --config electron-builder.json -p always",
     "type-check": "tsc"
   },
