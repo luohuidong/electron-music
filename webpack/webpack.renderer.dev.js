@@ -4,8 +4,6 @@ const merge = require('webpack-merge')
 const common = require('./webpack.renderer.common.js')
 
 module.exports = env => {
-  const isWebMode = env.web
-
   return merge(common(env), {
     mode: 'development',
 
@@ -15,7 +13,6 @@ module.exports = env => {
       // This tells webpack-dev-server to serve the files from the dist/webpack directory on localhost:8080.
       contentBase: path.join(__dirname, '../dist-webpack/renderer'),
       hot: true,
-      open: isWebMode
     },
   })
 }
