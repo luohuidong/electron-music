@@ -10,7 +10,6 @@ function getPath(folderPath) {
 }
 
 module.exports = env => {
-  const isWebMode = env.web
 
   return {
     entry: './src/renderer/index.tsx',
@@ -20,7 +19,7 @@ module.exports = env => {
       path: path.resolve(__dirname, '../dist-webpack/renderer')
     },
 
-    target: isWebMode ? 'web' : 'electron-renderer',
+    target: 'electron-renderer',
 
     resolve: {
       extensions: [ '.tsx', '.ts', '.js' ],
