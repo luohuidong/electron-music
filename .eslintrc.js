@@ -1,34 +1,17 @@
 module.exports = {
-  "root": true,
-  'env': {
-    'commonjs': true,
-    'es6': true,
-    'node': true
+  root: true,
+  env: {
+    browser: true,
+    es6: true,
   },
-  'extends': 'eslint:recommended',
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly'
+  parser: "@typescript-eslint/parser",
+  extends: ["airbnb-typescript"],
+  plugins: ["@typescript-eslint"],
+  parserOptions: {
+    project: "./tsconfig.json",
   },
-  'parserOptions': {
-    'ecmaVersion': 2018
+  rules: {
+    "linebreak-style": ["error", "unix"],
+    "@typescript-eslint/indent": ["error", 2, { SwitchCase: 1 }],
   },
-  'rules': {
-    'indent': [
-      'error',
-      2
-    ],
-    'linebreak-style': [
-      'error',
-      'unix'
-    ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'never'
-    ]
-  }
-}
+};
