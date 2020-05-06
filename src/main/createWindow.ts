@@ -1,34 +1,34 @@
-const { BrowserWindow } = require('electron')
+import { BrowserWindow } from 'electron';
 
-const mode = process.env.NODE_ENV
-const isDevMode = mode === 'development'
+const mode = process.env.NODE_ENV;
+const isDevMode = mode === 'development';
 
-function createWindow(win) {
+export default function createWindow() {
   // Create the browser window.
-  win = new BrowserWindow({
+  let win = new BrowserWindow({
     width: 1080,
     height: 800,
     minWidth: 1080,
     minHeight: 800,
     show: false,
     webPreferences: {
-      nodeIntegration: true
-    }
-  })
+      nodeIntegration: true,
+    },
+  });
 
   win.once('ready-to-show', () => {
-    win.show()
-  })
+    win.show();
+  });
 
   if (isDevMode) {
-    win.loadURL('http://localhost:8080/')
+    win.loadURL('http://localhost:8080/');
 
     // Open the DevTools.
-    win.webContents.openDevTools()
+    win.webContents.openDevTools();
   } else {
     // and load the index.html of the app.
     // filePath should be a path to an HTML file relative to the root of your application
-    win.loadFile('dist-webpack/renderer/index.html')
+    win.loadFile('dist-webpack/renderer/index.html');
   }
 
   // Emitted when the window is closed.
@@ -36,9 +36,8 @@ function createWindow(win) {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
-    win = null
-  })
+    win = null;
+  });
 
+  return win;
 }
-
-module.exports = createWindow
