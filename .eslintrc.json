@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": "./tsconfig.json",
+    "projectFolderIgnoreList": ["/node_modules/"]
+  },
+  "rules": {
+    "linebreak-style": ["error", "unix"]
+  },
+  "settings": {
+
+  }
+}
