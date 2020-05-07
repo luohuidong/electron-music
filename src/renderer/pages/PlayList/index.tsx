@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect, useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { AppState } from 'Store/index'
 import { thunks as playListThunks, types as playListTypes } from 'Store/pages/PlayList'
@@ -35,6 +36,10 @@ function PlayList(): React.ReactElement {
 
   return (
     <div className={style.container}>
+      <div>
+        <Link to="/about">about</Link>
+      </div>
+
       <div className={style.categoryContainer}>
         <Category />
       </div>

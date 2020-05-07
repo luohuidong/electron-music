@@ -1,15 +1,20 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Layout, Player } from 'Components/index'
 import Home from './PlayList'
+import About from './About'
+
 
 function App(): JSX.Element {
   return (
     <Router>
       <Layout footer={<Player />}>
-        <Route path="/" exact component={Home} />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+        </Switch>
       </Layout>
     </Router>
   )
