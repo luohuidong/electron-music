@@ -2,7 +2,8 @@
   "root": true,
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -10,12 +11,25 @@
       "jsx": true
     },
     "project": "./tsconfig.json",
-    "projectFolderIgnoreList": ["/node_modules/"]
+    "projectFolderIgnoreList": [
+      "/node_modules/"
+    ],
+    "tsconfigRootDir": "./"
   },
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "rules": {
-    "linebreak-style": ["error", "unix"]
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off"
   },
-  "settings": {
-
-  }
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "settings": {}
 }
