@@ -2,11 +2,11 @@ import merge from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { Env } from './type';
-import common from './webpack.renderer.common.js';
+import common from './webpack.renderer.common';
 
 export default (env: Env) => merge(common(env), {
   mode: 'production',
-
+  target: "electron-renderer",
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
@@ -15,7 +15,6 @@ export default (env: Env) => merge(common(env), {
       chunkFilename: 'css/[id].css',
     }),
   ],
-
   optimization: {
     moduleIds: 'hashed',
     runtimeChunk: 'single', // split runtime code into a separate chunk

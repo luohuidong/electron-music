@@ -1,7 +1,7 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default function getStyleLoader(env: {
-  production: boolean
+  production: boolean;
 }) {
   // 判断是否为生产模式
   const isProdMode = env.production;

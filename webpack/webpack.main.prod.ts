@@ -1,10 +1,11 @@
-// TODO: 该配置目前打包会出错，经过验证是由 React 调试工具引起的错误。
-
 import path from 'path';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+
+import babelLoader from './loader/babel'
 
 export default () => ({
   mode: 'production',
+
+  target: 'electron-main',
 
   entry: './src/main/index.ts',
 
@@ -13,16 +14,14 @@ export default () => ({
     path: path.resolve(__dirname, '../dist-webpack/main'),
   },
 
-  target: 'electron-main',
-
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.ts'],
     symlinks: false, // increase resolving speed
   },
 
-  plugins: [
-    new CleanWebpackPlugin(),
-  ],
+  module: {
+    rules: [babelLoader]
+  },
 
   node: {
     __dirname: false,

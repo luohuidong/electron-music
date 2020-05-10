@@ -3,7 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import { Env } from './type';
-import getLoader from './renderer-loader/index';
+import getLoader from './loader/index';
 
 function getPath(folderPath: string) {
   const result = path.resolve(__dirname, `../src/renderer${folderPath}`);
@@ -12,14 +12,10 @@ function getPath(folderPath: string) {
 
 export default (env: Env) => ({
   entry: './src/renderer/index.tsx',
-
   output: {
     filename: 'js/[name].[hash].js', // add a unique hash based on the content of an asset
     path: path.resolve(__dirname, '../dist-webpack/renderer'),
   },
-
-  target: "electron-renderer",
-
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     symlinks: false,
@@ -33,7 +29,6 @@ export default (env: Env) => ({
       Utils: getPath('/utils'),
     },
   },
-
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -41,11 +36,9 @@ export default (env: Env) => ({
       favicon: 'public/favicon.ico',
     }),
   ],
-
   module: {
     rules: [...getLoader(env)],
   },
-
   node: {
     __dirname: false, // 不让 webpack 对 __dirname 变量做处理
   },
