@@ -4,7 +4,6 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 import { Layout, Player } from 'Components/index'
 import Home from './PlayList'
-import About from './About'
 
 
 function App(): JSX.Element {
@@ -13,7 +12,6 @@ function App(): JSX.Element {
       <Layout footer={<Player />}>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
         </Switch>
       </Layout>
     </Router>

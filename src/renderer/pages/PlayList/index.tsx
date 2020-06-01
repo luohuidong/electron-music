@@ -36,10 +36,6 @@ function PlayList(): React.ReactElement {
 
   return (
     <div className={style.container}>
-      <div>
-        <Link to="/about">about</Link>
-      </div>
-
       <div className={style.categoryContainer}>
         <Category />
       </div>
