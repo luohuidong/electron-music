@@ -2,10 +2,10 @@
   "appId": "cn.luohuidong.music",
   "productName": "SnowMusic",
   "files": [
-    "src/main/**/*",
+    "dist-webpack/main/**/*",
     "dist-webpack/renderer/**/*"
   ],
   "mac": {
     "category": "public.app-category.music"
-  },
+  }
 }
