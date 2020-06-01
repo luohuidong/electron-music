@@ -4,14 +4,19 @@
   "description": "An electron music app",
   "main": "src/main/index.ts",
   "scripts": {
-    "dev:main": "cross-env NODE_ENV=development electron .",
+    "dev:test": "cross-env NODE_ENV=development webpack --config webpack/webpack.main.prod.ts",
+    "dev:main": "cross-env NODE_ENV=development webpack --config webpack/webpack.main.dev.ts && electron ./dist-webpack/main/main.js",
     "dev:renderer": "webpack-dev-server --hot --env.development --config webpack/webpack.renderer.dev.ts",
+
     "build:main": "webpack --config webpack/webpack.main.prod.ts",
     "build:renderer": "webpack --env.production --config webpack/webpack.renderer.prod.ts",
     "build": "npm run webpack-renderer-build && npm run electron-pack",
+
     "electron-pack": "npm run webpack-renderer-build && electron-builder --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
+
     "publish": "npm run webpack-renderer-build && electron-builder --config electron-builder.json -p always",
+
     "type-check": "tsc"
   },
   "keywords": [],
