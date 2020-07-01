@@ -1,4 +1,4 @@
-const { BrowserWindow } = require('electron');
+import { BrowserWindow } from 'electron';
 
 const mode = process.env.NODE_ENV;
 const isDevMode = mode === 'development';
@@ -13,7 +13,7 @@ export default function createSubWindows(routePath: string) {
   }
 
   // Create the browser window.
-  let win = new BrowserWindow({
+  let win: BrowserWindow | null = new BrowserWindow({
     width: 800,
     height: 600,
     minWidth: 800,
@@ -27,7 +27,7 @@ export default function createSubWindows(routePath: string) {
   windowsMap.set(routePath, win);
 
   win.once('ready-to-show', () => {
-    win.show();
+    win && win.show();
   });
 
   if (isDevMode) {

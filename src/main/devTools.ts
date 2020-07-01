@@ -6,7 +6,6 @@ import process from 'process';
 
 const isDevMode = process.env.NODE_ENV === 'development';
 
-
 function handleAddDevToolsExtension(extendsionId: string) {
   const extendsionPath = path.join(os.homedir(), 'AppData\\Roaming', 'Google\\Chrome\\User Data\\Default\\Extensions', extendsionId);
 

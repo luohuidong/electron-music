@@ -5,7 +5,7 @@ const isDevMode = mode === 'development';
 
 export default function createWindow() {
   // Create the browser window.
-  let win = new BrowserWindow({
+  let win: BrowserWindow | null = new BrowserWindow({
     width: 1080,
     height: 800,
     minWidth: 1080,
@@ -17,7 +17,7 @@ export default function createWindow() {
   });
 
   win.once('ready-to-show', () => {
-    win.show();
+    win && win.show();
   });
 
   if (isDevMode) {
