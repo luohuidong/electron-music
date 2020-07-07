@@ -1,8 +1,9 @@
 import { app, BrowserWindow } from 'electron';
+import installExtension, { REACT_DEVELOPER_TOOLS } from "electron-devtools-installer"
 
 import createWindow from './createWindow';
-// import appUpdate from './appUpdate';
 import handleSingleInstance from './handleSingleInstance'
+import appUpdate from './appUpdate'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -15,7 +16,12 @@ handleSingleInstance(win)
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   win = createWindow();
-  // appUpdate();
+
+  appUpdate();
+
+  installExtension(REACT_DEVELOPER_TOOLS)
+    .then((name) => console.log(`Added Extension:  ${name}`))
+    .catch((err) => console.log("An error occurred: ", err));
 })
 
 // Quit when all windows are closed.
