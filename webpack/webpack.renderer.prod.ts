@@ -1,4 +1,4 @@
-import merge from 'webpack-merge';
+import { merge } from 'webpack-merge';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { Env } from './type';
