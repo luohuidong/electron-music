@@ -1,10 +1,9 @@
-import React from 'react'
-import { hot } from 'react-hot-loader/root'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import React from "react";
+import { hot } from "react-hot-loader/root";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
-import { Layout, Player } from 'Components/index'
-import Home from './PlayList'
-
+import { Layout, Player } from "Components/index";
+import Home from "./PlayList";
 
 function App(): JSX.Element {
   return (
@@ -15,7 +14,7 @@ function App(): JSX.Element {
         </Switch>
       </Layout>
     </Router>
-  )
+  );
 }
 
-export default hot(App)
+export default hot(App);

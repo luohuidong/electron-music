@@ -1,17 +1,17 @@
-import { ActionTypes, SAVE_CATEGORIES } from './types'
-import { CategoryListItem, CategoryListItemCategory } from 'Api/playList/requestCategoryList'
+import { ActionTypes, SAVE_CATEGORIES } from "./types";
+import { CategoryListItem, CategoryListItemCategory } from "Api/playList/requestCategoryList";
 
 export function saveCategory(
   all: CategoryListItem,
   sub: CategoryListItem[],
-  categories: CategoryListItemCategory,
+  categories: CategoryListItemCategory
 ): ActionTypes {
   return {
     type: SAVE_CATEGORIES,
     payload: {
       all,
       sub,
-      categories
-    }
-  }
+      categories,
+    },
+  };
 }

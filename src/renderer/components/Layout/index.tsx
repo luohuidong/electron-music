@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import { ScrollView } from 'Components/index'
+import { ScrollView } from "Components/index";
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss";
 
 interface Props {
   children: JSX.Element;
@@ -18,11 +18,9 @@ function Layout(props: Props): JSX.Element {
         </ScrollView>
       </main>
 
-      <footer className={styles.footer}>
-        {props.footer}
-      </footer>
+      <footer className={styles.footer}>{props.footer}</footer>
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

@@ -1,4 +1,4 @@
-@import '~Styles/variables';
+@import "~Styles/variables";
 
 .container {
   display: flex;
@@ -6,7 +6,7 @@
 
   .title {
     font-size: $font-size-medium;
-    color: #DCDCE4;
+    color: #dcdce4;
   }
 
   .categoryItem {
@@ -15,7 +15,7 @@
     cursor: pointer;
 
     &:hover {
-      color: #DCDCE4;
+      color: #dcdce4;
     }
   }
 
@@ -27,4 +27,3 @@
     background: #828385;
   }
 }
-

@@ -1,36 +1,36 @@
-import React, { MouseEvent } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { MouseEvent } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-import { AppState } from 'Store/index'
-import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
+import { AppState } from "Store/index";
+import { types as playerTypes, actions as playerActions } from "Store/components/Player";
 
-import backIcon from './back.svg'
-import styles from './index.module.scss'
+import backIcon from "./back.svg";
+import styles from "./index.module.scss";
 
 function Back(): JSX.Element {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
-  const currentSongIndex = useSelector(({ player }: AppState): number => player.currentSongIndex)
+  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList);
+  const currentSongIndex = useSelector(({ player }: AppState): number => player.currentSongIndex);
 
   function handleClick(e: MouseEvent): void {
-    e.stopPropagation()
+    e.stopPropagation();
 
-    const length = playList.length
+    const length = playList.length;
 
     if (length === 0) {
-      return
+      return;
     }
 
     /** 前一首歌在歌曲列表中的索引 */
-    let previousSongIndex = currentSongIndex - 1
+    let previousSongIndex = currentSongIndex - 1;
 
     if (previousSongIndex < 0) {
-      previousSongIndex = length - 1
+      previousSongIndex = length - 1;
     }
 
-    dispatch(playerActions.saveCurrentSongIndex(previousSongIndex))
-    dispatch(playerActions.saveCurrentSong(playList[previousSongIndex]))
+    dispatch(playerActions.saveCurrentSongIndex(previousSongIndex));
+    dispatch(playerActions.saveCurrentSong(playList[previousSongIndex]));
   }
 
   return (
@@ -41,7 +41,7 @@ function Back(): JSX.Element {
       title="上一首歌"
       onClick={handleClick}
     />
-  )
+  );
 }
 
-export default React.memo(Back)
+export default React.memo(Back);

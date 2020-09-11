@@ -1,7 +1,7 @@
-import React, { useState, MouseEvent, useRef } from 'react'
-import classnames from 'classnames'
+import React, { useState, MouseEvent, useRef } from "react";
+import classnames from "classnames";
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss";
 
 interface Props {
   children: JSX.Element;
@@ -13,34 +13,34 @@ interface Props {
 }
 
 export default function Dropdown(props: Props): JSX.Element {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const [showOverLay, setShowOverLay] = useState(false)
+  const [showOverLay, setShowOverLay] = useState(false);
 
   function handleClick(e: MouseEvent): void {
-    e.stopPropagation()
+    e.stopPropagation();
 
-    const container = containerRef.current
+    const container = containerRef.current;
 
-    if (!container) return
+    if (!container) return;
 
     if (showOverLay) {
-      container.blur()
-      setShowOverLay(false)
+      container.blur();
+      setShowOverLay(false);
     } else {
-      container.focus()
-      setShowOverLay(true)
+      container.focus();
+      setShowOverLay(true);
     }
   }
 
   function handleBlur(): void {
-    setShowOverLay(false)
+    setShowOverLay(false);
   }
 
   function handleDropdownClick(e: MouseEvent): void {
-    e.stopPropagation()
+    e.stopPropagation();
 
-    setShowOverLay(false)
+    setShowOverLay(false);
   }
 
   const dropDownClassName = classnames([
@@ -48,7 +48,7 @@ export default function Dropdown(props: Props): JSX.Element {
     { [styles.show]: showOverLay },
     { [styles.hidden]: !showOverLay },
     styles[props.placement],
-  ])
+  ]);
 
   return (
     <div
@@ -61,17 +61,13 @@ export default function Dropdown(props: Props): JSX.Element {
     >
       {props.children}
 
-      <div
-        className={dropDownClassName}
-        onClick={handleDropdownClick}
-        style={props.overLayStyle}
-      >
+      <div className={dropDownClassName} onClick={handleDropdownClick} style={props.overLayStyle}>
         {props.overLay}
       </div>
     </div>
-  )
+  );
 }
 
 Dropdown.defaultProps = {
-  placement: 'bottomLeft'
-}
+  placement: "bottomLeft",
+};

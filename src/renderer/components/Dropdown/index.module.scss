@@ -28,7 +28,7 @@ $y-offset: 100%;
   &.bottomCenter {
     top: $y-offset;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
   &.bottomRight {
     top: $y-offset;
@@ -42,11 +42,10 @@ $y-offset: 100%;
   &.topCenter {
     bottom: $y-offset;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
   &.topRight {
     bottom: $y-offset;
     right: 0;
   }
 }
-

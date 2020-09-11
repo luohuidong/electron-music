@@ -1,59 +1,62 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
-import { requestHotCategoryList } from 'Api/playList'
-import { thunks as playListThunks } from 'Store/pages/PlayList'
-import styles from './HotCategory.module.scss'
+import { requestHotCategoryList } from "Api/playList";
+import { thunks as playListThunks } from "Store/pages/PlayList";
+import styles from "./HotCategory.module.scss";
 
 function HotCategory(): JSX.Element {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   interface HotCategoryItem {
     id: number;
     name: string;
   }
-  const [hotCategories, setHotCategories] = useState<HotCategoryItem[]>([])
+  const [hotCategories, setHotCategories] = useState<HotCategoryItem[]>([]);
 
   useEffect((): void => {
     async function handleHotCategoryList(): Promise<void> {
-      const hotCategoryListData = await requestHotCategoryList()
-      setHotCategories(hotCategoryListData)
+      const hotCategoryListData = await requestHotCategoryList();
+      setHotCategories(hotCategoryListData);
     }
-    handleHotCategoryList()
-  }, [])
+    handleHotCategoryList();
+  }, []);
 
   function handleClick(data: HotCategoryItem): void {
     const params = {
-      order: 'new',
+      order: "new",
       category: data.name,
       limit: 50,
-      offset: 0
-    }
-    dispatch(playListThunks.thunkSavePlayList(params))
+      offset: 0,
+    };
+    dispatch(playListThunks.thunkSavePlayList(params));
   }
 
   return (
     <div className={styles.container}>
       <span className={styles.title}>热门歌单分类：</span>
 
-      <div style={{ display: 'flex' }}>
-        {
-          hotCategories.map((element, index): JSX.Element => (
+      <div style={{ display: "flex" }}>
+        {hotCategories.map(
+          (element, index): JSX.Element => (
             <div key={element.id}>
-              <span className={styles.categoryItem} onClick={(e): void => {
-                e.stopPropagation()
-                handleClick(element)
-              }}>
+              <span
+                className={styles.categoryItem}
+                onClick={(e): void => {
+                  e.stopPropagation();
+                  handleClick(element);
+                }}
+              >
                 {element.name}
               </span>
 
-              { index + 1 < hotCategories.length ? <span className={styles.divider} /> : null }
+              {index + 1 < hotCategories.length ? <span className={styles.divider} /> : null}
             </div>
-          ))
-        }
+          )
+        )}
       </div>
     </div>
-  )
+  );
 }
 
-export default React.memo(HotCategory)
+export default React.memo(HotCategory);

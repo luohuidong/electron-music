@@ -1,4 +1,4 @@
-import { get } from '../http'
+import { get } from "../http";
 
 interface Artist {
   name: string;
@@ -39,21 +39,21 @@ interface PlayListDetailData {
 export async function requestPlaylistDetail(playListId: number): Promise<PlayListDetailData> {
   try {
     const config = {
-      url: '/playlist/detail',
+      url: "/playlist/detail",
       params: {
-        id: playListId
-      }
-    }
+        id: playListId,
+      },
+    };
 
-    const { data } = await get(config)
-    const { code, playlist } = data
+    const { data } = await get(config);
+    const { code, playlist } = data;
 
     if (code !== 200) {
-      throw new Error('获取歌单详情失败')
+      throw new Error("获取歌单详情失败");
     }
 
-    return playlist
+    return playlist;
   } catch (error) {
-    throw new Error('获取歌单详情失败')
+    throw new Error("获取歌单详情失败");
   }
 }

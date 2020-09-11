@@ -1,11 +1,16 @@
 import {
-  State, ActionTypes,
-  SAVE_PLAY_LIST, SAVE_CURRENT_SONG, SAVE_PERCENTAGE, SAVE_PLAY_STATE,
-  SAVE_CURRENT_SONG_INDEX, SAVE_PLAYER_TIME
-} from './types'
-import { state as initialState } from './state'
+  State,
+  ActionTypes,
+  SAVE_PLAY_LIST,
+  SAVE_CURRENT_SONG,
+  SAVE_PERCENTAGE,
+  SAVE_PLAY_STATE,
+  SAVE_CURRENT_SONG_INDEX,
+  SAVE_PLAYER_TIME,
+} from "./types";
+import { state as initialState } from "./state";
 
-export default function(state = initialState, action: ActionTypes): State  {
+export default function (state = initialState, action: ActionTypes): State {
   switch (action.type) {
     case SAVE_PLAY_LIST:
     case SAVE_CURRENT_SONG:
@@ -15,9 +20,9 @@ export default function(state = initialState, action: ActionTypes): State  {
     case SAVE_PLAYER_TIME:
       return {
         ...state,
-        ...action.payload
-      }
+        ...action.payload,
+      };
     default:
-      return state
+      return state;
   }
 }

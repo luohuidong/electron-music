@@ -1,4 +1,4 @@
-import { CategoryListItem, CategoryListItemCategory } from 'Api/playList/requestCategoryList'
+import { CategoryListItem, CategoryListItemCategory } from "Api/playList/requestCategoryList";
 
 // state type
 
@@ -10,7 +10,7 @@ export interface State {
 
 // action type
 
-export const SAVE_CATEGORIES = 'PAGES_CATEGORY_LIST/SAVE_CATEGORIES'
+export const SAVE_CATEGORIES = "PAGES_CATEGORY_LIST/SAVE_CATEGORIES";
 
 /** 保存歌单类型分类 */
 interface SaveCategories {
@@ -22,4 +22,4 @@ interface SaveCategories {
   };
 }
 
-export type ActionTypes = SaveCategories
+export type ActionTypes = SaveCategories;

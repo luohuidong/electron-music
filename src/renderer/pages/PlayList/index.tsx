@@ -1,22 +1,24 @@
-import React, { useEffect } from 'react'
-import { connect, useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from "react";
+import { connect, useSelector, useDispatch } from "react-redux";
 
-import { AppState } from 'Store/index'
-import { thunks as playListThunks, types as playListTypes } from 'Store/pages/PlayList'
-import { thunks as playerThunks } from 'Store/components/Player'
+import { AppState } from "Store/index";
+import { thunks as playListThunks, types as playListTypes } from "Store/pages/PlayList";
+import { thunks as playerThunks } from "Store/components/Player";
 
-import { Cover } from 'Components/index'
-import Category from './Category'
+import { Cover } from "Components/index";
+import Category from "./Category";
 
-import style from './index.module.scss'
+import style from "./index.module.scss";
 
 function PlayList(): React.ReactElement {
-  const dispatch = useDispatch()
-  const { playList, playListQueryParams } = useSelector(({ playList }: AppState): playListTypes.State => playList )
+  const dispatch = useDispatch();
+  const { playList, playListQueryParams } = useSelector(
+    ({ playList }: AppState): playListTypes.State => playList
+  );
 
   useEffect((): void => {
-    dispatch(playListThunks.thunkSavePlayList(playListQueryParams))
-  }, [])
+    dispatch(playListThunks.thunkSavePlayList(playListQueryParams));
+  }, []);
 
   interface Data {
     name: string; // 歌单名称
@@ -29,8 +31,8 @@ function PlayList(): React.ReactElement {
    * @param data
    */
   function handleClick(data: Data): void {
-    const { id } = data
-    dispatch(playerThunks.thunkSavePlayerPlayList(id))
+    const { id } = data;
+    dispatch(playerThunks.thunkSavePlayerPlayList(id));
   }
 
   return (
@@ -40,24 +42,26 @@ function PlayList(): React.ReactElement {
       </div>
 
       <div className={style.playList}>
-        {
-          playList.map((element): React.ReactElement => (
+        {playList.map(
+          (element): React.ReactElement => (
             <Cover
               key={element.id}
               data={element}
-              onClick={(data): void => { handleClick(data) }}
+              onClick={(data): void => {
+                handleClick(data);
+              }}
               containerClassName={style.cover}
               imgContainerClassName={style.img}
             />
-          ))
-        }
+          )
+        )}
       </div>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = ({ playList }: AppState): object => ({
-  playList: playList.playList
-})
+  playList: playList.playList,
+});
 
-export default connect(mapStateToProps)(PlayList)
+export default connect(mapStateToProps)(PlayList);

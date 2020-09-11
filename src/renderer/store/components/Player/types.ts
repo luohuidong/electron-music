@@ -38,9 +38,9 @@ export interface State {
 
 // action type
 
-const typePrefix = 'COMPONENTS_PLAYER'
+const typePrefix = "COMPONENTS_PLAYER";
 
-export const SAVE_PLAY_LIST = `${typePrefix}/SAVE_PLAY_LIST_DETAIL`
+export const SAVE_PLAY_LIST = `${typePrefix}/SAVE_PLAY_LIST_DETAIL`;
 export interface SavePlayListAction {
   type: typeof SAVE_PLAY_LIST;
   payload: {
@@ -48,7 +48,7 @@ export interface SavePlayListAction {
   };
 }
 
-export const SAVE_CURRENT_SONG = `${typePrefix}/SAVE_CURRENT_SONG`
+export const SAVE_CURRENT_SONG = `${typePrefix}/SAVE_CURRENT_SONG`;
 export interface SaveCurrentSongAction {
   type: typeof SAVE_CURRENT_SONG;
   payload: {
@@ -56,7 +56,7 @@ export interface SaveCurrentSongAction {
   };
 }
 
-export const SAVE_CURRENT_SONG_INDEX = `${typePrefix}/SAVE_CURRENT_SONG_INDEX`
+export const SAVE_CURRENT_SONG_INDEX = `${typePrefix}/SAVE_CURRENT_SONG_INDEX`;
 export interface SaveCurrentSongIndex {
   type: typeof SAVE_CURRENT_SONG_INDEX;
   payload: {
@@ -64,7 +64,7 @@ export interface SaveCurrentSongIndex {
   };
 }
 
-export const SAVE_PERCENTAGE = `${typePrefix}COMPONENTS_PLAYER/SAVE_PERCENTAGE`
+export const SAVE_PERCENTAGE = `${typePrefix}COMPONENTS_PLAYER/SAVE_PERCENTAGE`;
 export interface SavePercentageAction {
   type: typeof SAVE_PERCENTAGE;
   payload: {
@@ -72,7 +72,7 @@ export interface SavePercentageAction {
   };
 }
 
-export const SAVE_PLAY_STATE = `${typePrefix}/SAVE_PLAY_STATE`
+export const SAVE_PLAY_STATE = `${typePrefix}/SAVE_PLAY_STATE`;
 export interface SavePlayStateAction {
   type: typeof SAVE_PLAY_STATE;
   payload: {
@@ -80,7 +80,7 @@ export interface SavePlayStateAction {
   };
 }
 
-export const SAVE_PLAYER_TIME = `${typePrefix}/SAVE_PLAYER_TIME`
+export const SAVE_PLAYER_TIME = `${typePrefix}/SAVE_PLAYER_TIME`;
 export interface SaveCurrentTimeAction {
   type: typeof SAVE_PLAYER_TIME;
   payload: {
@@ -89,6 +89,10 @@ export interface SaveCurrentTimeAction {
   };
 }
 
-export type ActionTypes = SavePlayListAction | SaveCurrentSongAction
-| SavePercentageAction | SavePlayStateAction | SaveCurrentSongIndex
-| SaveCurrentTimeAction
+export type ActionTypes =
+  | SavePlayListAction
+  | SaveCurrentSongAction
+  | SavePercentageAction
+  | SavePlayStateAction
+  | SaveCurrentSongIndex
+  | SaveCurrentTimeAction;

@@ -1,4 +1,4 @@
-import { get } from '../http'
+import { get } from "../http";
 
 interface PlayListQueryParams {
   order?: string; // 'new' or 'hot'，分别对应这最新歌单和最热歌单
@@ -26,35 +26,34 @@ interface PlayListReturnData {
  * @param category
  */
 export async function requestPlayList(params: PlayListQueryParams): Promise<PlayListReturnData> {
-  const { order = 'hot', category = '全部歌单', limit = 50, offset = 0 } = params
+  const { order = "hot", category = "全部歌单", limit = 50, offset = 0 } = params;
 
   try {
     const config = {
-      url: '/top/playlist',
+      url: "/top/playlist",
       params: {
         order,
         cat: category,
         limit,
         offset,
-      }
-    }
+      },
+    };
 
-    const { data } = await get(config)
-    const { playlists, code, total, more } = data
+    const { data } = await get(config);
+    const { playlists, code, total, more } = data;
 
     if (code !== 200) {
-      throw new Error('获取列表失败')
+      throw new Error("获取列表失败");
     }
 
     return {
       playlists,
       total,
-      more
-    }
+      more,
+    };
   } catch (error) {
     return {
-      playlists: []
-    }
+      playlists: [],
+    };
   }
 }
-

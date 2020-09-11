@@ -1,4 +1,4 @@
-import { get } from '../http'
+import { get } from "../http";
 
 interface HighQualityPlayList {
   name: string;
@@ -19,23 +19,23 @@ interface HighQualityPlayListReturnData {
 export async function requestHighQualityPlayList(): Promise<HighQualityPlayListReturnData> {
   try {
     const config = {
-      url: '/top/playlist/highquality',
-    }
-    const { data } = await get(config)
-    const { playlists, code, total, more } = data
+      url: "/top/playlist/highquality",
+    };
+    const { data } = await get(config);
+    const { playlists, code, total, more } = data;
 
     if (code !== 200) {
-      throw new Error('获取列表失败')
+      throw new Error("获取列表失败");
     }
 
     return {
       playlists,
       total,
-      more
-    }
+      more,
+    };
   } catch (error) {
     return {
-      playlists: []
-    }
+      playlists: [],
+    };
   }
 }

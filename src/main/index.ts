@@ -1,15 +1,15 @@
-import { app, BrowserWindow } from 'electron';
-import installExtension, { REACT_DEVELOPER_TOOLS } from "electron-devtools-installer"
+import { app, BrowserWindow } from "electron";
+import installExtension, { REACT_DEVELOPER_TOOLS } from "electron-devtools-installer";
 
-import createWindow from './createWindow';
-import handleSingleInstance from './handleSingleInstance'
-import appUpdate from './appUpdate'
+import createWindow from "./createWindow";
+import handleSingleInstance from "./handleSingleInstance";
+import appUpdate from "./appUpdate";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win: BrowserWindow | null = null;
 
-handleSingleInstance(win)
+handleSingleInstance(win);
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -22,19 +22,19 @@ app.whenReady().then(() => {
   installExtension(REACT_DEVELOPER_TOOLS)
     .then((name) => console.log(`Added Extension:  ${name}`))
     .catch((err) => console.log("An error occurred: ", err));
-})
+});
 
 // Quit when all windows are closed.
-app.on('window-all-closed', () => {
+app.on("window-all-closed", () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
+  if (process.platform !== "darwin") {
     app.quit();
   }
 });
 
-app.on('activate', () => {
-  console.log('win', win)
+app.on("activate", () => {
+  console.log("win", win);
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {

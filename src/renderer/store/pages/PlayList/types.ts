@@ -24,7 +24,7 @@ export interface State {
 // action type
 
 /** 获取精选歌单 */
-export const SAVE_PLAY_LIST = 'PAGES_PLAY_LIST/SAVE_PLAY_LIST'
+export const SAVE_PLAY_LIST = "PAGES_PLAY_LIST/SAVE_PLAY_LIST";
 
 interface GetPlayListAction {
   type: typeof SAVE_PLAY_LIST;
@@ -33,7 +33,7 @@ interface GetPlayListAction {
   };
 }
 
-export const SAVE_PLAY_LIST_QUERY_PARAMS = 'PAGES_PLAY_LIST/SAVE_PLAY_LIST_QUERY_PARAMS'
+export const SAVE_PLAY_LIST_QUERY_PARAMS = "PAGES_PLAY_LIST/SAVE_PLAY_LIST_QUERY_PARAMS";
 
 interface SavePlayListQueryParamsAction {
   type: typeof SAVE_PLAY_LIST_QUERY_PARAMS;
@@ -42,4 +42,4 @@ interface SavePlayListQueryParamsAction {
   };
 }
 
-export type ActionTypes = GetPlayListAction | SavePlayListQueryParamsAction
+export type ActionTypes = GetPlayListAction | SavePlayListQueryParamsAction;

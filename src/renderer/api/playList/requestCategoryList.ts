@@ -1,6 +1,4 @@
-import { get } from '../http'
-
-
+import { get } from "../http";
 
 /** 歌单类型 */
 export interface CategoryListItem {
@@ -31,21 +29,21 @@ export interface CategoryData {
 export async function requestCategoryList(): Promise<CategoryData> {
   try {
     const config = {
-      url: '/playlist/catlist',
-    }
-    const { data } = await get(config)
-    const { all, sub, categories, code } = data
+      url: "/playlist/catlist",
+    };
+    const { data } = await get(config);
+    const { all, sub, categories, code } = data;
 
     if (code !== 200) {
-      throw new Error('获取列表失败')
+      throw new Error("获取列表失败");
     }
 
     return {
       all,
       sub,
-      categories
-    }
+      categories,
+    };
   } catch (error) {
-    throw new Error('获取歌单列表失败')
+    throw new Error("获取歌单列表失败");
   }
 }

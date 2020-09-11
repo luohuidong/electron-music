@@ -1,5 +1,5 @@
-import axios, { AxiosPromise } from 'axios'
-import { baseURL } from './config'
+import axios, { AxiosPromise } from "axios";
+import { baseURL } from "./config";
 
 interface GetParams {
   url: string;
@@ -12,20 +12,20 @@ interface GetParams {
  * @param options get 参数选项
  */
 export function get(options: GetParams): AxiosPromise {
-  const { url, params } = options
+  const { url, params } = options;
 
   return axios({
     baseURL,
-    method: 'get',
+    method: "get",
     url,
     params,
-  })
+  });
 }
 
 export function post(url: string, data: object): AxiosPromise {
   return axios({
-    method: 'post',
+    method: "post",
     url,
-    data
-  })
+    data,
+  });
 }

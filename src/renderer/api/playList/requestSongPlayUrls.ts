@@ -1,4 +1,4 @@
-import { get } from '../http'
+import { get } from "../http";
 
 interface SongPlayUrlData {
   id: string;
@@ -12,20 +12,20 @@ interface SongPlayUrlData {
 export async function requestSongPlayUrls(songIds: string): Promise<SongPlayUrlData[]> {
   try {
     const config = {
-      url: '/song/url',
+      url: "/song/url",
       params: {
-        id: songIds
-      }
-    }
+        id: songIds,
+      },
+    };
 
-    const { data } = await get(config)
+    const { data } = await get(config);
 
     if (data.code !== 200) {
-      throw new Error('获取歌曲播放地址失败')
+      throw new Error("获取歌曲播放地址失败");
     }
 
-    return data.data
+    return data.data;
   } catch (error) {
-    throw new Error('消息提醒')
+    throw new Error("消息提醒");
   }
 }

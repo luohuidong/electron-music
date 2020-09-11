@@ -1,22 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { AppState } from 'Store/index'
-import { EffectCallBack } from 'Types/index'
-import { types as categoryListTypes } from 'Store/pages/CategoryList'
-import { thunks as categoryListThunks } from 'Store/pages/CategoryList'
-import { CategoryListItem, CategoryData } from 'Api/playList/requestCategoryList'
-import styles from './CategoryGroups.module.scss'
+import { AppState } from "Store/index";
+import { EffectCallBack } from "Types/index";
+import { types as categoryListTypes } from "Store/pages/CategoryList";
+import { thunks as categoryListThunks } from "Store/pages/CategoryList";
+import { CategoryListItem, CategoryData } from "Api/playList/requestCategoryList";
+import styles from "./CategoryGroups.module.scss";
 
-import CategoryGroup from './CategoryGroup'
+import CategoryGroup from "./CategoryGroup";
 
 function CategoryGroups(): JSX.Element {
-  const dispatch = useDispatch()
-  const { all, sub, categories } = useSelector(({ categoryList }: AppState): categoryListTypes.State => categoryList)
+  const dispatch = useDispatch();
+  const { all, sub, categories } = useSelector(
+    ({ categoryList }: AppState): categoryListTypes.State => categoryList
+  );
 
   useEffect((): EffectCallBack => {
-    dispatch(categoryListThunks.thunkSaveCategoryList())
-  }, [])
+    dispatch(categoryListThunks.thunkSaveCategoryList());
+  }, []);
 
   interface GroupedCategoryItem {
     name: string;
@@ -25,7 +27,7 @@ function CategoryGroups(): JSX.Element {
   interface DataGroupedByCategory {
     [index: string]: GroupedCategoryItem;
   }
-  const [categoryListData, setCategoryListData] = useState<DataGroupedByCategory>({})
+  const [categoryListData, setCategoryListData] = useState<DataGroupedByCategory>({});
 
   useEffect((): EffectCallBack => {
     /**
@@ -33,42 +35,44 @@ function CategoryGroups(): JSX.Element {
      * @param categoryData
      */
     function groupByCategory(categoryData: CategoryData): DataGroupedByCategory {
-      const { all, sub, categories } = categoryData
+      const { all, sub, categories } = categoryData;
 
       let data: DataGroupedByCategory = {
         all: {
-          name: '全部',
-          items: [all]
+          name: "全部",
+          items: [all],
         },
-      }
+      };
 
       Object.keys(categories).forEach((key): void => {
         data[key] = {
           name: categories[key],
-          items: []
-        }
-      })
+          items: [],
+        };
+      });
 
       sub.forEach((element): void => {
-        data[element.category].items.push(element)
-      })
+        data[element.category].items.push(element);
+      });
 
-      return data
+      return data;
     }
 
-    const categoryListData = groupByCategory({ all, sub, categories })
-    setCategoryListData(categoryListData)
-  }, [all, sub, categories])
+    const categoryListData = groupByCategory({ all, sub, categories });
+    setCategoryListData(categoryListData);
+  }, [all, sub, categories]);
 
-  const keys = Object.keys(categoryListData)
+  const keys = Object.keys(categoryListData);
 
   return (
     <div className={styles.container}>
-      {
-        keys.map((key: string): JSX.Element => <CategoryGroup key={key} data={categoryListData[key]} />)
-      }
+      {keys.map(
+        (key: string): JSX.Element => (
+          <CategoryGroup key={key} data={categoryListData[key]} />
+        )
+      )}
     </div>
-  )
+  );
 }
 
-export default React.memo(CategoryGroups)
+export default React.memo(CategoryGroups);

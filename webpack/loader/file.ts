@@ -1,9 +1,7 @@
-import path from 'path';
+import path from "path";
 
 export default {
   test: /\.(png|svg|jpg|gif)$/,
-  include: path.resolve(__dirname, '../../src'),
-  use: [
-    'file-loader',
-  ],
+  include: path.resolve(__dirname, "../../src"),
+  use: ["file-loader"],
 };

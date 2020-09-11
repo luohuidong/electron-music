@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
-import classnames from 'classnames'
+import React, { useRef } from "react";
+import classnames from "classnames";
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss";
 
 interface Props {
   className?: string;
@@ -10,20 +10,20 @@ interface Props {
 }
 
 export default function ScrollView(props: Props): JSX.Element {
-  const { className } = props
-  const containerRef = useRef<HTMLDivElement>(null)
+  const { className } = props;
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const hansleScrollRef = useRef((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
-    const { currentTarget } = event
+    const { currentTarget } = event;
     if (!event) {
-      return
+      return;
     }
 
-    const { scrollHeight, scrollTop, clientHeight } = currentTarget
+    const { scrollHeight, scrollTop, clientHeight } = currentTarget;
 
-    const percentage = (scrollTop + clientHeight) / scrollHeight
-    props.handleScroll && props.handleScroll(percentage)
-  })
+    const percentage = (scrollTop + clientHeight) / scrollHeight;
+    props.handleScroll && props.handleScroll(percentage);
+  });
 
   return (
     <div
@@ -33,5 +33,5 @@ export default function ScrollView(props: Props): JSX.Element {
     >
       {props.children}
     </div>
-  )
+  );
 }

@@ -1,8 +1,10 @@
 import {
   ActionTypes,
-  SAVE_PLAY_LIST, SavePlayListItem,
-  SAVE_PLAY_LIST_QUERY_PARAMS, PlayListQueryParams
-} from './types'
+  SAVE_PLAY_LIST,
+  SavePlayListItem,
+  SAVE_PLAY_LIST_QUERY_PARAMS,
+  PlayListQueryParams,
+} from "./types";
 
 /**
  * 保存歌单列表数据
@@ -12,9 +14,9 @@ export function savePlayList(playList: SavePlayListItem[]): ActionTypes {
   return {
     type: SAVE_PLAY_LIST,
     payload: {
-      playList
-    }
-  }
+      playList,
+    },
+  };
 }
 
 /**
@@ -25,7 +27,7 @@ export function savePlayListQueryParam(playListQueryParams: PlayListQueryParams)
   return {
     type: SAVE_PLAY_LIST_QUERY_PARAMS,
     payload: {
-      playListQueryParams
-    }
-  }
+      playListQueryParams,
+    },
+  };
 }

@@ -1,9 +1,9 @@
-import { Action } from 'redux'
-import { ThunkAction } from 'redux-thunk'
+import { Action } from "redux";
+import { ThunkAction } from "redux-thunk";
 
-import { AppState } from 'Store/index'
-import { requestPlayList } from 'Api/playList'
-import { savePlayList, savePlayListQueryParam } from './actions'
+import { AppState } from "Store/index";
+import { requestPlayList } from "Api/playList";
+import { savePlayList, savePlayListQueryParam } from "./actions";
 
 interface ThunkSavePlayListParam {
   order: string; // 'new' or 'hot'，分别对应这最新歌单和最热歌单
@@ -15,17 +15,19 @@ interface ThunkSavePlayListParam {
 /**
  * 获取精选歌单列表数据
  */
-export function thunkSavePlayList(param: ThunkSavePlayListParam): ThunkAction<void, AppState, null, Action<string>> {
+export function thunkSavePlayList(
+  param: ThunkSavePlayListParam
+): ThunkAction<void, AppState, null, Action<string>> {
   return async (dispatch): Promise<void> => {
     try {
-      dispatch(savePlayListQueryParam(param))
-      
-      const result = await requestPlayList(param)
-      const { playlists } = result
+      dispatch(savePlayListQueryParam(param));
 
-      dispatch(savePlayList(playlists))
+      const result = await requestPlayList(param);
+      const { playlists } = result;
+
+      dispatch(savePlayList(playlists));
     } catch (error) {
-      console.error('thunkSavePlayList', error.message)
+      console.error("thunkSavePlayList", error.message);
     }
-  }
+  };
 }

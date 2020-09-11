@@ -1,12 +1,18 @@
 import {
   Song,
-  SAVE_PLAY_LIST, SavePlayListAction,
-  SAVE_CURRENT_SONG, SaveCurrentSongAction,
-  SAVE_PERCENTAGE, SavePercentageAction,
-  SAVE_PLAY_STATE, SavePlayStateAction,
-  SAVE_CURRENT_SONG_INDEX, SaveCurrentSongIndex,
-  SAVE_PLAYER_TIME, SaveCurrentTimeAction,
-} from './types'
+  SAVE_PLAY_LIST,
+  SavePlayListAction,
+  SAVE_CURRENT_SONG,
+  SaveCurrentSongAction,
+  SAVE_PERCENTAGE,
+  SavePercentageAction,
+  SAVE_PLAY_STATE,
+  SavePlayStateAction,
+  SAVE_CURRENT_SONG_INDEX,
+  SaveCurrentSongIndex,
+  SAVE_PLAYER_TIME,
+  SaveCurrentTimeAction,
+} from "./types";
 
 /**
  * 保存当前播放器歌曲列表
@@ -16,9 +22,9 @@ export function savePlayList(playList: Song[]): SavePlayListAction {
   return {
     type: SAVE_PLAY_LIST,
     payload: {
-      playList
+      playList,
     },
-  }
+  };
 }
 
 /**
@@ -29,9 +35,9 @@ export function saveCurrentSong(song: Song): SaveCurrentSongAction {
   return {
     type: SAVE_CURRENT_SONG,
     payload: {
-      currentSong: song
-    }
-  }
+      currentSong: song,
+    },
+  };
 }
 
 /**
@@ -42,9 +48,9 @@ export function saveCurrentSongIndex(index: number): SaveCurrentSongIndex {
   return {
     type: SAVE_CURRENT_SONG_INDEX,
     payload: {
-      currentSongIndex: index
-    }
-  }
+      currentSongIndex: index,
+    },
+  };
 }
 
 /**
@@ -55,9 +61,9 @@ export function savePercentage(percentage: number): SavePercentageAction {
   return {
     type: SAVE_PERCENTAGE,
     payload: {
-      percentage
-    }
-  }
+      percentage,
+    },
+  };
 }
 
 /**
@@ -68,9 +74,9 @@ export function savePlayState(playState: boolean): SavePlayStateAction {
   return {
     type: SAVE_PLAY_STATE,
     payload: {
-      playState
-    }
-  }
+      playState,
+    },
+  };
 }
 
 /**
@@ -84,6 +90,6 @@ export function savePlayerTime(currentTime: number, duration: number): SaveCurre
     payload: {
       currentTime,
       duration,
-    }
-  }
+    },
+  };
 }

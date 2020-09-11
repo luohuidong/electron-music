@@ -1,11 +1,11 @@
-import { State } from './types'
+import { State } from "./types";
 
 export const state: State = {
   all: {
-    name: '',
+    name: "",
     category: 0,
     hot: false,
   },
   sub: [],
-  categories: {}
-}
+  categories: {},
+};

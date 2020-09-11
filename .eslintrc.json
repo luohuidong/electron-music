@@ -11,20 +11,13 @@
       "jsx": true
     },
     "project": "./tsconfig.json",
-    "projectFolderIgnoreList": [
-      "/node_modules/"
-    ],
+    "projectFolderIgnoreList": ["/node_modules/"],
     "tsconfigRootDir": "./",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "linebreak-style": ["error", "unix"],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/indent": [
       "error",

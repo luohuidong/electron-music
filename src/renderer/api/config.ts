@@ -1,5 +1,3 @@
-const baseURL = 'http://api.luohuidong.cn/music'
+const baseURL = "http://api.luohuidong.cn/music";
 
-export {
-  baseURL
-}
+export { baseURL };

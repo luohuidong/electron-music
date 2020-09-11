@@ -1,4 +1,4 @@
-import { get } from '../http'
+import { get } from "../http";
 
 interface HotCategoryItem {
   id: number;
@@ -8,18 +8,18 @@ interface HotCategoryItem {
 export async function requestHotCategoryList(): Promise<HotCategoryItem[]> {
   try {
     const config = {
-      url: '/playlist/hot'
-    }
+      url: "/playlist/hot",
+    };
 
-    const { data } = await get(config)
-    const { tags, code } = data
+    const { data } = await get(config);
+    const { tags, code } = data;
 
     if (code !== 200) {
-      throw new Error('查询热门歌单分类失败')
+      throw new Error("查询热门歌单分类失败");
     }
 
-    return tags
+    return tags;
   } catch (error) {
-    throw new Error(error.message)
+    throw new Error(error.message);
   }
 }

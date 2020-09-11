@@ -1,19 +1,19 @@
-import { State } from './types'
+import { State } from "./types";
 
 export const state: State = {
   playList: [],
   currentSong: {
     id: 0,
-    name: '',
+    name: "",
     ar: [],
     al: {
       id: 0,
-      name: '',
-    }
+      name: "",
+    },
   },
   currentSongIndex: 0,
   percentage: 0,
   playState: false,
   currentTime: 0,
   duration: 0,
-}
+};

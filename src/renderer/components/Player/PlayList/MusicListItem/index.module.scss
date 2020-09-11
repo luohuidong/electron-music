@@ -1,4 +1,4 @@
-@import '~Styles/variables';
+@import "~Styles/variables";
 
 %text-ellipsis {
   white-space: nowrap;
@@ -32,7 +32,7 @@
 
     .songName {
       font-size: $font-size-small;
-      color: #E2E2E2;
+      color: #e2e2e2;
 
       &.playing {
         color: #ff5050;

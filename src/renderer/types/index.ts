@@ -1,1 +1,1 @@
-export type EffectCallBack = void | (() => void)
+export type EffectCallBack = void | (() => void);

@@ -1,13 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import styles from './index.module.scss'
+import styles from "./index.module.scss";
 
 function Aside(): JSX.Element {
-  return (
-    <div className={styles.container}>
-      2312
-    </div>
-  )
+  return <div className={styles.container}>2312</div>;
 }
 
-export default Aside
+export default Aside;
