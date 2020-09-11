@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { connect, useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { AppState } from 'Store/index'
 import { thunks as playListThunks, types as playListTypes } from 'Store/pages/PlayList'
