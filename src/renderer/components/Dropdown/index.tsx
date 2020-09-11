@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent } from 'react'
+import React, { useState, MouseEvent, useRef } from 'react'
 import classnames from 'classnames'
 
 import styles from './style.scss'
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function Dropdown(props: Props): JSX.Element {
-  const containerRef = React.createRef<HTMLDivElement>()
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const [showOverLay, setShowOverLay] = useState(false)
 

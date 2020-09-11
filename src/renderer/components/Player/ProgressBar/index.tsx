@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector, shallowEqual } from 'react-redux'
+import React, { useEffect, useState, useRef } from 'react'
+import { useSelector } from 'react-redux'
 
 import { EffectCallBack } from 'Types/index'
 import { AppState } from 'Store/index'
@@ -7,7 +7,7 @@ import { types as playerTypes } from 'Store/components/Player'
 import styles from './style.scss'
 
 function ProgressBar(): JSX.Element {
-  const progressBarContainerRef = React.createRef<HTMLDivElement>()
+  const progressBarContainerRef = useRef<HTMLDivElement>(null)
 
   const [progressBarContainerWidth, setProgressBarContainerWidth] = useState(0)
 

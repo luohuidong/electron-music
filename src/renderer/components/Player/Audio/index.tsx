@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { requestSongPlayUrls } from 'Api/playList'
@@ -7,14 +7,14 @@ import { types as playerTypes, actions as playerActions } from 'Store/components
 import { EffectCallBack } from 'Types/index'
 
 function Audio(): JSX.Element {
-  let audioRef = React.createRef<HTMLAudioElement>()
+  let audioRef = useRef<HTMLAudioElement>(null)
   const dispatch = useDispatch()
 
   /** 当前正在播放的歌曲 */
   const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong)
 
   /** 当前正在播放的歌曲 url */
-  const [playUrl, setPlayUrl] = useState()
+  const [playUrl, setPlayUrl] = useState<string>()
 
   // 获取当前播放可取的播放 url
   useEffect((): EffectCallBack => {
@@ -50,35 +50,6 @@ function Audio(): JSX.Element {
     audioElement.play()
     dispatch(playerActions.savePlayState(true))
   }, [playUrl])
-
-  // 获取当前播放进度百分比
-  useEffect((): EffectCallBack => {
-    function handleTimeUpdate(e): void {
-      const { target } = e
-      const { currentTime, duration } = target
-
-      if (!currentTime || !duration) {
-        return
-      }
-
-      dispatch(playerActions.savePlayerTime(currentTime, duration))
-
-      const percentage = currentTime / duration
-      dispatch(playerActions.savePercentage(percentage))
-    }
-
-    const audio = audioRef.current
-
-    if (audio) {
-      audio.addEventListener('timeupdate', handleTimeUpdate)
-    }
-
-    return (): void => {
-      if (audio) {
-        audio.removeEventListener('timeupdate', handleTimeUpdate)
-      }
-    }
-  })
 
   /** 歌单歌曲列表 */
   const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
@@ -130,7 +101,22 @@ function Audio(): JSX.Element {
     }
   }, [playState])
 
-  return <audio ref={audioRef} src={playUrl} />
+  return <audio ref={audioRef} src={playUrl} onTimeUpdate={(e) => {
+    const { currentTarget } = e
+      if (!currentTarget) {
+        return
+      }
+      const { currentTime, duration } = currentTarget
+
+      if (!currentTime || !duration) {
+        return
+      }
+
+      dispatch(playerActions.savePlayerTime(currentTime, duration))
+
+      const percentage = currentTime / duration
+      dispatch(playerActions.savePercentage(percentage))
+  }} />
 }
 
-export default React.memo(Audio) 
+export default React.memo(Audio)

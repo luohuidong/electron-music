@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useRef } from 'react'
 import classnames from 'classnames'
 
-import { EffectCallBack } from 'Types/index'
 import styles from './style.scss'
 
 interface Props {
@@ -12,34 +11,25 @@ interface Props {
 
 export default function ScrollView(props: Props): JSX.Element {
   const { className } = props
-  const containerRef = React.createRef<HTMLDivElement>()
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  useEffect((): EffectCallBack => {
-    const containerElement = containerRef.current
-
-    function handleScroll(event): void {
-      const { target } = event
-      const { scrollHeight, scrollTop, clientHeight } = target
-
-      const percentage = (scrollTop + clientHeight) / scrollHeight
-      props.handleScroll && props.handleScroll(percentage)
+  const hansleScrollRef = useRef((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
+    const { currentTarget } = event
+    if (!event) {
+      return
     }
 
-    if (containerElement) {
-      containerElement.addEventListener('scroll', handleScroll)
-    }
+    const { scrollHeight, scrollTop, clientHeight } = currentTarget
 
-    return (): void => {
-      if (containerElement) {
-        containerElement.removeEventListener('scroll', handleScroll)
-      }
-    }
-  }, [])
+    const percentage = (scrollTop + clientHeight) / scrollHeight
+    props.handleScroll && props.handleScroll(percentage)
+  })
 
   return (
     <div
       ref={containerRef}
       className={classnames(styles.container, className)}
+      onScroll={(event) => hansleScrollRef.current(event)}
     >
       {props.children}
     </div>
