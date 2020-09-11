@@ -11,7 +11,8 @@
     "build": "npm run build:renderer && npm run build:main",
     "electron-pack": "npm run build && electron-builder --win --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
-    "publish": "npm run build && electron-builder --config electron-builder.json -p always"
+    "publish": "npm run build && electron-builder --config electron-builder.json -p always",
+    "commit": "cz"
   },
   "keywords": [],
   "author": "luohuidong",
@@ -39,8 +40,10 @@
     "@typescript-eslint/parser": "^3.6.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.2.1",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "electron": "^10.1.1",
     "electron-builder": "^22.7.0",
     "electron-devtools-installer": "^3.1.0",
@@ -78,5 +81,10 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
