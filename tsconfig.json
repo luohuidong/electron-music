@@ -69,11 +69,11 @@
     "skipLibCheck": true,
   },
   "include": [
-    "src/main/**/*"
+    "src/main/**/*",
+    "src/renderer/**/*"
   ],
   "exclude": [
     "node_module",
-    "webpack",
-    "src/renderer"
+    "webpack"
   ]
 }
