@@ -28,7 +28,7 @@ export default function createWindow() {
   } else {
     // and load the index.html of the app.
     // filePath should be a path to an HTML file relative to the root of your application
-    win.loadFile('dist-webpack/renderer/index.html');
+    win.loadFile('dist/dist-webpack/renderer/index.html');
   }
 
   // Emitted when the window is closed.

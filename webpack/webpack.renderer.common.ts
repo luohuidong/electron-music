@@ -14,7 +14,7 @@ export default (env: Env) => ({
   entry: './src/renderer/index.tsx',
   output: {
     filename: 'js/[name].[hash].js', // add a unique hash based on the content of an asset
-    path: path.resolve(__dirname, '../dist/renderer'),
+    path: path.resolve(__dirname, '../dist/dist-webpack/renderer'),
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
