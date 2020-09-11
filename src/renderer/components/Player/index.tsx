@@ -6,7 +6,7 @@ import ProgressBar from './ProgressBar'
 import Volume from './Volume'
 import PlayList from './PlayList'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function Player (): JSX.Element {
   return (

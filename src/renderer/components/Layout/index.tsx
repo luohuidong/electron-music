@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ScrollView } from 'Components/index'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 interface Props {
   children: JSX.Element;

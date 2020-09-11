@@ -5,7 +5,7 @@ import { AppState } from 'Store/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
 import backIcon from './back.svg'
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function Back(): JSX.Element {
   const dispatch = useDispatch()
