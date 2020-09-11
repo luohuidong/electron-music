@@ -12,7 +12,8 @@
     "electron-pack": "npm run build && electron-builder -mwl --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
     "publish": "npm run build && electron-builder --config electron-builder.json -p always",
-    "commit": "cz"
+    "commit": "cz",
+    "prettier": "prettier --write ."
   },
   "keywords": [],
   "author": "luohuidong",
