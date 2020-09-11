@@ -1,6 +1,6 @@
-# Electron boilerplate
+# Electron Music
 
-使用了 Electron, React, TypeScript, Webpack 的 Electron 项目模板，用于快速搭建 Electron 项目。
+使用 Electron, React, TypeScript, Webpack 搭建的第三方网易云音乐项目
 
 ## 运行
 
@@ -12,30 +12,20 @@ npm i
 
 ### 开发
 
-开启 webpack，默认开启服务的端口为 8080：
+启动渲染进行开发环境
 
 ```bash
-npm run webpack-renderer-dev
+npm run dev:renderer
 ```
 
-开启 electron：
+启动主进程开发环境
 
 ```bash
-electron-dev
+npm run dev:main
 ```
 
 ### 打包
 
-Webpack 打包
-
 ```bash
-webpack-renderer-build
+npm run electron-pack
 ```
-
-Electron mac 打包
-
-```bash
-electron-pack
-```
-
-这两个打包顺序不能更改
