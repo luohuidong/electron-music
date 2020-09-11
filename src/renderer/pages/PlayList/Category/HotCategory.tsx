@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { requestHotCategoryList } from 'Api/playList'
 import { thunks as playListThunks } from 'Store/pages/PlayList'
-import styles from './hotCategory.scss'
+import styles from './HotCategory.module.scss'
 
 function HotCategory(): JSX.Element {
   const dispatch = useDispatch()

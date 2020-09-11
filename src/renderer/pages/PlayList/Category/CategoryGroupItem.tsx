@@ -6,7 +6,7 @@ import { CategoryListItem } from 'Api/playList/requestCategoryList'
 import { thunks as playListThunks, types as playListTypes } from 'Store/pages/PlayList'
 import { AppState } from 'Store/index'
 
-import styles from './categoryGroupItem.scss'
+import styles from './CategoryGroupItem.module.scss'
 
 interface Props {
   data: CategoryListItem;

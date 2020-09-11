@@ -20,7 +20,7 @@ function Player (): JSX.Element {
       </div>
 
       <div className={styles.right}>
-        {/* <Volume /> */}
+        <Volume />
         <PlayList />
       </div>
 

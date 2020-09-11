@@ -6,7 +6,7 @@ import { EffectCallBack } from 'Types/index'
 import { types as categoryListTypes } from 'Store/pages/CategoryList'
 import { thunks as categoryListThunks } from 'Store/pages/CategoryList'
 import { CategoryListItem, CategoryData } from 'Api/playList/requestCategoryList'
-import styles from './categoryGroups.scss'
+import styles from './CategoryGroups.module.scss'
 
 import CategoryGroup from './CategoryGroup'
 

@@ -1,7 +1,7 @@
 import React, { useState, MouseEvent, useRef } from 'react'
 import classnames from 'classnames'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 interface Props {
   children: JSX.Element;

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { EffectCallBack } from 'Types/index'
 import { AppState } from 'Store/index'
 import { types as playerTypes } from 'Store/components/Player'
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function ProgressBar(): JSX.Element {
   const progressBarContainerRef = useRef<HTMLDivElement>(null)

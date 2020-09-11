@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import { AppState } from 'Store/index'
 import { types as playerTypes, actions as playerActions } from 'Store/components/Player'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 interface Props {
   data: playerTypes.Song; // 歌曲数据

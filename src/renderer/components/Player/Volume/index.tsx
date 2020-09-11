@@ -5,7 +5,7 @@ import muteVolumnIcon from './volume-mute.svg'
 
 import { Slider } from 'Components/index'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function Volume(): JSX.Element {
   // 是否静音

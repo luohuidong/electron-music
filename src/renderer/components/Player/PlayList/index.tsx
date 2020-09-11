@@ -8,11 +8,11 @@ import { Dropdown } from 'Components/index'
 import MusicList from './MusicList'
 
 import compactDiscIcon from './compact-disc.svg'
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function PlayList(): JSX.Element {
   const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList)
-  
+
   return (
     <Dropdown
       className={styles.outerContainer}

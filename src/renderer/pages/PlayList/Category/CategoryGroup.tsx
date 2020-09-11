@@ -2,7 +2,7 @@ import React from 'react'
 
 import { CategoryListItem } from 'Api/playList/requestCategoryList'
 import ListItem from './CategoryGroupItem'
-import styles from './categoryGroup.scss'
+import styles from './CategoryGroup.module.scss'
 
 interface Props {
   data: {

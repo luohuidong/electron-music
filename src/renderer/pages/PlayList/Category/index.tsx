@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { AppState } from 'Store/index'
 import { types as playListTypes } from 'Store/pages/PlayList'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 import arrowDownIcon from './arrowDown.svg'
 
 import { Dropdown } from 'Components/index'

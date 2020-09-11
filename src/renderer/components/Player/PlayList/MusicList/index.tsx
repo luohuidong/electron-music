@@ -6,7 +6,7 @@ import MusicListItem from '../MusicListItem'
 
 import { AppState } from 'Store/index'
 import { types as playerTypes } from 'Store/components/Player'
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function MusicList(): JSX.Element {
   const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList )

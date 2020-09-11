@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import classnames from 'classnames'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 interface Props {
   className?: string;

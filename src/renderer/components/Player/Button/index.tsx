@@ -4,7 +4,7 @@ import Back from './Back'
 import Play from './Play'
 import Next from './Next'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function Button (): JSX.Element {
   return (

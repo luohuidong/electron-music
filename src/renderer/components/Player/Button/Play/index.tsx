@@ -6,7 +6,7 @@ import { actions as playerActions, types as playerTypes } from 'Store/components
 
 import playIcon from './play.svg'
 import pauseIcon from './pause.svg'
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 function Play(): JSX.Element {
   const dispatch = useDispatch()

@@ -8,7 +8,7 @@ import { thunks as playerThunks } from 'Store/components/Player'
 import { Cover } from 'Components/index'
 import Category from './Category'
 
-import style from './style.scss'
+import style from './index.module.scss'
 
 function PlayList(): React.ReactElement {
   const dispatch = useDispatch()

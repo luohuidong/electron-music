@@ -5,7 +5,7 @@
 import React, { MouseEvent } from 'react'
 import classnames from 'classnames'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 interface Data {
   name: string; // 歌单名称

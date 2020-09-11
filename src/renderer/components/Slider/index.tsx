@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react'
 
-import styles from './style.scss'
+import styles from './index.module.scss'
 
 export default function Slider(): JSX.Element {
   function handleClick(e: MouseEvent): void {

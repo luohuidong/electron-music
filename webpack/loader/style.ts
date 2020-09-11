@@ -6,14 +6,11 @@ export default function getStyleLoader(env: {
   // 判断是否为生产模式
   const isProdMode = env.production;
 
-  const cssRegex = /\.css$/;
-  const cssModuleRegex = /\.module\.css$/;
-
   const useStyleLoader = isProdMode ? MiniCssExtractPlugin.loader : 'style-loader';
 
   const cssLoader = {
-    test: cssRegex,
-    exclude: cssModuleRegex,
+    test: /\.css$/,
+    exclude: /\.module\.css$/,
     use: [
       useStyleLoader,
       'css-loader',
@@ -21,7 +18,7 @@ export default function getStyleLoader(env: {
   };
 
   const cssModuleLoader = {
-    test: cssModuleRegex,
+    test: /\.module\.css$/,
     use: [
       useStyleLoader,
       {
@@ -34,7 +31,7 @@ export default function getStyleLoader(env: {
   };
 
   const sassLoader = {
-    test: /\.scss$/,
+    test: /\.module\.scss$/,
     use: [
       useStyleLoader,
       {
