@@ -1,4 +1,4 @@
-const baseURL = 'https://www.luohuidong.cn/api/cloudmusic'
+const baseURL = 'http://api.luohuidong.cn/music'
 
 export {
   baseURL
