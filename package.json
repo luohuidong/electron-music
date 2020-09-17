@@ -11,7 +11,7 @@
     "build": "npm run build:renderer && npm run build:main",
     "electron-pack": "npm run build && electron-builder -mwl --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
-    "publish": "npm run build && electron-builder --config electron-builder.json -p always",
+    "publish": "npm run build && electron-builder -mwl --config electron-builder.json -p always",
     "commit": "cz",
     "prettier": "prettier --write ."
   },
