@@ -1,6 +1,6 @@
 {
   "name": "snow-music",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An electron music app",
   "main": "dist/dist-ts/main/index.js",
   "scripts": {
