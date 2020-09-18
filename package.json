@@ -13,7 +13,7 @@
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
     "publish": "npm run build && electron-builder -mwl --config electron-builder.json -p always",
     "commit": "cz",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --config-precedence prefer-file --write ."
   },
   "keywords": [],
   "author": "luohuidong",
