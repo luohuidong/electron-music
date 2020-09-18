@@ -84,7 +84,10 @@ export function savePlayState(playState: boolean): SavePlayStateAction {
  * @param currentTime 播放器当前时间（秒）
  * @param duration 播放总时间
  */
-export function savePlayerTime(currentTime: number, duration: number): SaveCurrentTimeAction {
+export function savePlayerTime(
+  currentTime: number,
+  duration: number
+): SaveCurrentTimeAction {
   return {
     type: SAVE_PLAYER_TIME,
     payload: {

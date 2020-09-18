@@ -9,7 +9,9 @@ import { types as playerTypes } from "Store/components/Player";
 import styles from "./index.module.scss";
 
 function MusicList(): JSX.Element {
-  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList);
+  const playList = useSelector(
+    ({ player }: AppState): playerTypes.Song[] => player.playList
+  );
 
   return (
     <div className={styles.container}>

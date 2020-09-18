@@ -33,7 +33,8 @@ interface GetPlayListAction {
   };
 }
 
-export const SAVE_PLAY_LIST_QUERY_PARAMS = "PAGES_PLAY_LIST/SAVE_PLAY_LIST_QUERY_PARAMS";
+export const SAVE_PLAY_LIST_QUERY_PARAMS =
+  "PAGES_PLAY_LIST/SAVE_PLAY_LIST_QUERY_PARAMS";
 
 interface SavePlayListQueryParamsAction {
   type: typeof SAVE_PLAY_LIST_QUERY_PARAMS;

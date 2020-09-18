@@ -9,7 +9,9 @@ interface SongPlayUrlData {
  * 获取多首歌的播放地址
  * @param songIds 当有多首歌的时候，每首歌的 id 通过 ',' 隔开
  */
-export async function requestSongPlayUrls(songIds: string): Promise<SongPlayUrlData[]> {
+export async function requestSongPlayUrls(
+  songIds: string
+): Promise<SongPlayUrlData[]> {
   try {
     const config = {
       url: "/song/url",

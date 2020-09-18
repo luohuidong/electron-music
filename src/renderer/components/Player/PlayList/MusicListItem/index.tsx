@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import classnames from "classnames";
 
 import { AppState } from "Store/index";
-import { types as playerTypes, actions as playerActions } from "Store/components/Player";
+import {
+  types as playerTypes,
+  actions as playerActions,
+} from "Store/components/Player";
 
 import styles from "./index.module.scss";
 
@@ -16,18 +19,24 @@ function MusicListItem(props: Props): JSX.Element {
 
   const { data } = props;
 
-  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList);
+  const playList = useSelector(
+    ({ player }: AppState): playerTypes.Song[] => player.playList
+  );
 
   function getArtistsName(data: playerTypes.Song): string {
     const artists = data.ar;
-    const artistsName = artists.map((element): string => element.name).join(",");
+    const artistsName = artists
+      .map((element): string => element.name)
+      .join(",");
     return artistsName;
   }
 
   function handleDoubleClick(e: MouseEvent): void {
     e.stopPropagation();
 
-    const songIndex = playList.findIndex((song): boolean => song.id === data.id);
+    const songIndex = playList.findIndex(
+      (song): boolean => song.id === data.id
+    );
     dispatch(playerActions.saveCurrentSongIndex(songIndex));
     dispatch(playerActions.saveCurrentSong(data));
   }
@@ -36,13 +45,21 @@ function MusicListItem(props: Props): JSX.Element {
     e.stopPropagation();
   }
 
-  const currentSong = useSelector(({ player }: AppState): playerTypes.Song => player.currentSong);
+  const currentSong = useSelector(
+    ({ player }: AppState): playerTypes.Song => player.currentSong
+  );
 
   return (
-    <div className={styles.container} onDoubleClick={handleDoubleClick} onClick={handleClick}>
+    <div
+      className={styles.container}
+      onDoubleClick={handleDoubleClick}
+      onClick={handleClick}
+    >
       <div className={styles.songNameContainer}>
         <span
-          className={classnames(styles.songName, { [styles.playing]: data.id === currentSong.id })}
+          className={classnames(styles.songName, {
+            [styles.playing]: data.id === currentSong.id,
+          })}
         >
           {data.name}
         </span>

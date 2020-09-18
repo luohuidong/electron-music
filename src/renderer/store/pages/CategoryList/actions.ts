@@ -1,5 +1,8 @@
 import { ActionTypes, SAVE_CATEGORIES } from "./types";
-import { CategoryListItem, CategoryListItemCategory } from "Api/playList/requestCategoryList";
+import {
+  CategoryListItem,
+  CategoryListItemCategory,
+} from "Api/playList/requestCategoryList";
 
 export function saveCategory(
   all: CategoryListItem,

@@ -1,4 +1,7 @@
-import { CategoryListItem, CategoryListItemCategory } from "Api/playList/requestCategoryList";
+import {
+  CategoryListItem,
+  CategoryListItemCategory,
+} from "Api/playList/requestCategoryList";
 
 // state type
 

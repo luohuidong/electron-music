@@ -23,7 +23,9 @@ export function savePlayList(playList: SavePlayListItem[]): ActionTypes {
  * 保存歌单列表查询参数
  * @param playListQueryParams
  */
-export function savePlayListQueryParam(playListQueryParams: PlayListQueryParams): ActionTypes {
+export function savePlayListQueryParam(
+  playListQueryParams: PlayListQueryParams
+): ActionTypes {
   return {
     type: SAVE_PLAY_LIST_QUERY_PARAMS,
     payload: {

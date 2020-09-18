@@ -25,8 +25,15 @@ interface PlayListReturnData {
  * @param order
  * @param category
  */
-export async function requestPlayList(params: PlayListQueryParams): Promise<PlayListReturnData> {
-  const { order = "hot", category = "全部歌单", limit = 50, offset = 0 } = params;
+export async function requestPlayList(
+  params: PlayListQueryParams
+): Promise<PlayListReturnData> {
+  const {
+    order = "hot",
+    category = "全部歌单",
+    limit = 50,
+    offset = 0,
+  } = params;
 
   try {
     const config = {

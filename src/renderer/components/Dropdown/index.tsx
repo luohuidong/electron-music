@@ -61,7 +61,11 @@ export default function Dropdown(props: Props): JSX.Element {
     >
       {props.children}
 
-      <div className={dropDownClassName} onClick={handleDropdownClick} style={props.overLayStyle}>
+      <div
+        className={dropDownClassName}
+        onClick={handleDropdownClick}
+        style={props.overLayStyle}
+      >
         {props.overLay}
       </div>
     </div>

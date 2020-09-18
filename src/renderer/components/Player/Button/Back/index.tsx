@@ -2,7 +2,10 @@ import React, { MouseEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { AppState } from "Store/index";
-import { types as playerTypes, actions as playerActions } from "Store/components/Player";
+import {
+  types as playerTypes,
+  actions as playerActions,
+} from "Store/components/Player";
 
 import backIcon from "./back.svg";
 import styles from "./index.module.scss";
@@ -10,8 +13,12 @@ import styles from "./index.module.scss";
 function Back(): JSX.Element {
   const dispatch = useDispatch();
 
-  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList);
-  const currentSongIndex = useSelector(({ player }: AppState): number => player.currentSongIndex);
+  const playList = useSelector(
+    ({ player }: AppState): playerTypes.Song[] => player.playList
+  );
+  const currentSongIndex = useSelector(
+    ({ player }: AppState): number => player.currentSongIndex
+  );
 
   function handleClick(e: MouseEvent): void {
     e.stopPropagation();

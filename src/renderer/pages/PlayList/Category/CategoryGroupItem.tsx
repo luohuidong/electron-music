@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import classnames from "classnames";
 
 import { CategoryListItem } from "Api/playList/requestCategoryList";
-import { thunks as playListThunks, types as playListTypes } from "Store/pages/PlayList";
+import {
+  thunks as playListThunks,
+  types as playListTypes,
+} from "Store/pages/PlayList";
 import { AppState } from "Store/index";
 
 import styles from "./CategoryGroupItem.module.scss";

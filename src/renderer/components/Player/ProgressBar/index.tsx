@@ -41,10 +41,15 @@ function ProgressBar(): JSX.Element {
     <div className={styles.container}>
       <div className={styles.currentTime}>{formatTime(currentTime)}</div>
 
-      <div className={styles.progressBarContainer} ref={progressBarContainerRef}>
+      <div
+        className={styles.progressBarContainer}
+        ref={progressBarContainerRef}
+      >
         <div
           className={styles.progressBar}
-          style={{ width: progressBarContainerWidth * percentage }}
+          style={{
+            width: progressBarContainerWidth * percentage,
+          }}
         ></div>
       </div>
 

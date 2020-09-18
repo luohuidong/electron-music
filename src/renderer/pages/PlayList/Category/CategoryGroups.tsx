@@ -5,7 +5,10 @@ import { AppState } from "Store/index";
 import { EffectCallBack } from "Types/index";
 import { types as categoryListTypes } from "Store/pages/CategoryList";
 import { thunks as categoryListThunks } from "Store/pages/CategoryList";
-import { CategoryListItem, CategoryData } from "Api/playList/requestCategoryList";
+import {
+  CategoryListItem,
+  CategoryData,
+} from "Api/playList/requestCategoryList";
 import styles from "./CategoryGroups.module.scss";
 
 import CategoryGroup from "./CategoryGroup";
@@ -27,14 +30,18 @@ function CategoryGroups(): JSX.Element {
   interface DataGroupedByCategory {
     [index: string]: GroupedCategoryItem;
   }
-  const [categoryListData, setCategoryListData] = useState<DataGroupedByCategory>({});
+  const [categoryListData, setCategoryListData] = useState<
+    DataGroupedByCategory
+  >({});
 
   useEffect((): EffectCallBack => {
     /**
      * 对歌单分类进行分组
      * @param categoryData
      */
-    function groupByCategory(categoryData: CategoryData): DataGroupedByCategory {
+    function groupByCategory(
+      categoryData: CategoryData
+    ): DataGroupedByCategory {
       const { all, sub, categories } = categoryData;
 
       let data: DataGroupedByCategory = {

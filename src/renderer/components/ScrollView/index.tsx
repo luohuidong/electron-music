@@ -13,17 +13,19 @@ export default function ScrollView(props: Props): JSX.Element {
   const { className } = props;
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const hansleScrollRef = useRef((event: React.UIEvent<HTMLDivElement, UIEvent>) => {
-    const { currentTarget } = event;
-    if (!event) {
-      return;
+  const hansleScrollRef = useRef(
+    (event: React.UIEvent<HTMLDivElement, UIEvent>) => {
+      const { currentTarget } = event;
+      if (!event) {
+        return;
+      }
+
+      const { scrollHeight, scrollTop, clientHeight } = currentTarget;
+
+      const percentage = (scrollTop + clientHeight) / scrollHeight;
+      props.handleScroll && props.handleScroll(percentage);
     }
-
-    const { scrollHeight, scrollTop, clientHeight } = currentTarget;
-
-    const percentage = (scrollTop + clientHeight) / scrollHeight;
-    props.handleScroll && props.handleScroll(percentage);
-  });
+  );
 
   return (
     <div

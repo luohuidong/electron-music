@@ -8,7 +8,12 @@ import { saveCategory } from "./actions";
 /**
  * 获取精选歌单列表数据
  */
-export function thunkSaveCategoryList(): ThunkAction<void, AppState, null, Action<string>> {
+export function thunkSaveCategoryList(): ThunkAction<
+  void,
+  AppState,
+  null,
+  Action<string>
+> {
   return async (dispatch): Promise<void> => {
     try {
       const { all, sub, categories } = await requestCategoryList();

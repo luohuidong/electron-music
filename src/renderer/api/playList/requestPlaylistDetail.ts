@@ -36,7 +36,9 @@ interface PlayListDetailData {
  * 获取歌单详情
  * @param playListId 歌单 id
  */
-export async function requestPlaylistDetail(playListId: number): Promise<PlayListDetailData> {
+export async function requestPlaylistDetail(
+  playListId: number
+): Promise<PlayListDetailData> {
   try {
     const config = {
       url: "/playlist/detail",

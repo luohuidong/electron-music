@@ -16,7 +16,9 @@ interface HighQualityPlayListReturnData {
 /**
  * 获取精品歌单
  */
-export async function requestHighQualityPlayList(): Promise<HighQualityPlayListReturnData> {
+export async function requestHighQualityPlayList(): Promise<
+  HighQualityPlayListReturnData
+> {
   try {
     const config = {
       url: "/top/playlist/highquality",

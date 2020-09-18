@@ -1,5 +1,7 @@
 import { app, BrowserWindow } from "electron";
-import installExtension, { REACT_DEVELOPER_TOOLS } from "electron-devtools-installer";
+import installExtension, {
+  REACT_DEVELOPER_TOOLS,
+} from "electron-devtools-installer";
 
 import createWindow from "./createWindow";
 import handleSingleInstance from "./handleSingleInstance";
@@ -34,7 +36,6 @@ app.on("window-all-closed", () => {
 });
 
 app.on("activate", () => {
-  console.log("win", win);
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {

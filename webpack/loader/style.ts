@@ -4,7 +4,9 @@ export default function getStyleLoader(env: { production: boolean }) {
   // 判断是否为生产模式
   const isProdMode = env.production;
 
-  const useStyleLoader = isProdMode ? MiniCssExtractPlugin.loader : "style-loader";
+  const useStyleLoader = isProdMode
+    ? MiniCssExtractPlugin.loader
+    : "style-loader";
 
   const cssLoader = {
     test: /\.css$/,

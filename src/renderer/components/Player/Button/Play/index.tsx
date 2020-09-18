@@ -2,7 +2,10 @@ import React, { MouseEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { AppState } from "Store/index";
-import { actions as playerActions, types as playerTypes } from "Store/components/Player/index";
+import {
+  actions as playerActions,
+  types as playerTypes,
+} from "Store/components/Player/index";
 
 import playIcon from "./play.svg";
 import pauseIcon from "./pause.svg";
@@ -11,8 +14,12 @@ import styles from "./index.module.scss";
 function Play(): JSX.Element {
   const dispatch = useDispatch();
 
-  const playList = useSelector(({ player }: AppState): playerTypes.Song[] => player.playList);
-  const playState = useSelector(({ player }: AppState): boolean => player.playState);
+  const playList = useSelector(
+    ({ player }: AppState): playerTypes.Song[] => player.playList
+  );
+  const playState = useSelector(
+    ({ player }: AppState): boolean => player.playState
+  );
 
   function handleClick(e: MouseEvent): void {
     e.stopPropagation();

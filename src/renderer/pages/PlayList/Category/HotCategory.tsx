@@ -50,7 +50,9 @@ function HotCategory(): JSX.Element {
                 {element.name}
               </span>
 
-              {index + 1 < hotCategories.length ? <span className={styles.divider} /> : null}
+              {index + 1 < hotCategories.length ? (
+                <span className={styles.divider} />
+              ) : null}
             </div>
           )
         )}
