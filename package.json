@@ -2,6 +2,7 @@
   "name": "snow-music",
   "version": "1.2.0",
   "description": "An electron music app",
+  "private": true,
   "main": "dist/dist-webpack/main/index.js",
   "scripts": {
     "dev:renderer": "webpack serve --hot --env development --config webpack/webpack.renderer.dev.ts",
