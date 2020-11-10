@@ -1,16 +1,16 @@
-import path from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-import { Env } from "./type";
-import getLoader from "./loader/index";
+const getLoader = require("./loader/index");
 
-function getPath(folderPath: string) {
+function getPath(folderPath) {
   const result = path.resolve(__dirname, `../src/renderer${folderPath}`);
   return result;
 }
 
-export default (env: Env) => ({
+module.exports = (env) => ({
+  mode: "development",
   entry: "./src/renderer/index.tsx",
   output: {
     filename: "js/[name].[hash].js", // add a unique hash based on the content of an asset

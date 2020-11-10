@@ -1,8 +1,8 @@
-import { merge } from "webpack-merge";
+const { merge } = require("webpack-merge");
 
-import common from "./webpack.main.common";
+const common = require("./webpack.main.common");
 
-export default () =>
+module.exports = () =>
   merge(common(), {
     mode: "development",
     target: "electron-main",

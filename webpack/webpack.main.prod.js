@@ -1,4 +1,4 @@
-import { merge } from "webpack-merge";
+const { merge } = require("webpack-merge");
 
 import common from "./webpack.main.common";
 

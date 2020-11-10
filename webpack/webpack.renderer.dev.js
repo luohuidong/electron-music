@@ -1,10 +1,9 @@
-import path from "path";
-import { merge } from "webpack-merge";
+const path = require("path");
+const { merge } = require("webpack-merge");
 
-import { Env } from "./type";
-import common from "./webpack.renderer.common";
+const common = require("./webpack.renderer.common");
 
-export default (env: Env) =>
+module.exports = (env) =>
   merge(common(env), {
     mode: "development",
     target: "electron-renderer",

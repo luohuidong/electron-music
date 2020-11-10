@@ -1,7 +1,7 @@
-import path from "path";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
+const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
-import babelLoader from "./loader/babel";
+const babelLoader = require("./loader/babel");
 
 export default () => ({
   entry: "./src/main/index.ts",

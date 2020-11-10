@@ -1,7 +1,5 @@
-import { Env } from "../type";
+const styleLoader = require("./style");
+const babelLoader = require("./babel");
+const fileLoader = require("./file");
 
-import styleLoader from "./style";
-import babelLoader from "./babel";
-import fileLoader from "./file";
-
-export default (env: Env) => [...styleLoader(env), babelLoader, fileLoader];
+module.exports = (env) => [...styleLoader(env), babelLoader, fileLoader];
