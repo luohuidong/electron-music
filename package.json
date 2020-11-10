@@ -7,8 +7,8 @@
   "scripts": {
     "dev:renderer": "webpack serve --hot --env development --config webpack/webpack.renderer.dev.js",
     "dev:main": "webpack --config webpack/webpack.main.dev.js && cross-env NODE_ENV=development electron .",
-    "build:main": "webpack --config webpack/webpack.main.prod.ts",
-    "build:renderer": "webpack --env production --config webpack/webpack.renderer.prod.ts",
+    "build:main": "webpack --config webpack/webpack.main.prod.js",
+    "build:renderer": "webpack --env production --config webpack/webpack.renderer.prod.js",
     "build": "npm run build:renderer && npm run build:main",
     "electron-pack": "npm run build && electron-builder --config electron-builder.json",
     "electron-pack-dir": "electron-builder --dir --config electron-builder.json",
