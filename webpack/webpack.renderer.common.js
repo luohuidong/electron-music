@@ -14,7 +14,7 @@ module.exports = (env) => ({
   mode: "development",
   entry: "./src/renderer/index.tsx",
   output: {
-    filename: "js/[name].[hash].js", // add a unique hash based on the content of an asset
+    filename: "js/[name][chunkhash:8].js", // add a unique hash based on the content of an asset
     path: path.resolve(__dirname, "../dist/dist-webpack/renderer"),
   },
   resolve: {
