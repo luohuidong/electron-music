@@ -1,13 +1,11 @@
-import { merge } from "webpack-merge";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+const { merge } = require("webpack-merge");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-import { Env } from "./type";
-import common from "./webpack.renderer.common";
+const common = require("./webpack.renderer.common");
 
 module.exports = (env) =>
   merge(common(env), {
     mode: "production",
-    target: "electron-renderer",
     plugins: [
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output

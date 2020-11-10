@@ -10,6 +10,7 @@ function getPath(folderPath) {
 }
 
 module.exports = (env) => ({
+  target: "electron-renderer",
   mode: "development",
   entry: "./src/renderer/index.tsx",
   output: {
