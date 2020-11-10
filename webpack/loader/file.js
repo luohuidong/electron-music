@@ -1,6 +1,6 @@
-import path from "path";
+const path = require("path");
 
-export default {
+module.exports = {
   test: /\.(png|svg|jpg|gif)$/,
   include: path.resolve(__dirname, "../../src"),
   use: ["file-loader"],

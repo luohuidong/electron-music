@@ -1,6 +1,6 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-export default function getStyleLoader(env: { production: boolean }) {
+module.exports = function getStyleLoader(env) {
   // 判断是否为生产模式
   const isProdMode = env.production;
 
@@ -42,4 +42,4 @@ export default function getStyleLoader(env: { production: boolean }) {
   };
 
   return [cssLoader, cssModuleLoader, sassLoader];
-}
+};
