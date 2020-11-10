@@ -2,7 +2,7 @@ const { merge } = require("webpack-merge");
 
 import common from "./webpack.main.common";
 
-export default () =>
+module.exports = () =>
   merge(common(), {
     mode: "production",
     target: "electron-main",

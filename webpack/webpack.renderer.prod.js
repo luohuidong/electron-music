@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { Env } from "./type";
 import common from "./webpack.renderer.common";
 
-export default (env: Env) =>
+module.exports = (env) =>
   merge(common(env), {
     mode: "production",
     target: "electron-renderer",

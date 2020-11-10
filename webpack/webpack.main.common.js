@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const babelLoader = require("./loader/babel");
 
-export default () => ({
+module.exports = () => ({
   entry: "./src/main/index.ts",
   output: {
     filename: "index.js", // add a unique hash based on the content of an asset
