@@ -1,7 +1,6 @@
 node_modules
 dist
-dist-webpack
-type-check
+dist-webpack-renderer
 .idea
 .DS_Store
-wwwroot
+tmp
