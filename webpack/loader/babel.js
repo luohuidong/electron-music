@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   test: /\.(js|tsx?)$/,
   exclude: /node_modules/,

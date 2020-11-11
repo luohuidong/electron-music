@@ -9,7 +9,7 @@ function getPath(folderPath) {
   return result;
 }
 
-module.exports = (env) => ({
+module.exports = {
   target: "electron-renderer",
   mode: "development",
   entry: "./src/renderer/index.tsx",
@@ -38,9 +38,9 @@ module.exports = (env) => ({
     }),
   ],
   module: {
-    rules: [...getLoader(env)],
+    rules: [...getLoader],
   },
   node: {
     __dirname: false, // 不让 webpack 对 __dirname 变量做处理
   },
-});
+};
