@@ -8,7 +8,7 @@ module.exports = () => ({
   entry: './src/main/index.ts',
   output: {
     filename: 'index.js', // add a unique hash based on the content of an asset
-    path: path.resolve(__dirname, '../dist-webpack/main'),
+    path: path.resolve(__dirname, '../dist-webpack-main'),
   },
   plugins: [new CleanWebpackPlugin()],
   node: {
