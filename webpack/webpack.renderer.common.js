@@ -1,8 +1,8 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const getLoader = require("./loader/index");
+const getLoader = require('./loader/index');
 
 function getPath(folderPath) {
   const result = path.resolve(__dirname, `../src/renderer${folderPath}`);
@@ -10,31 +10,31 @@ function getPath(folderPath) {
 }
 
 module.exports = {
-  target: "electron-renderer",
-  mode: "development",
-  entry: "./src/renderer/index.tsx",
+  target: 'electron-renderer',
+  mode: 'development',
+  entry: './src/renderer/index.tsx',
   output: {
-    filename: "js/[name][chunkhash:8].js", // add a unique hash based on the content of an asset
-    path: path.resolve(__dirname, "../dist/dist-webpack/renderer"),
+    filename: 'js/[name][chunkhash:8].js', // add a unique hash based on the content of an asset
+    path: path.resolve(__dirname, '../dist-webpack-renderer'),
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: ['.tsx', '.ts', '.js'],
     symlinks: false,
     alias: {
-      "react-dom": "@hot-loader/react-dom",
-      Components: getPath("/components/"),
-      Styles: getPath("/styles/"),
-      Api: getPath("/api/"),
-      Store: getPath("/store/"),
-      Types: getPath("/types/"),
-      Utils: getPath("/utils"),
+      'react-dom': '@hot-loader/react-dom',
+      Components: getPath('/components/'),
+      Styles: getPath('/styles/'),
+      Api: getPath('/api/'),
+      Store: getPath('/store/'),
+      Types: getPath('/types/'),
+      Utils: getPath('/utils'),
     },
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "public/index.html",
-      favicon: "public/favicon.ico",
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
     }),
   ],
   module: {
