@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "An electron music app",
   "private": true,
-  "main": "dist/dist-webpack/main/index.js",
+  "main": "dist-webpack-main/index.js",
   "scripts": {
     "renderer:dev": "NODE_ENV=development webpack serve --hot --config webpack/webpack.renderer.dev.js",
     "renderer:build": "NODE_ENV=production webpack --config webpack/webpack.renderer.prod.js",
