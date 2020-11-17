@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { AppState } from "Store/index";
-import { EffectCallBack } from "Types/index";
-import { types as categoryListTypes } from "Store/pages/CategoryList";
-import { thunks as categoryListThunks } from "Store/pages/CategoryList";
+import { AppState } from 'Store/index';
+import { EffectCallBack } from 'Types/index';
+import { types as categoryListTypes } from 'Store/CategoryList';
+import { thunks as categoryListThunks } from 'Store/CategoryList';
 import {
   CategoryListItem,
   CategoryData,
-} from "Api/playList/requestCategoryList";
-import styles from "./CategoryGroups.module.scss";
+} from 'Api/playList/requestCategoryList';
+import styles from './CategoryGroups.module.scss';
 
-import CategoryGroup from "./CategoryGroup";
+import CategoryGroup from './CategoryGroup';
 
 function CategoryGroups(): JSX.Element {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ function CategoryGroups(): JSX.Element {
 
       let data: DataGroupedByCategory = {
         all: {
-          name: "全部",
+          name: '全部',
           items: [all],
         },
       };

@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { connect, useSelector, useDispatch } from 'react-redux';
 
-import { AppState } from "Store/index";
+import { AppState } from 'Store/index';
 import {
   thunks as playListThunks,
   types as playListTypes,
-} from "Store/pages/PlayList";
-import { thunks as playerThunks } from "Store/components/Player";
+} from 'Store/PlayList';
+import { thunks as playerThunks } from 'Store/Player';
 
-import { Cover } from "Components/index";
-import Category from "./Category";
+import { Cover } from 'Components/index';
+import Category from './Category';
 
-import style from "./index.module.scss";
+import style from './index.module.scss';
 
 function PlayList(): React.ReactElement {
   const dispatch = useDispatch();

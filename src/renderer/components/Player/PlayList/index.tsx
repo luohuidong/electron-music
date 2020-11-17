@@ -1,14 +1,14 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { AppState } from "Store/index";
-import { types as playerTypes } from "Store/components/Player";
+import { AppState } from 'Store/index';
+import { types as playerTypes } from 'Store/Player';
 
-import { Dropdown } from "Components/index";
-import MusicList from "./MusicList";
+import { Dropdown } from 'Components/index';
+import MusicList from './MusicList';
 
-import compactDiscIcon from "./compact-disc.svg";
-import styles from "./index.module.scss";
+import compactDiscIcon from './compact-disc.svg';
+import styles from './index.module.scss';
 
 function PlayList(): JSX.Element {
   const playList = useSelector(
@@ -19,7 +19,7 @@ function PlayList(): JSX.Element {
     <Dropdown
       className={styles.outerContainer}
       overLay={<MusicList />}
-      placement="topRight"
+      placement='topRight'
     >
       <div className={styles.innerContainer}>
         <img className={styles.img} src={compactDiscIcon} />

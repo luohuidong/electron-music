@@ -1,14 +1,11 @@
-import React, { MouseEvent } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { MouseEvent } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { AppState } from "Store/index";
-import {
-  types as playerTypes,
-  actions as playerActions,
-} from "Store/components/Player";
+import { AppState } from 'Store/index';
+import { types as playerTypes, actions as playerActions } from 'Store/Player';
 
-import backIcon from "./back.svg";
-import styles from "./index.module.scss";
+import backIcon from './back.svg';
+import styles from './index.module.scss';
 
 function Back(): JSX.Element {
   const dispatch = useDispatch();
@@ -44,8 +41,8 @@ function Back(): JSX.Element {
     <img
       className={styles.img}
       src={backIcon}
-      alt="上一首歌"
-      title="上一首歌"
+      alt='上一首歌'
+      title='上一首歌'
       onClick={handleClick}
     />
   );

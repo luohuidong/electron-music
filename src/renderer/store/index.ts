@@ -1,9 +1,9 @@
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
-import thunk from "redux-thunk";
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunk from 'redux-thunk';
 
-import { reducer as playListReducer } from "./pages/PlayList";
-import { reducer as PlayerReducer } from "./components/Player";
-import { reducer as categoryListReducer } from "./pages/CategoryList";
+import { reducer as playListReducer } from './PlayList';
+import { reducer as PlayerReducer } from './Player';
+import { reducer as categoryListReducer } from './CategoryList';
 
 const rootReducer = combineReducers({
   player: PlayerReducer,

@@ -1,12 +1,12 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { ScrollView } from "Components/index";
-import MusicListItem from "../MusicListItem";
+import { ScrollView } from 'Components/index';
+import MusicListItem from '../MusicListItem';
 
-import { AppState } from "Store/index";
-import { types as playerTypes } from "Store/components/Player";
-import styles from "./index.module.scss";
+import { AppState } from 'Store/index';
+import { types as playerTypes } from 'Store/Player';
+import styles from './index.module.scss';
 
 function MusicList(): JSX.Element {
   const playList = useSelector(

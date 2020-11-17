@@ -1,13 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { requestSongPlayUrls } from "Api/playList";
-import { AppState } from "Store/index";
-import {
-  types as playerTypes,
-  actions as playerActions,
-} from "Store/components/Player";
-import { EffectCallBack } from "Types/index";
+import { requestSongPlayUrls } from 'Api/playList';
+import { AppState } from 'Store/index';
+import { types as playerTypes, actions as playerActions } from 'Store/Player';
+import { EffectCallBack } from 'Types/index';
 
 function Audio(): JSX.Element {
   let audioRef = useRef<HTMLAudioElement>(null);
@@ -32,7 +29,7 @@ function Audio(): JSX.Element {
         const playUrl = songPlayUrlData.url;
 
         if (!playUrl) {
-          throw new Error("当前歌曲无法播放");
+          throw new Error('当前歌曲无法播放');
         }
 
         setPlayUrl(playUrl);

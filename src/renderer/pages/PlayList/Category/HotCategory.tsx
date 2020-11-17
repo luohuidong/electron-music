@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { requestHotCategoryList } from "Api/playList";
-import { thunks as playListThunks } from "Store/pages/PlayList";
-import styles from "./HotCategory.module.scss";
+import { requestHotCategoryList } from 'Api/playList';
+import { thunks as playListThunks } from 'Store/PlayList';
+import styles from './HotCategory.module.scss';
 
 function HotCategory(): JSX.Element {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ function HotCategory(): JSX.Element {
 
   function handleClick(data: HotCategoryItem): void {
     const params = {
-      order: "new",
+      order: 'new',
       category: data.name,
       limit: 50,
       offset: 0,
@@ -36,7 +36,7 @@ function HotCategory(): JSX.Element {
     <div className={styles.container}>
       <span className={styles.title}>热门歌单分类：</span>
 
-      <div style={{ display: "flex" }}>
+      <div style={{ display: 'flex' }}>
         {hotCategories.map(
           (element, index): JSX.Element => (
             <div key={element.id}>

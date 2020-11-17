@@ -1,14 +1,11 @@
-import React, { MouseEvent } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import classnames from "classnames";
+import React, { MouseEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import classnames from 'classnames';
 
-import { AppState } from "Store/index";
-import {
-  types as playerTypes,
-  actions as playerActions,
-} from "Store/components/Player";
+import { AppState } from 'Store/index';
+import { types as playerTypes, actions as playerActions } from 'Store/Player';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 interface Props {
   data: playerTypes.Song; // 歌曲数据
@@ -27,7 +24,7 @@ function MusicListItem(props: Props): JSX.Element {
     const artists = data.ar;
     const artistsName = artists
       .map((element): string => element.name)
-      .join(",");
+      .join(',');
     return artistsName;
   }
 
