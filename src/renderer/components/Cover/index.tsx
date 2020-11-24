@@ -2,10 +2,10 @@
  * 歌单封面组件
  */
 
-import React, { MouseEvent } from "react";
-import classnames from "classnames";
+import React, { MouseEvent } from 'react';
+import classnames from 'classnames';
 
-import styles from "./index.module.scss";
+import styles from './index.module.scss';
 
 interface Data {
   name: string; // 歌单名称
@@ -17,7 +17,6 @@ interface Props {
   data: Data;
   onClick?: (data: Data) => void;
   containerClassName?: string;
-  imgContainerClassName?: string;
 }
 
 function Cover(props: Props): JSX.Element {
@@ -30,18 +29,20 @@ function Cover(props: Props): JSX.Element {
     onClick && onClick(data);
   }
 
-  const { containerClassName, imgContainerClassName } = props;
+  const { containerClassName } = props;
 
   return (
     <figure className={classnames(styles.container, containerClassName)}>
       <a onClick={handleClick}>
-        <div className={classnames(styles.imgContainer, imgContainerClassName)}>
-          <img src={data.coverImgUrl} alt="" />
+        <div className={classnames(styles.imgContainer)}>
+          <img src={data.coverImgUrl} alt='' />
         </div>
       </a>
 
       <figcaption>
-        <a onClick={handleClick}>{data.name}</a>
+        <a onClick={handleClick} className={styles.text}>
+          {data.name}
+        </a>
       </figcaption>
     </figure>
   );

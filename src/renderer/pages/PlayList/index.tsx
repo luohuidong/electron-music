@@ -54,7 +54,6 @@ function PlayList(): React.ReactElement {
                 handleClick(data);
               }}
               containerClassName={style.cover}
-              imgContainerClassName={style.img}
             />
           )
         )}
