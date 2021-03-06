@@ -10,6 +10,7 @@
     "renderer:analyze-bundle": "ts-node script/analyzeBundle.ts",
     "main:dev": "webpack --config webpack/webpack.main.dev.js && cross-env NODE_ENV=development electron .",
     "main:build": "webpack --config webpack/webpack.main.prod.js",
+    "main:debug": "rm -rf dist-webpack-main && rm -rf tmp && tsc --project tsconfig.maindebug.json",
     "build": "npm run renderer:build && npm run main:build",
     "electron-pack": "npm run build && electron-builder --config electron-builder.json",
     "electron-pack-dir": "npm run build && electron-builder --dir --config electron-builder.json",
