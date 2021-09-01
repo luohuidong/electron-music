@@ -13,6 +13,7 @@ export default function createWindow() {
     show: false,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 
